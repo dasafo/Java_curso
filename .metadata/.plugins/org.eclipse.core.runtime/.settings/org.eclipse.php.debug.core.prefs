@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+org.eclipse.php.debug.core.pathMapper=<pathMappers><item2><server>&lt;none&gt;</server><mapper></mapper></item2><item1><server>david</server><mapper></mapper></item1></pathMappers>
+org.eclipse.php.debug.core.xdebugDebuggerSettingsProvider=
+org.eclipse.php.debug.core.zendDebuggerSettingsProvider=
+org.eclipse.php.debug.coreinstalledPHPDebuggers=
+org.eclipse.php.debug.coreinstalledPHPInis=
+org.eclipse.php.debug.coreinstalledPHPLoadIniDefaults=
+org.eclipse.php.debug.coreinstalledPHPLocations=
+org.eclipse.php.debug.coreinstalledPHPNames=
+org.eclipse.php.debug.coreinstalledPHPUniqueIds=
+org.eclipse.php.debug.corephp_versions=

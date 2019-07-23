@@ -1,0 +1,27 @@
+
+import java.util.*;
+
+public class PruebaLinkedList_81 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		LinkedList<String> personas=new LinkedList<String>();
+		
+		personas.add("Pepe");
+		personas.add("Sandra");
+		personas.add("Ana");
+		personas.add("Laura");
+		
+		System.out.println(personas.size()); //que imprima los elementos que hay en la lista LinkedList
+
+		for(String persona : personas) {
+			
+			System.out.println(persona);
+		}
+		
+		
+		
+	}
+
+}

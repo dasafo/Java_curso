@@ -1,0 +1,75 @@
+
+import java.util.*;
+
+public class PruebaTreeSet_83 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		/*TreeSet<String> ordenaPersonas=new TreeSet<String>();
+		
+		ordenaPersonas.add("Sandra");
+		ordenaPersonas.add("Amanda");
+		ordenaPersonas.add("Diana");
+		
+		for(String s: ordenaPersonas) {
+			
+			System.out.println(s); //vemos que con TreeSet los String los ordena por orden alfabetico(String--->Comparable--->ComarableTo(verAPI))
+		
+		}*/
+		
+		//-----Ahora queremos ordenarolo segun el numero y no alfabeticamente(por defecto)-------------
+
+		Articulo primero=new Articulo(1, "Primer artículo");
+		Articulo segundo=new Articulo(2, "Segundo artículo");
+		Articulo tercer=new Articulo(3, "Tercer artículo");
+		
+		
+		TreeSet<Articulo> ordenaArticulos=new TreeSet<Articulo>();
+		
+		ordenaArticulos.add(tercer);
+		ordenaArticulos.add(primero);
+		ordenaArticulos.add(segundo);
+		
+		for(Articulo art: ordenaArticulos) {
+			
+			System.out.println(art.getDescripcion());
+		}
+
+		
+
+	}
+
+}
+
+class Articulo implements Comparable<Articulo>{
+	
+	public Articulo(int num, String desc) {
+		
+		numeroArticulo=num;
+		descripcion=desc;
+		
+	}
+
+	@Override
+	public int compareTo(Articulo o) {
+		// TODO Auto-generated method stub
+		return numeroArticulo - o.numeroArticulo; //restamos el numero de un ARticulo que da el contructor con otro(compara articulos para ordenarolos por numero y no alfabeticamente)
+	}
+	
+	public String getDescripcion() {
+		
+		return descripcion;
+	}
+	
+	
+	
+	private int numeroArticulo;
+	private String descripcion;
+	
+}
+
+
+
+
+

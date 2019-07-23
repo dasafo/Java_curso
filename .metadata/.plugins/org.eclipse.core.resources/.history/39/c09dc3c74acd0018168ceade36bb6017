@@ -1,0 +1,158 @@
+package practicas;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.geom.Rectangle2D;
+import java.util.Date;
+
+public class MarcoDialogos_55 extends JFrame {
+
+	public MarcoDialogos_55() {
+		
+		setTitle("Prueba diálogos");
+		setBounds(500,300,600,450);
+		
+		JPanel laminaCuadricula=new JPanel();
+		
+		laminaCuadricula.setLayout(new GridLayout(2,3));
+		
+		String primero[]= {"Mensaje", "Confirmar", "Opción", "Entrada"}; //creamos un array para la primera caja(cuya plantilla está en LaminaBotones_55)
+		laminaTipo=new LaminaBotones_55("Tipo",primero); //hacemos uso de esa plantilla de LaminaBotones_55
+		
+		laminaTipoMensajes=new LaminaBotones_55("Tipo de Mensaje", new String[] { //hace lo mismo que en laminaTipo pero mas simplificado
+				
+				"ERROR_MESSAGE",
+				"INFORMATION_MESSAGE",
+				"WARNING_MESSAGE",
+				"QUESTION_MESAGGE",
+				"PLAIN_MESSAGE"
+		});
+		
+		laminaMensaje=new LaminaBotones_55("Mensaje", new String[] { //hace lo mismo que en laminaTipo pero mas simplificado
+				
+				"Cadena",
+				"Icono",
+				"Componente",
+				"Otros",
+				"Objects[ ]"
+		});
+		
+		laminaTipoOpcion=new LaminaBotones_55("Mensaje", new String[] { //hace lo mismo que en laminaTipo pero mas simplificado
+				
+				"DEFAULT_OPTION",
+				"YES_NO_OPTION",
+				"YES_NO_CANCEL_OPTION",
+				"OK_CANCEL_OPTION"
+		});
+
+		laminaOpciones=new LaminaBotones_55("Mensaje", new String[] { //hace lo mismo que en laminaTipo pero mas simplificado
+		
+				"String[ ]",
+				"Icon[ ]",
+				"Objects[ ]"
+		});
+
+		laminaEntrada=new LaminaBotones_55("Entrada", new String[] { //hace lo mismo que en laminaTipo pero mas simplificado
+		
+				"Campo de texto",
+				"Combo"
+		});
+		
+		setLayout(new BorderLayout());
+		
+		
+		laminaCuadricula.add(laminaTipo);
+		laminaCuadricula.add(laminaTipoMensajes);
+		laminaCuadricula.add(laminaMensaje);
+		laminaCuadricula.add(laminaTipoOpcion);
+		laminaCuadricula.add(laminaOpciones);
+		laminaCuadricula.add(laminaEntrada);
+
+		//---Contruimos la lamina inferior---
+		JPanel laminaMostrar=new JPanel(); 
+		
+		JButton botonMostrar=new JButton("Mostrar");
+		
+		botonMostrar.addActionListener(new AccionMostrar());
+		
+		laminaMostrar.add(botonMostrar);
+		
+		add(laminaMostrar, BorderLayout.SOUTH);
+		
+		//------------------------------------
+		
+		
+		add(laminaCuadricula, BorderLayout.CENTER);
+		
+	}
+	
+	private class AccionMostrar implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+			//System.out.println(laminaTipo.dameSeleccion());
+			
+			if(laminaTipo.dameSeleccion().equals("Mensaje")) {
+				
+				JOptionPane.showMessageDialog(MarcoDialogos_55.this, "Mensaje", "Título", 0);
+				
+			}else if(laminaTipo.dameSeleccion().equals("Confirmar")) {
+				
+				JOptionPane.showConfirmDialog(MarcoDialogos_55.this, "Mensaje", "Título", 0, 0);
+				
+			}else if(laminaTipo.dameSeleccion().equals("Entrada")) {
+				
+				JOptionPane.showInputDialog(MarcoDialogos_55.this, "Mensaje", "Título", 0);
+				
+			}else if(laminaTipo.dameSeleccion().equals("Opción")) {
+				
+				JOptionPane.showOptionDialog(MarcoDialogos_55.this, "Mensaje", "Título", 0, 0, null, null, null);
+			}
+			
+			
+			
+		}
+		
+		
+	}
+	
+	private LaminaBotones_55 laminaTipo; //nombre de la primera caja
+	private LaminaBotones_55 laminaTipoMensajes;
+	private LaminaBotones_55 laminaMensaje;
+	private LaminaBotones_55 laminaTipoOpcion;
+	private LaminaBotones_55 laminaOpciones;
+	private LaminaBotones_55 laminaEntrada;
+
+	private String cadenaMensaje="Mensaje";
+	private Icon iconoMensaje=new ImageIcon("src/graficos/cut.png");
+	private Object objetoMensaje=new Date();
+	private Component componentMensaje=new LaminaEjemplo();
+	
+	
+	
+}
+
+
+class LaminaEjemplo extends JPanel{
+	
+	public void paintComponent(Graphics g) {
+		
+		super.paintComponent(g);
+		
+		Graphics2D g2=(Graphics2D) g; //castin
+		
+		Rectangle2D rectangulo=new Rectangle2D.Double(0,0, getWidth(), getHeight());
+		
+		g2.setPaint(Color.YELLOW);
+		
+		g2.fill(rectangulo);
+	}
+}
+
+
+
+
+

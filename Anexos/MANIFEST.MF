@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+
+Name: beans/VisorDeImagenesBean_123.class
+Java-Bean: True
+
+
+
+

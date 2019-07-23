@@ -1,0 +1,21 @@
+
+public class Libro_80_I {
+
+	public Libro_80_I(String titulo, String autor, int ISBN) {
+		
+		this.titulo=titulo;
+		this.autor=autor;
+		this.ISBN=ISBN;
+		
+	}
+	
+	public String getDatos() {
+		
+		return "El título es: " + titulo + ". El autor es: " + autor + ". Y el ISBN es: " + ISBN; 
+	}
+	
+	private String titulo;
+	private String autor;
+	private int ISBN;
+
+}

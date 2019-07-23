@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<addCategory
+		id="custom_1541014356722"
+		name="David"
+		description=""
+		visible="true"
+		open="true"
+		nextCategory="org.eclipse.wb.swing.BoxLayout"/>
+	<addComponent
+		id="com.toedter.calendar.JDayChooser_1541014573763"
+		name="JDayChooser"
+		description="Custom component: com.toedter.calendar.JDayChooser"
+		visible="true"
+		class="com.toedter.calendar.JDayChooser"
+		category="custom_1541014356722"/>
+	<addComponent
+		id="com.toedter.calendar.JMonthChooser_1541014573763"
+		name="JMonthChooser"
+		description="Custom component: com.toedter.calendar.JMonthChooser"
+		visible="true"
+		class="com.toedter.calendar.JMonthChooser"
+		category="custom_1541014356722"/>
+	<addComponent
+		id="com.toedter.components.JLocaleChooser_1541014573763"
+		name="JLocaleChooser"
+		description="Custom component: com.toedter.components.JLocaleChooser"
+		visible="true"
+		class="com.toedter.components.JLocaleChooser"
+		category="custom_1541014356722"/>
+	<addComponent
+		id="com.toedter.calendar.JCalendar_1541014573763"
+		name="JCalendar"
+		description="Custom component: com.toedter.calendar.JCalendar"
+		visible="true"
+		class="com.toedter.calendar.JCalendar"
+		category="custom_1541014356722"/>
+	<addComponent
+		id="com.toedter.calendar.JDateChooser_1541014573763"
+		name="JDateChooser"
+		description="Custom component: com.toedter.calendar.JDateChooser"
+		visible="true"
+		class="com.toedter.calendar.JDateChooser"
+		category="custom_1541014356722"/>
+	<addComponent
+		id="com.toedter.components.JSpinField_1541014573763"
+		name="JSpinField"
+		description="Custom component: com.toedter.components.JSpinField"
+		visible="true"
+		class="com.toedter.components.JSpinField"
+		category="custom_1541014356722"/>
+	<addComponent
+		id="com.toedter.calendar.JYearChooser_1541014573763"
+		name="JYearChooser"
+		description="Custom component: com.toedter.calendar.JYearChooser"
+		visible="true"
+		class="com.toedter.calendar.JYearChooser"
+		category="custom_1541014356722"/>
+	<addComponent
+		id="beans.VisorDeImagenesBean_123_1541016485524"
+		name="VisorDeImagenesBean_123"
+		description="Custom component: beans.VisorDeImagenesBean_123"
+		visible="true"
+		class="beans.VisorDeImagenesBean_123"
+		category="custom_1541014356722"/>
+</commands>

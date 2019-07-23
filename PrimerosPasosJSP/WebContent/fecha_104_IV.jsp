@@ -1,0 +1,1 @@
+Fecha: <%= new java.util.Date() %> 	<!-- Para que nos de la fecha actual -->

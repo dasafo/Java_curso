@@ -1,0 +1,34 @@
+
+public class Cliente_79_I {
+	
+	public Cliente_79_I(String nombre, String nCuenta, double saldo) {
+		
+		this.nombre=nombre;
+		this.nCuenta=nCuenta;
+		this.saldo=saldo;
+		
+	}
+
+	public static String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public static String getnCuenta() {
+		return nCuenta;
+	}
+	public void setnCuenta(String nCuenta) {
+		this.nCuenta = nCuenta;
+	}
+	public static double getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	private String nombre;
+	private String nCuenta;
+	private double saldo;
+}
