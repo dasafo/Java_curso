@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+//Hacemos lo mismo que en anterior ejercicio pero mejor y más simplificado
 
 public class SwingBotonRadio_43_III {
 
@@ -49,9 +50,9 @@ class LaminaRadio2 extends JPanel{
 		
 		laminaBotones2=new JPanel();
 		
-		migrupo2=new ButtonGroup();
+		migrupo2=new ButtonGroup(); //instanciamos un objeto que nos agrupara los radiobutton
 	
-		colocarBotones2("Pequeño", false, 10);
+		colocarBotones2("Pequeño", false, 10); //creamos los botones usando el metodo colocarBotones2
 		colocarBotones2("Mediano", true, 12);
 		colocarBotones2("Grande", false, 18);
 		colocarBotones2("Muy Grande", false, 26);
@@ -64,11 +65,11 @@ class LaminaRadio2 extends JPanel{
 		
 		JRadioButton boton2=new JRadioButton(nombre, seleccionado);
 		
-		migrupo2.add(boton2);
+		migrupo2.add(boton2); //metemos el boton2 en el agrupamiento migrupo2
 		
-		laminaBotones2.add(boton2);
+		laminaBotones2.add(boton2); //añadimos el boton a la lamina de los botones
 		
-		ActionListener mievento2=new ActionListener() {
+		ActionListener mievento2=new ActionListener() { //creamos el evento
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -80,7 +81,7 @@ class LaminaRadio2 extends JPanel{
 			
 		};
 		
-		boton2.addActionListener(mievento2);
+		boton2.addActionListener(mievento2); //ponemos el boton2 a la escucha del evento 'mievento2'
 		
 	}
 	

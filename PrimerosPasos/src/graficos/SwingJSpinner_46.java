@@ -24,8 +24,9 @@ class FrameSpinner extends JFrame{
 	public FrameSpinner() {
 		
 		setBounds(550,350,550,350);
-		setVisible(true);
 		add(new LaminaSpinner());
+		setVisible(true);
+
 	}
 }
 
@@ -35,30 +36,33 @@ class LaminaSpinner extends JPanel{
 	
 	public LaminaSpinner() {
 		
+		// JSpinner control= new JSpinner(new SpinnerDateModel()); //nos hace un spinner con la fecha y hora
+		
 		// String lista[]= GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames(); //para que muestre las tipografias disponibles en el PC
 		// JSpinner control=new JSpinner(new SpinnerListModel(lista));
 
 		// JSpinner control=new JSpinner(new MiModeloJSpinner()); //para hacerlo con una clase dentro de otra
 		
 		
-		JSpinner control=new JSpinner(new SpinnerNumberModel(5,0,10,1) { //para hacerlo con calases internas anonimas, que eqiuvale a lo que hemos comentado de código mas abajo
-			
+		/*Clases internas anonimas: que equivale a lo que hemos comentado de código mas abajo, pero ahora creamos 
+		  una instancia y dentro del constructor creamos la clase interna anonima*/
+		JSpinner control=new JSpinner(new SpinnerNumberModel(5,0,10,1) { 
+						
 			public Object getNextValue() {
-				
+					
 				return super.getPreviousValue();
 			}
-			
-			public Object getPreviousValue() {
 				
+			public Object getPreviousValue() {
+					
 				return super.getNextValue();
-
+	
 			}
-			
-			
+							
 		}); 
 		
-		Dimension d=new Dimension(200,20);
-		control.setPreferredSize(d);
+		Dimension d=new Dimension(200,20); //creamos un objeto para indicar el tamaño del spinner(por defecto es lo primero que aparece)
+		control.setPreferredSize(d); //para añadir ese tamaño del objeto 'd' al spinner
 		
 		add(control);
 		
@@ -68,17 +72,17 @@ class LaminaSpinner extends JPanel{
 		
 		public MiModeloJSpinner() {
 			
-			super(5,0,10,1);
+			super(5,0,10,1); //con super llamamos al constructor de la clase padre(el constructor de SpinnerNumberModel)
 		}
 		
-		public Object getNextValue() {
+		public Object getNextValue() { //sobreescribimos un metodo(de SpinnerNumberModel) para que haga lo que queremos nosotros
 			
-			return super.getPreviousValue();
+			return super.getPreviousValue(); //de esta forma le decimos que nos devuelva el valor anterior
 		}
 		
-		public Object getPreviousValue() {
+		public Object getPreviousValue() { //sobreescribimos un metodo(de SpinnerNumberModel) para que haga lo que queremos nosotros
 			
-			return super.getNextValue();
+			return super.getNextValue(); //de esta forma le decimos que nos devuelva el valor siguiente
 
 		}
 		

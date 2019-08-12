@@ -67,7 +67,9 @@ class LaminaSliders2 extends JPanel{
 			// TODO Auto-generated method stub
 			
 			// contador++;
-			// System.out.println("Estas manipulando el deslizante: " + control2.getValue());
+			// System.out.println("Estas manipulando el deslizante: " + contador);
+
+			// System.out.println("Estas manipulando el deslizante: " + control2.getValue()); //getvalue caputra el valor del deslizante
 		
 			rotulo2.setFont(new Font("Serif", Font.PLAIN, control2.getValue()));
 		
@@ -78,7 +80,7 @@ class LaminaSliders2 extends JPanel{
 	
 	private JLabel rotulo2;
 	private JSlider control2;
-	private static int contador;
+	//private static int contador;
 }
 
 

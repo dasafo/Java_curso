@@ -47,11 +47,11 @@ class LaminaRadioSintaxis extends JPanel{
 		JRadioButton boton4=new JRadioButton("Masculino", false);
 		JRadioButton boton5=new JRadioButton("Femenino", false);
 
-		migrupo1.add(boton1); //añadimos los botones
+		migrupo1.add(boton1); //agrupamos los botones de colores
 		migrupo1.add(boton2);
 		migrupo1.add(boton3);
 		
-		migrupo2.add(boton4);
+		migrupo2.add(boton4); //agrupamos los botones de genero
 		migrupo2.add(boton5);
 
 		add(boton1);

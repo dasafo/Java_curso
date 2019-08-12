@@ -20,12 +20,14 @@ class MarcoCombo extends JFrame{
 	
 	public MarcoCombo() {
 		
-		setVisible(true);
 		setBounds(550,300,550,400);
 		
 		laminaCombo milamina=new laminaCombo();
 		
 		add(milamina);
+		
+		setVisible(true);
+
 	}
 }
 
@@ -47,7 +49,7 @@ class laminaCombo extends JPanel{
 		
 		micombo.setEditable(true); //para dejar escribir en el cuadro
 		
-		micombo.addItem("Serif");
+		micombo.addItem("Serif"); //metodo de JComboBox para añadir strings al desplegable
 		micombo.addItem("SansSerif");
 		micombo.addItem("Monospaced");
 		micombo.addItem("Dialog");
@@ -56,21 +58,23 @@ class laminaCombo extends JPanel{
 		
 		micombo.addActionListener(mievento);
 		
-		laminaNorte.add(micombo);
+		laminaNorte.add(micombo); //añadimos el desplegable a la lamina 'laminaNorte'
 		
-		add(laminaNorte,BorderLayout.NORTH);
+		add(laminaNorte,BorderLayout.NORTH); //añadimos la laminNorte al norte de un BorderLayout
 
 		
 		
 	}
 	
 	
-	private class eventoCombo implements ActionListener{
+	private class eventoCombo implements ActionListener{ //metodo que indica el evento a realiza
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			
+			/* getSelectedItem devuelve lo que hay pero en forma de Object(ver API), 
+			pero el primer argumento de Font debe ser un string, por eso hacemos castin*/
 			texto.setFont(new Font((String)micombo.getSelectedItem(), Font.PLAIN,18));
 		}
 		
