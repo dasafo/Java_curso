@@ -36,16 +36,16 @@ class LaminaPrueba extends JPanel{
 		
 		JTextField micampo=new JTextField(20);
 		
-		EscuchaTexto el_evento=new EscuchaTexto();
+		EscuchaTexto el_evento=new EscuchaTexto(); //creamos la instancia/objeto para el evento
 		
-		Document midoc=micampo.getDocument();
+		Document midoc=micampo.getDocument(); //este objeto(midoc) va almacenando lo del campo de texto
 		
-		midoc.addDocumentListener(el_evento);
+		midoc.addDocumentListener(el_evento); //ponemos el objeto midoc a la escucha del otro objeto 
 		
 		add(micampo);
 	}
 	
-	private class EscuchaTexto implements DocumentListener{
+	private class EscuchaTexto implements DocumentListener{ //clase receptora de los eventos del cuadro de texto
 
 		@Override
 		public void insertUpdate(DocumentEvent e) {

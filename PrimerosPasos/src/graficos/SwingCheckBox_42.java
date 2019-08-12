@@ -46,26 +46,26 @@ class LaminaCheck extends JPanel{
 		
 		texto=new JLabel("En un lugar de la Mancha...");
 		
-		texto.setFont(miletra);
+		texto.setFont(miletra); //establecemos a 'texto' el tipo de letra declarado en el objeto FONT 'miletra'
 		
-		JPanel laminatexto=new JPanel();
+		JPanel laminatexto=new JPanel(); //creamos una lamina
 		
-		laminatexto.add(texto);
+		laminatexto.add(texto); //metemos en la laminatexto el texto
 		
-		add(laminatexto, BorderLayout.CENTER);
+		add(laminatexto, BorderLayout.CENTER); //situamos laminatexto en el centro de un borderlayout
 		
 		check1=new JCheckBox("Negrita");
 		check2=new JCheckBox("Cursiva");
 		
-		check1.addActionListener(new ManejaChecks());
+		check1.addActionListener(new ManejaChecks()); //dejamos a la escucha los checkbox de los eventos de la clase ManejaChecks
 		check2.addActionListener(new ManejaChecks());
 		
-		JPanel laminaChecks=new JPanel();
+		JPanel laminaChecks=new JPanel(); //creamos la lamina para los checks
 		
-		laminaChecks.add(check1);
+		laminaChecks.add(check1); //añadimos los checks en laminaChecks
 		laminaChecks.add(check2);
 		
-		add(laminaChecks, BorderLayout.SOUTH);
+		add(laminaChecks, BorderLayout.SOUTH); //situamos laminachecks en el sur de un borderlayout
 
 	}
 	
@@ -80,7 +80,7 @@ class LaminaCheck extends JPanel{
 			if(check1.isSelected()) tipo+=Font.BOLD; //si activamos el chekbox es =1(ver API de Font Bold), sino =0
 			if(check2.isSelected()) tipo+=Font.ITALIC; //si =2 (ver API de Font Italic)
 			
-			texto.setFont(new Font("Serif", tipo, 24));
+			texto.setFont(new Font("Serif", tipo, 24)); //fuente por defecto
 			
 		}
 		

@@ -2,6 +2,7 @@ package poo;
 
 public class Coche_17_I {
 	
+	//Propiedades de la clase
 	//Con private encapsulamos esas variables, que solo pueden ser modificadas desde esta clase.
 	private int ruedas; 
 	private int ancho;
@@ -15,7 +16,8 @@ public class Coche_17_I {
 	private boolean asientos_cuero, climatizador;
 	
 	
-	public Coche_17_I() { 		//Constructor(condiciones iniciales)
+	//Creamos un metodo constructor(condiciones iniciales) y siempre tiene que tener el mismo nombre que la clase
+	public Coche_17_I() { 		
 		
 		ruedas=4;
 		largo=2000;
@@ -25,9 +27,9 @@ public class Coche_17_I {
 		
 	}
 	
-	//Creamos los GETTER(para poder ver la info de esta clase desde otros clases)
+	//Creamos el metodo GETTER(para poder ver la info de esta clase desde otros clases)
 	public String dime_datos_generales(){
-		 return "La plataforma tiene " + ruedas + " ruedas " + ". Mide " + largo/1000 + 
+		 return "La plataforma tiene " + ruedas + " ruedas" + ". Mide " + largo/1000 + 
 		 " metros, con un ancho de " + ancho + 
 		 " cm y un peso de plataforma de " + peso_plataforma + " Kg.";
 		
@@ -35,7 +37,7 @@ public class Coche_17_I {
 	
 	
 	
-	//Creamos un SETTER, no devulve dato, modifica dato (void)
+	//Creamos un SETTER, NO devuelve dato, modifica dato de una propiedad (void)
 	public void establece_color(String color_coche) {
 		
 		color=color_coche;
@@ -85,9 +87,9 @@ public class Coche_17_I {
 	public String dime_climatizador() { 	//GETTER
 		
 		if(climatizador=true) {
-			return "EL coche lleva climatizador";
+			return "El coche lleva climatizador";
 		}else {
-			return "EL coche lleva aire acondicionado";
+			return "El coche lleva aire acondicionado";
 		}
 	}
 	

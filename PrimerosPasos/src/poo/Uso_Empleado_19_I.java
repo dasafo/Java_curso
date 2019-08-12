@@ -23,7 +23,7 @@ public class Uso_Empleado_19_I {
 		System.out.println("Nombre: " + empleado3.dameNombre() + " Sueldo: " + empleado3.dameSueldo()
 		+ " Fecha de Alta: " + empleado3.dameFechaContrato());*/
 		
-		Jefatura jefe_RRHH=new Jefatura("Juan", 55000, 2006, 9, 25);		//principio de sustitución
+		Jefatura jefe_RRHH=new Jefatura("Juan", 55000, 2006, 9, 25); //principio de sustitución
 		
 		jefe_RRHH.estableceIncentivo(2570);
 		
@@ -40,15 +40,19 @@ public class Uso_Empleado_19_I {
 
 		Jefatura jefa_finanzas=(Jefatura) misEmpleados[5]; //REfundición o Castin(visto al principio del curso, para transdormar un objeto de un tipo en otro)
 		
+		
 		jefa_finanzas.estableceIncentivo(55000);
 		
 		System.out.println("El jefe " + jefa_finanzas.dameNombre() + " tiene un bonus de " + jefa_finanzas.establece_bonus(500));
 		
 		System.out.println(misEmpleados[3].dameNombre() + " tiene un bonus de " + misEmpleados[3].establece_bonus(200));
 
-		/* Empleado director_comercial=new Jefatura("Sandra", 85000, 2012, 05, 05);
 		
-		Comparable ejemplo=new Empleado("Elisa", 95000, 2011, 06, 07);
+		
+		//Para ver que podemos usar instanceof para que nos diga si una instancia pertenece a una clase o una interfaz:
+		
+		/* Empleado director_comercial=new Jefatura("Sandra", 85000, 2012, 05, 05);
+	       Comparable ejemplo=new Empleado("Elisa", 95000, 2011, 06, 07);
 		
 		if(director_comercial instanceof Empleado) {		//instanceof para comprobar si pertenece a la clase Empleado
 			
@@ -58,6 +62,8 @@ public class Uso_Empleado_19_I {
 		if(ejemplo instanceof Comparable) {		//instanceof para comprobar si pertenece a la interfaz de Jefatura, Comparable
 			System.out.println("Implementa la interfaz Comparable");
 		} */
+		
+		
 		
 		System.out.println(jefa_finanzas.tomar_decisiones("Dar más días de vacaciones a los empleados"));
 		
@@ -80,7 +86,10 @@ public class Uso_Empleado_19_I {
 				+ " Fecha de Alta: " + misEmpleados[i].dameFechaContrato());
 		}*/
 		
-			Arrays.sort(misEmpleados);		//Definimos el método sort de la clase Arrays para la interfaz comparar
+		
+	/*Definimos el método sort de la clase Arrays (debemos implementar la interfaz Comparable en Empleado), 
+	y añadir el método compareTo(ver API). Esto ordena los empledados segun su sueldo*/
+		Arrays.sort(misEmpleados);		
 		
 		for(Empleado e: misEmpleados) {
 			System.out.println("Nombre: " + e.dameNombre() 
@@ -94,16 +103,19 @@ public class Uso_Empleado_19_I {
 }
 
 
+//******************************* Clases y metodos ****************************************************
 
-class Empleado implements Comparable, Trabajadores_19_II {   //con implements asociamos la interfaz comparable y trabajadores
+/*Con implements asociamos la interfaz comparable y trabajadores, y estamos obligados a
+ * implementar todos los metodos de las interfaces implementadas*/
+class Empleado implements Comparable, Trabajadores_19_II {   
 	
 	public Empleado(String nom, double sue, int agno, int mes, int dia) { //Constructor, que asigan valores iniciales 
 		//y tiene que tener el mismo nombre de la clase a la que pertenece (Empleado) 
 	
 		nombre=nom;
 		sueldo=sue;
-		GregorianCalendar calendario=new GregorianCalendar(agno, mes-1, dia);
-		altaContrato=calendario.getTime();
+		GregorianCalendar calendario=new GregorianCalendar(agno, mes-1, dia); //mes-1 ya que Enero es el 0, así sería enero=1
+		altaContrato=calendario.getTime(); //getTime es un metodo de Calendar(de donde heredamos GregorianCalendar)
 		
 		++IDsiguiente;
 		ID=IDsiguiente;
@@ -111,13 +123,14 @@ class Empleado implements Comparable, Trabajadores_19_II {   //con implements as
 	}
 	
 	
-	public double establece_bonus(double gratificacion) { 	//GETTER
+	public double establece_bonus(double gratificacion) { 
 		
 		return Trabajadores_19_II.bonus_base + gratificacion;
 	}
 	
 	
-	public Empleado(String nom) { //Otro constructor(sobrecarga de constructores) 
+	//Otro constructor(sobrecarga de constructores)(diferentes argumetnos para cada constructor) 
+	public Empleado(String nom) { 
 		
 		this(nom, 3000, 2000, 01, 01); //Con este This llamamos al otro constructor y pasarle los parámetros
 		
@@ -165,22 +178,26 @@ class Empleado implements Comparable, Trabajadores_19_II {   //con implements as
 		return 0;
 		
 	}
-	private String nombre;
-	private double sueldo;
-	private Date altaContrato;
+	
+	//encapsulamos estas variables para que no puedan ser modificadas desde fuera de la clase
+	private String nombre; //String es una clase, no un tipo primitivo de datos
+	private double sueldo; //double es un tipo primitivo de datos
+	private Date altaContrato; //Date es una clase, no un tipo primitivo de datos
 	private static int IDsiguiente;
 	private int ID;
 	
 }
 
 
-
-class Jefatura extends Empleado implements Jefes_19_III {		//Herencia de EMpleado(padre) y si ponemos 'final class', cortamos aqui la herencia, no se podrán heredar más hacia abajo
-														//Y ponemos la interface Jefes conectada a Jefatura
+/*Herencia de Empleado(padre) y si ponemos 'final class', cortamos aqui la herencia, no se podrán heredar más hacia abajo
+  Y ponemos la interface Jefes_19_III conectada a Jefatura, por lo que estamos obligados a 
+  incluir todos los metdos de esa interfaz (y de la interfaz TRabajadores, ya que también hay herencia de una
+  sobre otra) dentro de Jefatura */
+class Jefatura extends Empleado implements Jefes_19_III {		
 	
 	public Jefatura(String nom, double sue, int agno, int mes, int dia) { //Constructor
 		
-		super(nom, sue, agno, mes, dia);
+		super(nom, sue, agno, mes, dia); //implementamos el primer constructor de Empleados(5 argumentos)
 		
 	}
 	

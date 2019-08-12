@@ -37,23 +37,22 @@ class LaminaPassword extends JPanel{
 	
 	public LaminaPassword() {
 		
-		setLayout(new BorderLayout());
+		setLayout(new BorderLayout()); //distribucion borderlayout para la lamina principal
 		
-		JPanel laminaSuperior=new JPanel();
+		JPanel laminaSuperior=new JPanel(); //creamos una lamina que irá arriba
 		
-		laminaSuperior.setLayout(new GridLayout(2,2));
+		laminaSuperior.setLayout(new GridLayout(2,2)); //la lámina superior tendrá distribucion GridLayout
 		
-		add(laminaSuperior, BorderLayout.NORTH);
+		add(laminaSuperior, BorderLayout.NORTH); //la lamina de arruba irá en la zona nodre de BorderLayout
 		
 		JLabel etiqueta1=new JLabel("Usuario");
-		JLabel etiqueta2=new JLabel("Contraseña");
+		JLabel etiqueta2=new JLabel("Contraseña (entre 8 y 12 carácteres)");
 		
-		JTextField c_usuario=new JTextField(15);
+		JTextField c_usuario=new JTextField(15); //campo de texto para meter usuario
+		CompruebaPass mievento=new CompruebaPass(); //creamos la instancia para el evento del password
 		
-		CompruebaPass mievento=new CompruebaPass();
-		
-		c_contra=new JPasswordField(15);
-		c_contra.getDocument().addDocumentListener(mievento);
+		c_contra=new JPasswordField(15); //cuadro de texto para meter un Password
+		c_contra.getDocument().addDocumentListener(mievento); //ponemos el cuadro contraseña a la esucha a la espera de 'mievento'
 	
 		
 		laminaSuperior.add(etiqueta1);
@@ -67,13 +66,13 @@ class LaminaPassword extends JPanel{
 
 	}
 	
-	private class CompruebaPass implements DocumentListener{
+	private class CompruebaPass implements DocumentListener{ //clase para los eventos del Password
 
 		@Override
 		public void insertUpdate(DocumentEvent e) {
 			// TODO Auto-generated method stub
 			
-			char [] contrasena;
+			char [] contrasena; //creamos un char [] ya que getPassword(ver abajo) devuelve este tipo de datos
 			
 			contrasena=c_contra.getPassword();
 			
@@ -92,7 +91,7 @@ class LaminaPassword extends JPanel{
 		public void removeUpdate(DocumentEvent e) {
 			// TODO Auto-generated method stub
 			
-			char [] contrasena;
+			char [] contrasena; //creamos un char [] ya que getPassword(ver abajo) devuelve este tipo de datos
 			
 			contrasena=c_contra.getPassword();
 			

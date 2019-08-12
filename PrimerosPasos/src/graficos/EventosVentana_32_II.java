@@ -1,3 +1,23 @@
+/***********************************************************************************
+ * 
+ * 1.- Objeto evento(click ratón, tecla,...)
+ * 		-C_EventObject--> C_ActionEvent(para acciones del raton) 
+ * 						  C_WindowEvent(eventos de maximizar ventana,minimizar,...)
+ * 
+ * 2.- Objeto fuente(quien desencadena el evento(botón, radiobutton,..))
+ * 		-C_JButton--> M_addActionListener(Object listener)
+ * 
+ * 3.- Objeto Listener(quien recibe la acción(que zona tiene que cambiar))
+ * 		-C_JPanel--> I_ActionListener--> M_actionPerformed(Object evento)
+ *   				 I_WindowListener--> Tiene 7 métodos(ver API) que hay que incluir.
+ *   									 Pero también podemos usar clases adaptadoras 
+ *   									 como WindowAdapter, KeyAdapter o MouseAdapter.
+ *
+ * I=Interface, M=Metodo, C=Clase
+ ************************************************************************************/
+
+
+
 package graficos;
 
 import javax.swing.*;
@@ -35,7 +55,7 @@ class MarcoVentana2 extends JFrame{
 	
 	/*M_Ventana2 oyente_ventana2=new M_Ventana2();
 	addWindowListener(oyente_ventana2);*/
-	addWindowListener(new M_Ventana2());
+	addWindowListener(new M_Ventana2()); //esta última linea dice lo mismo que las 2 superiores
 	
 	}	
 }

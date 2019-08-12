@@ -100,9 +100,9 @@ class Alumno extends Persona{ //Realizamos herencia con PErsona(Abstract), y por
 	public String dameDescripcion() {		//SETTER
 			
 		return "Este alumno está estudiando la carrera de " + carrera;
-		}
+	}
 		
-		private String carrera;		//Encapsulamiento
+	private String carrera;		//Encapsulamiento
 		
 	
 }

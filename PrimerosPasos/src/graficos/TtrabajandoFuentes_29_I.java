@@ -8,7 +8,8 @@ public class TtrabajandoFuentes_29_I {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-MarcoConFuentes mimarco=new MarcoConFuentes();
+		
+		MarcoConFuentes mimarco=new MarcoConFuentes();
 		
 		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

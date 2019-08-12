@@ -38,15 +38,15 @@ class LaminaArea extends JPanel{
 		
 		miarea=new JTextArea(8,20);
 		
-		JScrollPane laminaBarras=new JScrollPane(miarea); //lamina con barras de desplazamiento en la cual instertamos miarea
+		JScrollPane laminaBarras=new JScrollPane(miarea); //creamos lamina con barras de desplazamiento en la cual instertamos miarea
 		
 		miarea.setLineWrap(true); //para que salte abajo atomaticamente cuando llegue al final de la linea
 		
-		add(laminaBarras);
+		add(laminaBarras); //añadimos laminaBarras ya que es la lamina donde está incrustada miarea
 		
 		JButton miboton=new JButton("Dale");
 		
-		miboton.addActionListener(new GestionaArea());
+		miboton.addActionListener(new GestionaArea()); //ponemos miboton a la escucha de lo que haga el evento dado en GEstionArea()
 		
 		add(miboton);
 		

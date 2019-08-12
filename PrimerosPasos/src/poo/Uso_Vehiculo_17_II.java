@@ -5,7 +5,8 @@ public class Uso_Vehiculo_17_II {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Coche_17_I micoche1=new Coche_17_I(); //Instanciar una clase
+		//Instanciamos una clase poniendo la clase a la que pertenece(micoche1 es una instancia de la clase Coche_17_I
+		Coche_17_I micoche1=new Coche_17_I(); 
 		micoche1.establece_color("Rojo");
 		
 		Furgoneta_17_III mifurgoneta1=new Furgoneta_17_III(7,580); //Instanciamos otra clase

@@ -19,7 +19,7 @@ public class Furgoneta_17_III extends Coche_17_I { 	//Con extends hacemos hereda
 	
 	public String dimeDatosFurgoneta() {		//GETTER
 		
-		return "LA capacidad de carga es: " + capacidad_carga + " Y las plazas son: " + plazas_extra;
+		return " La capacidad de carga es: " + capacidad_carga + " Y las plazas son: " + plazas_extra;
 		
 	}
 	

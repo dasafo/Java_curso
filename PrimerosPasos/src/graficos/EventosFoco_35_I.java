@@ -1,3 +1,33 @@
+/***********************************************************************************
+ * 
+ * 1.- Objeto evento(click ratón, tecla,...)
+ * 		-C_EventObject--> C_ActionEvent(para acciones del raton) 
+ * 						  C_WindowEvent(eventos de maximizar ventana,minimizar,...)
+ * 
+ * 2.- Objeto fuente(quien desencadena el evento(botón, radiobutton,..))
+ * 		-C_JButton--> M_addActionListener(Object listener)
+ * 
+ * 3.- Objeto Listener(quien recibe la acción(que zona tiene que cambiar))
+ * 		-C_JPanel--> I_ActionListener--> M_actionPerformed(Object evento)
+ *   				 I_WindowListener--> Tiene 7 métodos(ver API) que hay que incluir.
+ *   									 Pero también podemos usar su clase adaptadora 
+ *   									 WindowAdapter.
+ *   				 I_WindowStateListener--> M_windowStateChanged(WindowEvent e)
+ *					 I_KeyListener--> M_keyPressed(..),M_keyRelased(..) y M_keyTyped(..)
+ *									  Tabmién tiene su clase adaptadora KeyAdapter
+ *					 I_MouseListener-->Tiene 5 metodos(ver API) pero también podemos
+ *									   usar la clase adaptadora MouseAdapter
+ *					 I_MouseMotionListener-->M_mouseDragged(..) y M_mouseMoved(..)
+ *					 I_FocusListener--> M_focusGained(..) y M_focusLost(..)
+ *										Con clase adaptadora FocusAdapter
+ *					 I_WindowsFocusListener--> M_windowGainedFocus(..) y M_windowLostFocus(..)
+ *											   Con clase adaptadora WindowAdapter
+ *
+ * I=Interface, M=Metodo, C=Clase
+ ************************************************************************************/
+
+
+
 package graficos;
 
 import java.awt.*;
@@ -61,7 +91,7 @@ class LaminaFoco extends JPanel{
 	class LanzaFocos implements FocusListener{	//Clase interna de laminaFoco para acceder a JTextField cuadro 1 y cuadro2
 
 		@Override
-		public void focusGained(FocusEvent e) {
+		public void focusGained(FocusEvent e) { //cuando gana el foco
 			// TODO Auto-generated method stub
 			
 		}

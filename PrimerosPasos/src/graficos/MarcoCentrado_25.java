@@ -28,9 +28,9 @@ class MarcoCentrado extends JFrame{
 		
 		Dimension tamanoPantalla=mipantalla.getScreenSize(); //nos devuelve la resolucion de la pantalla
 	
-		int alturaPantalla=tamanoPantalla.height;
+		int alturaPantalla=tamanoPantalla.height; //almacenamos el alto en una variable
 		
-		int anchoPantalla=tamanoPantalla.width;
+		int anchoPantalla=tamanoPantalla.width; //almacenamos el ancho en otr variable
 		
 		setSize(anchoPantalla/2, alturaPantalla/2);
 		

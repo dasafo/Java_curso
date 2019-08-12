@@ -5,5 +5,11 @@ INDEX VERSION 1.131
 /PrimerosServlets/src
 /home/david/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2833871389.index
 /Web_de_Productos_115/src
+/home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1137960731.index
+/PrimerosServlets/src
+/home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1215679586.index
+/Web_de_Productos_115/src
+/home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2104465902.index
+/PrimerosPasosJSP/src
 /home/david/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1215679586.index
 /Web_de_Productos_115/src

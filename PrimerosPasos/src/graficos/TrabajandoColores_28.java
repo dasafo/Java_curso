@@ -51,7 +51,7 @@ class LaminaConColor extends JPanel{
 		g2.setPaint(Color.BLACK);
 		g2.draw(rectangulo);
 		g2.setPaint(Color.RED);
-		g2.fill(rectangulo);	//para que rellene
+		g2.fill(rectangulo);	//para que rellene el rectangulo
 		
 		
 		Ellipse2D elipse=new Ellipse2D.Double();
@@ -61,7 +61,7 @@ class LaminaConColor extends JPanel{
 		g2.setPaint(micolor);
 		// g2.setPaint(new Color(19,162,59).brighter().brighter()); //brighter para darle brillo al color(si se pone otra vez, es más brillante aún)
 																	//darkhter para oscurecer
-		g2.fill(elipse);
+		g2.fill(elipse); //rellena la elipse
 	
 	}
 	

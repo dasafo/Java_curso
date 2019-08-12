@@ -33,13 +33,16 @@ class MarcoPruebaArea extends JFrame{
 		
 		botonInsertar=new JButton("Insertar");
 		
-		botonInsertar.addActionListener(new ActionListener(){
+		/*ahora haremos lo mismo que hemos hecho en el ejericios anteriores de poner objetos a la escucha
+		 de otros eventos, pero en vez de definir el evento en otra clase(siempre recomendable, lo hacemos
+		 todo a la vez, ponemos el boton a la escucha del evento y definimos el metodo del evento*/
+		botonInsertar.addActionListener(new ActionListener(){ 
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				
-				areaTexto.append("EN un luegar de la Mancha...");
+				areaTexto.append("En un lugar de la Mancha...");
 				
 			}
 			
@@ -51,16 +54,17 @@ class MarcoPruebaArea extends JFrame{
 		
 		botonSaltoLinea=new JButton("Salto Linea");
 		
-		botonSaltoLinea.addActionListener(new ActionListener() {
+		botonSaltoLinea.addActionListener(new ActionListener() { //hacmos lo mismo que en botonInsertar
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				
 				boolean saltar=!areaTexto.getLineWrap(); //almacenamos en saltar lo contrario que tengamos en areaTExto, si NO hay salto de linea se almacena un true
+														 //getLineWrap nos indica si en el texto hay saltos de linea
 				
 				areaTexto.setLineWrap(saltar); //asi establecemos saltos de linea siempre que pulsemos el boton
-				
+											   //setLineWrap establece los saltos de linea(cuando es True)
 				
 				// botonSaltoLinea.setText(saltar ? "Quitar salto" : "Saltar linea");  //es lo mimsmo que el siguiente if, else
 				if(saltar) {
@@ -68,7 +72,7 @@ class MarcoPruebaArea extends JFrame{
 					botonSaltoLinea.setText("No hay salto");
 				}else {
 					
-					botonSaltoLinea.setText("Salto línea");
+					botonSaltoLinea.setText("Hay salto línea");
 				}
 				
 			}

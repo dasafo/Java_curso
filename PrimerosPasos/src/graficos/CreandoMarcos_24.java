@@ -11,8 +11,10 @@ public class CreandoMarcos_24 {
 
 		miMarco marco1=new miMarco();
 		
-		marco1.setVisible(true);	
+		marco1.setVisible(true);	//hacemos la ventana visible
 		
+		/*Ahora le decimos que cuando se cierre la ventana el programa se para.
+		 * setDefaultCloseOperation devuelve un int que es justo también lo que es EXIT_ON_CLOSE*/
 		marco1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
 	}
@@ -30,6 +32,7 @@ class miMarco extends JFrame{	//heredamos esta clase de JFrame
 		// setResizable(false); //impedimos(false) que no se pueda redimensionar el frame manualmente
 		
 		// setExtendedState(Frame.MAXIMIZED_BOTH); //EL frame se abre a pnatalla completa
+		// setExtendedState(6); //Es lo mismo (Frame.MAXIMIZED_BOTH=6, ver API)
 		
 		setTitle("Mi ventana");
 		

@@ -14,6 +14,7 @@ public class TrabajandoFuentes_29_II {
 		
 		boolean estalafuente=false;
 		
+		//Ahora almacenamos en ese array string todos los tipos de funetes que tengo en mi PC
 		String [] nombresDeFuentes=GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
 		
 		for(String nombredelafuente: nombresDeFuentes) {		

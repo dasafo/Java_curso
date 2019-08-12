@@ -3,7 +3,7 @@ package poo;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.*;
-import javax.swing.Timer;
+import javax.swing.Timer; //Para evitar conflicto con otro paquete(java.util) que también tiene Timer
 import java.awt.Toolkit;
 
 
@@ -16,6 +16,7 @@ public class Prueba_Temporizador_23_II {
 		
 		mireloj.enMarcha();
 		
+		//Sacamos una ventana para que nos de tiempo a ver lo que pasa:
 		JOptionPane.showMessageDialog(null, "Pulsa aceptar para terminar");
 		System.exit(0);
 	
@@ -36,7 +37,7 @@ class Reloj{
 	
 	public void enMarcha() {		//SETTER
 		
-		ActionListener oyente=new DameLaHora2();
+		ActionListener oyente=new DameLaHora2(); //instanciamos un objeto(oyente) perteneciente a la interfaz ActionListener
 		
 		Timer mitemporizador=new Timer(intervalo, oyente);
 		
@@ -51,7 +52,7 @@ class Reloj{
 	
 		public void actionPerformed( ActionEvent evento) {
 			
-			Date ahora=new Date();
+			Date ahora=new Date(); //almacenamos la hora actual en un objeto
 			
 			System.out.println("Te pongo la hora cada 3 sg " + ahora);
 			

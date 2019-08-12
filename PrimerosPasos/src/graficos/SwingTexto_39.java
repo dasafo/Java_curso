@@ -48,24 +48,22 @@ class LaminaTexto extends JPanel{
 		resultado=new JLabel("", JLabel.CENTER);
 		
 		JLabel texto1=new JLabel("Email: ");
-		
 		milamina2.add(texto1);
 		
 		campo1=new JTextField(20);
-		milamina2.
-		add(campo1);
+		milamina2.add(campo1);
 		
 		add(resultado, BorderLayout.CENTER);
 		
-		// System.out.println(campo1.getText().trim()); //para quitar espacios adicionales
+		// System.out.println(campo1.getText().trim()); //trim() para quitar espacios adicionales
 		
-		JButton miboton=new JButton("Comprobar");
+		JButton miboton=new JButton("Comprobar"); //creamos el boton
 		
-		DameTexto mievento=new DameTexto();
+		DameTexto mievento=new DameTexto(); //creamos el objeto que luego dejaremos a la escucha
 		
-		miboton.addActionListener(mievento);
+		miboton.addActionListener(mievento); //dejamos el objeto del evento del boton a la escucha
 		
-		milamina2.add(miboton);
+		milamina2.add(miboton); //agregamos el boton a la lamina
 		
 		add(milamina2, BorderLayout.NORTH);
 		
@@ -98,11 +96,10 @@ class LaminaTexto extends JPanel{
 
 		}
 		
-		System.out.println(campo1.getText().trim());
+		System.out.println(campo1.getText().trim()); //trim para que quite los espacios en blanco al principio o final
 		}
 	}
 
 	private JTextField campo1;
-	
 	private JLabel resultado;
 }

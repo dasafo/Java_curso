@@ -19,8 +19,8 @@ public class Ejemplo_Array2D_16 {
 			saldo[i][j]=acumulado;		//Ponemos el resto de filas y columnas con el acumulado*interes 
 		
 		}
-		interes=interes*0.01;	//el interés va cambiando 0.01 en cada iteracion
-		
+		//Cuando termine con la primera culumna(primera iteracion)el interés va cambiando +0.01
+		interes=interes+0.01;
 		}
 		
 		for(int z=0;z<6;z++) {

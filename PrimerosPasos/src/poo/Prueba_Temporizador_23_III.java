@@ -30,9 +30,11 @@ class Reloj2{
 
 	public void enMarcha2(int intervalo2, final boolean sonido2) {	//ponemos el final en sonido porque se hace así cuando se quiere acceder desde una clase interna local, cosa que no hace con intervalo
 		
-		 class DameLaHora2 implements ActionListener{	//creamos una clase internalocal(ahora dentro de un método de una clase), no puede ser private. 
-			 											//Y solo es visible para este método, ni siquiera para la clase que la engloba. Pero desde esta clase interna local si se puede acceder
-			
+		/*Creamos una clase interna local(ahora dentro de un método de una clase), no puede ser private. 
+		Y solo es visible para este método, ni siquiera para la clase que la engloba. Pero desde esta clase interna local 
+		si se puede acceder. Esto se usa cuando una clase solo la vamos a utilizar una vez*/
+
+		 class DameLaHora2 implements ActionListener{	//esta clase interna dentro de un metodo, no puede ser 'private'
 			public void actionPerformed( ActionEvent evento2) {
 				
 				Date ahora2=new Date();
@@ -56,9 +58,7 @@ class Reloj2{
 		mitemporizador2.start();
 	}
 	
-	private int intervalo2; 	//Encapsulamiento
-	private boolean sonido2;
-	
+
 	
 }
 
