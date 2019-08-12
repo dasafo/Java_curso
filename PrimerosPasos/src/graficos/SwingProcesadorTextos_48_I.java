@@ -53,8 +53,8 @@ class LaminaProcesador_I extends JPanel{
 		
 		//------------------------------------------
 
-		configuraMenu("Arial", "Fuente", "Arial", 9, 10);
-		configuraMenu("Courier", "Fuente", "Courier", 9, 10);
+		configuraMenu("Arial", "Fuente", "Arial", 9, 10); //nos crea un MenuItem Arial dentro de Fuente(ver configuramenu())
+		configuraMenu("Courier", "Fuente", "Courier", 9, 10); //ponemos 9 porque no indica nada(1 y 2 negrita o cursiva)
 		configuraMenu("Verdana", "Fuente", "Verdana", 9, 10);
 
 		//------------------------------------------
@@ -88,9 +88,10 @@ class LaminaProcesador_I extends JPanel{
 		
 		JMenuItem elem_menu=new JMenuItem(rotulo);
 		
+		//Ahora indicamos a dónde va cada MenuItem
 		if(menu=="Fuente") {
 			
-			fuente.add(elem_menu);
+			fuente.add(elem_menu); //me agregas al elemento 'fuente' el elem_menu
 		}else if(menu=="Estilo") {
 			
 			estilo.add(elem_menu);
@@ -106,7 +107,6 @@ class LaminaProcesador_I extends JPanel{
 	private class GestionaEventos implements ActionListener{
 
 		String tipoTexto, menu;
-		
 		int estiloLetra, tamagnoLetra;
 		
 		GestionaEventos(String elemento, String texto2, int estilo2, int tamLetra){
