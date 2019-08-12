@@ -14,7 +14,6 @@ INDEX VERSION 1.131+/home/david/Documents/Programacion_PildorasInformaticas/Java
 3116858000.index
 3579971944.index
 2830428001.index
-1252947361.index
 3274553894.index
 4134420440.index
 1498056528.index

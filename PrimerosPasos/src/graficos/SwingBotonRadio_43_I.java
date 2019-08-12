@@ -38,7 +38,7 @@ class LaminaRadioSintaxis extends JPanel{
 		
 		ButtonGroup migrupo1=new ButtonGroup(); //para agrupar botones de radio(para que solo uno de ellos pueda estar activado)
 		
-		ButtonGroup migrupo2=new ButtonGroup();
+		ButtonGroup migrupo2=new ButtonGroup();  
 		
 		JRadioButton boton1=new JRadioButton("Azul", false);
 		JRadioButton boton2=new JRadioButton("Rojo", true); //dejamos este activado
