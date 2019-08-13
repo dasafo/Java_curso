@@ -121,7 +121,7 @@ class LaminaProcesador_I extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			
-			letras=miarea.getFont();
+			letras=miarea.getFont(); //almacenamos un objeto tipo Font en la variable letras
 			
 			if(menu=="Arial" || menu=="Courier" || menu=="Verdana") {
 				
@@ -130,7 +130,7 @@ class LaminaProcesador_I extends JPanel{
 				
 			}else if(menu=="Cursiva" || menu=="Negrita") {
 				
-				if(letras.getStyle()==1 || letras.getStyle()==2) { //negrita y cursiva almacenan el 1 y 2l 2(ver API)
+				if(letras.getStyle()==1 || letras.getStyle()==2) { //negrita y cursiva almacenan el 1 y 2(ver API)
 					
 					estiloLetra=3; //la suma de negrita y cursiva da =3
 				}

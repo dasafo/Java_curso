@@ -119,7 +119,7 @@ class LaminaProcesador_II extends JPanel{
 		miarea2=new JTextPane(); //creamos el area de texto
 		add(miarea2, BorderLayout.CENTER);
 
-		//--------------Mirar ejercicio 49 para menus emergentes--------------------
+		//--------------Creamos Menú emergente (Mirar ejercicio 49 para menus emergentes)--------------------
 		JPopupMenu emergente=new JPopupMenu();
 		
 		JMenuItem negritaE=new JMenuItem("Negrita"); //la E es de emergente

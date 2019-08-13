@@ -58,6 +58,7 @@ class LaminaEmergente extends JPanel{
 
 		//--------------------------------------------------------
 		
+		//Construimos el menú emergente
 		JPopupMenu emergente=new JPopupMenu();
 		
 		JMenuItem opcion1=new JMenuItem("Opción 1");
