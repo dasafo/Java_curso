@@ -1,4 +1,4 @@
-#Mon Sep 10 19:05:50 CEST 2018
-__DEFAULT__=false
-org.eclipse.help.ui.localSearch.master=true
+#Mon Feb 17 18:36:58 CET 2020
 expression=jre
+org.eclipse.help.ui.localSearch.master=true
+__DEFAULT__=false

@@ -1,3 +1,32 @@
+/*
+ * + Las colecciones cambian de tamaño dinámicamente
+ * + Pueden ir provistas de odenamiento
+ * + Se pueden insertar y eliminar elementos
+ * + NO puede almacenar datos primitivos como si hace un Array,
+ * pero si puede almacenar objetos.
+ * + Las colecciones vienen determinadas por una serie de interfaces, 
+ * en cuya cúspide esta I_Collection de la cual descienden 3 interfaces:
+
+    1. I_Set: Permite almacenar una coleccion de elementos no repetidos y sin ordenar
+    1.1. I_SortedSet
+    
+    2. I_List: Pueden estar repetidos y estar indexados con valores numricos.
+        Permite acceso aleatorio a sus posiciones
+    
+    3. I_Queue: No permite acceso aleatorio. Solo permite acceder a elementos
+        que se encuentren al principio o al final.
+- Fuera de I_Collection se encuentra:
+    4. I_Map: Permite crear una coleccion de elementos repetibles indexados por
+        clave unica arbitraria (no solo numeros como en las List, tambien pueden
+        ser string)
+    4.1. I_SortedMap
+ ********************************************************************************   
+ *** Las Interfaces y sus clases asociadas al detalle estan en los archivos de 
+ *** pildorasinformaticas de JAva en la carpeta Colecciones/ColeccionesInfo
+ *********************************************************************************
+ */
+
+
 
 public class Cliente_79_I {
 	

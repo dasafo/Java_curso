@@ -8,7 +8,7 @@ public class Calculos_conMath_4_II {
 		
 		double exponente=3;
 		
-		int resultado=(int)Math.pow(base,  exponente); //Refundicion(castin)
+		int resultado=(int)Math.pow(base,  exponente); //Refundicion(casting)
 		
 		System.out.println("El resultado de " + base + " elevado a " + exponente + " es " + resultado);
 		

@@ -4,9 +4,11 @@ public class EntradaSalidaDatos_6_II {
 
 	public static void main(String[] args) {
 		
-		/*Al ser el método showInputDialog static, se pone el nombre de su clase delante
+		/*
+		Al ser el método showInputDialog static, se pone el nombre de su clase delante
 		Recordar tambien que el argumento elegido para este metodo es un Object(ver API) que lo ponemos como
-		String, que en este caso no es un tipo de dato, sino un objeto perteneciente a la clase String*/
+		String, que en este caso no es un tipo de dato, sino un objeto perteneciente a la clase String
+		*/
 		String nombre_usuario=JOptionPane.showInputDialog("Introduce tu nombre por favor: ");
 		
 		String edad=JOptionPane.showInputDialog("Introduce tu edad por favor: ");

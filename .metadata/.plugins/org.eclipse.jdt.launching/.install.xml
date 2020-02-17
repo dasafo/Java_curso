@@ -2,4 +2,5 @@
 <dirs>
     <entry loc="/usr/lib/jvm/java-8-oracle" stamp="1540206738000"/>
     <entry loc="/usr/lib/jvm/java-12-oracle" stamp="1563874620994"/>
+    <entry loc="/usr/lib/jvm/java-14-openjdk-amd64" stamp="1580903043127"/>
 </dirs>

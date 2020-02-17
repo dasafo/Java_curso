@@ -15,7 +15,7 @@ public class EntradaSalidaDatos_6_III {
 		
 		double num2=Double.parseDouble(num1); //convertimos en decimal el String de antes
 		
-		System.out.print("La raiz de " + num2 + " es ");
+		System.out.print("\n" + "La raiz de " + num2 + " es ");
 		
 		System.out.printf("%1.2f", Math.sqrt(num2));
 
