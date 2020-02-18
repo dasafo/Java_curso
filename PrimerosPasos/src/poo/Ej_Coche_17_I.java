@@ -1,9 +1,23 @@
+
+/*
+Modificadores de acceso
+(Clase=1, Variable=2, Metodo=3, Constructor=4, Misma Clase=5, Mismo paquete=6,
+Subclase(de otro paquete)=7, Todas las demás=8):
+
+-Public(+): se puede aplicar a 1,2,3 y 4. Es accesible desde 5,6,7 y 8.
+-Protected(#): Se puede aplicar a 2,3 y 4. Es accesible desde 5,6 y 7
+-default*(si no se pone nada): Se puede aplicar a 1,2,3 y 4. Es accesible desde 5 y 6
+-Private(-): Se puede aplicar a 2,3 y 4. Es accesible desde 5
+*/
+
+
+
 package poo;
 
-public class Coche_17_I {
+public class Ej_Coche_17_I {
 	
 	//Propiedades de la clase
-	//Con private encapsulamos esas variables, que solo pueden ser modificadas desde esta clase.
+	//Con private encapsulamos esas variables, solo pueden ser modificadas desde esta clase.
 	private int ruedas; 
 	private int ancho;
 	private int largo;
@@ -16,8 +30,16 @@ public class Coche_17_I {
 	private boolean asientos_cuero, climatizador;
 	
 	
-	//Creamos un metodo constructor(condiciones iniciales) y siempre tiene que tener el mismo nombre que la clase
-	public Coche_17_I() { 		
+	//Creamos un metodo constructor(condiciones iniciales):
+	
+	/*Los constructores son metodos que:
+    -solo se puede ejecutar en el momento de crear un objeto
+    -no es posible usarlos despues
+    -No devuelven ningun valor (no tiene return)
+    -El nombre del constructor debe ser igual al de la clase
+    -Un constructor puede ser vacio(sin argumentos) o con argmentos
+    */
+	public Ej_Coche_17_I() { 		
 		
 		ruedas=4;
 		largo=2000;
@@ -27,7 +49,12 @@ public class Coche_17_I {
 		
 	}
 	
-	//Creamos el metodo GETTER(para poder ver la info de esta clase desde otros clases)
+	/*
+    Por cada atributo de la clase encapsulado(private) se crea un metodo setter 
+    y un metodo getter para que podamos acceder a estos atributos desde fuera
+	- Creamos el metodo GETTER(para poder ver la info de esta clase desde 
+	otros clases).
+	*/
 	public String dime_datos_generales(){
 		 return "La plataforma tiene " + ruedas + " ruedas" + ". Mide " + largo/1000 + 
 		 " metros, con un ancho de " + ancho + 
@@ -37,7 +64,7 @@ public class Coche_17_I {
 	
 	
 	
-	//Creamos un SETTER, NO devuelve dato, modifica dato de una propiedad (void)
+	//- Creamos un SETTER, NO devuelve dato, modifica dato de una propiedad (void)
 	public void establece_color(String color_coche) {
 		
 		color=color_coche;

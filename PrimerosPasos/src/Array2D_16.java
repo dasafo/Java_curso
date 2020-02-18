@@ -1,5 +1,5 @@
 
-public class Ejemplo_Array2D_16 {
+public class Array2D_16 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

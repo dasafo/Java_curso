@@ -4,7 +4,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
-public class TtrabajandoFuentes_29_I {
+public class TrabajandoFuentes_29_I {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

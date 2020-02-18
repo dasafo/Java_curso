@@ -14,7 +14,9 @@ public class CreandoMarcos_24 {
 		marco1.setVisible(true);	//hacemos la ventana visible
 		
 		/*Ahora le decimos que cuando se cierre la ventana el programa se para.
-		 * setDefaultCloseOperation devuelve un int que es justo también lo que es EXIT_ON_CLOSE*/
+		 * setDefaultCloseOperation devuelve un int que es justo también 
+		 * lo que es EXIT_ON_CLOSE
+		*/
 		marco1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		
 	}

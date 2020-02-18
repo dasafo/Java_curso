@@ -30,7 +30,7 @@ class MarcoConTexto extends JFrame{
 		
 		Lamina milamina=new Lamina();	//instanciamos
 		
-		add(milamina);
+		add(milamina); //añadimos una lamina al frame para poder añadir cosas
 		
 	}
 	

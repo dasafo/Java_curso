@@ -1,7 +1,7 @@
 package poo;
 import java.util.*;
 
-public class Uso_Empleado_19_I {
+public class Uso_Empleado_19_I{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -38,10 +38,10 @@ public class Uso_Empleado_19_I {
 		misEmpleados[4]=jefe_RRHH;  //Polimorfismo en acción(objeto de la subclase(jefatura) cuando espera una de la superclase(Empleado)
 		misEmpleados[5]=new Jefatura("Maria", 95000,1995, 03, 26);
 
-		Jefatura jefa_finanzas=(Jefatura) misEmpleados[5]; //REfundición o Castin(visto al principio del curso, para transdormar un objeto de un tipo en otro)
+		Jefatura jefa_finanzas=(Jefatura) misEmpleados[5]; //REfundición o Casting. Pasamos misEmpleados[5] del objeto Empleado a JEfatura
 		
 		
-		jefa_finanzas.estableceIncentivo(55000);
+		jefa_finanzas.estableceIncentivo(55000); //ahora le podemos aplicar estableceIncentivo() al pertenecer a Jefatura
 		
 		System.out.println("El jefe " + jefa_finanzas.dameNombre() + " tiene un bonus de " + jefa_finanzas.establece_bonus(500));
 		
@@ -125,7 +125,7 @@ class Empleado implements Comparable, Trabajadores_19_II {
 	
 	public double establece_bonus(double gratificacion) { 
 		
-		return Trabajadores_19_II.bonus_base + gratificacion;
+		return Trabajadores_19_II.BONUS_BASE + gratificacion;
 	}
 	
 	
@@ -189,10 +189,13 @@ class Empleado implements Comparable, Trabajadores_19_II {
 }
 
 
-/*Herencia de Empleado(padre) y si ponemos 'final class', cortamos aqui la herencia, no se podrán heredar más hacia abajo
-  Y ponemos la interface Jefes_19_III conectada a Jefatura, por lo que estamos obligados a 
-  incluir todos los metdos de esa interfaz (y de la interfaz TRabajadores, ya que también hay herencia de una
-  sobre otra) dentro de Jefatura */
+/*
+ * - Herencia de Empleado(padre) y si ponemos 'final class', cortamos aqui la herencia, 
+ * no se podrán heredar más hacia abajo.
+ * - Ponemos la interface Jefes_19_III conectada a Jefatura, por lo que estamos obligados a 
+ * incluir todos los metdos de esa interfaz (y de la interface TRabajadores_19_II, ya que 
+ * también hay herencia de una sobre otra) dentro de Jefatura 
+  */
 class Jefatura extends Empleado implements Jefes_19_III {		
 	
 	public Jefatura(String nom, double sue, int agno, int mes, int dia) { //Constructor
@@ -212,7 +215,7 @@ class Jefatura extends Empleado implements Jefes_19_III {
 															//el triangulo verde indica que este metodo machaca al creado antes en la clase Empleado
 		double prima=2000;
 		
-		return Trabajadores_19_II.bonus_base + gratificacion + prima;
+		return Trabajadores_19_II.BONUS_BASE + gratificacion + prima;
 		
 	}
 	
@@ -222,7 +225,7 @@ class Jefatura extends Empleado implements Jefes_19_III {
 		
 	}
 	
-	public double dameSueldo(){		//GETTER (el triangulo verde dice que este machaca al mismo método que hemos puesto en el padre
+	public double dameSueldo(){		//GETTER (el triangulo verde dice que este machaca/sobreescribe al mismo método que hemos puesto en el padre
 		
 		double sueldoJefe=super.dameSueldo(); //Con super le decimos que llame al método del padre(que habíamos machacado pero que necesitamos para establecer el sueldo base).
 		

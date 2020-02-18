@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class PesoIdeal_11 {
+public class Bucle_Do_While_11 {
 
 	public static void main(String[] args) {
 		

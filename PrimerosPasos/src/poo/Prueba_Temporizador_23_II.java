@@ -48,9 +48,13 @@ class Reloj{
 	private boolean sonido;
 	
 	
-	private class DameLaHora2 implements ActionListener{	//creamos una clase interna(una clase dentro de otra), estas pueden ser private, el resto de clases no.
-	
-		public void actionPerformed( ActionEvent evento) {
+	/*
+	Ahora creamos una clase interna(una clase dentro de otra), estas pueden ser 
+	private, el resto de clases no, porque sino no podemos acceder a la superclase Reloj
+	*/
+	private class DameLaHora2 implements ActionListener{	
+		
+		public void actionPerformed( ActionEvent evento) { //metodo de la interface ActionListener
 			
 			Date ahora=new Date(); //almacenamos la hora actual en un objeto
 			

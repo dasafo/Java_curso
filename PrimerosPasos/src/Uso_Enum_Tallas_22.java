@@ -1,9 +1,17 @@
+/*
+- Las enumeraciones en Java(enum) son un tipo especial de clase que nos permite 
+asociar una serie de valores de tipo 'final'(constantes)
+- Se usa enum en vez de class
+- Es una forma para crear una variable que solo contenga un determinado tipo de valores
+*/
+
+
 import java.util.*;
 
 public class Uso_Enum_Tallas_22 {
 	
 	/*Con enum nos aseguramos que una variable(Tallas) solo puede almacenar
-	 * un feterminado tipo de strings(S,M,L,XL)*/
+	 * un determinado tipo de strings(S,M,L,XL)*/
 	
 	
 	//enum Talla {MINI, MEDIANO, GRANDE, MUY_GRANDE};  //Tipos numerados

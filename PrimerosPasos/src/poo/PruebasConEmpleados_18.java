@@ -56,13 +56,26 @@ class Empleados{
 	}
 	
 	
-	private final String nombre;		//Con 'final' nos aseguramos que la variable nombre asignada no cambia(ahora sería una constante)
+	private final String nombre; //Con 'final' nos aseguramos que la variable nombre asignada no cambia(ahora sería una constante)
 	private String seccion;
 	
 	private int ID;		
-	/*Con static le decimos que esa variable es de la clase, y no de cada "trabajador"
+	/*
+	Con static le decimos que esa variable es de la clase, y no de cada "trabajador"
 	sin static cada objeto/trabajador almacena su propia "lista" con nombre y seccion
-	Con static le decimos que esta variable es compartida por todos los trabjadores(pertenece a la clase no a los objetos)*/
+	Con static le decimos que esta variable es compartida por todos los trabjadores
+	(pertenece a la clase no a los objetos)
+	
+    - Cada vez que instanciamos un objeto de una clase, se crea un copia de cada
+    variable declarada en clase en cada uno de esos objetos. 
+    - Si queremos que una de esas variables(o metodos o constantes) solo tenga una 
+    copia que sea compartida para cada objeto instanciado, añadiremos la palabra
+    STATIC delante de esa variable cuando la definamos.
+    - De esta forma dichos objetos tendran una copia diferente para
+    variable. Pero compartiran la variable(o metodo o constante) 
+    static, que solo pertenecera a la clase donde se declara, no a
+    cualquier objeto.
+	*/
 	private static int IDsiguiente=1;
 	
 }

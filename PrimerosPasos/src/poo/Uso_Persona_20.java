@@ -22,6 +22,15 @@ public class Uso_Persona_20 {
 
 }
 
+/*
+- Un metodo abstacto es un metodo que se usará en los hijos, pero cada
+hijo le dará un uso diferente, por eso se declara vacio en el padre.
+- Si tenemos un solo metodo abstracto, la clase padre debe ser abstracta también.
+- Un metodo abstracto en una clase padre no tienen contenido,
+dicho contenido se les da en las clases hijas.
+- Una clase abstracta no se puede instanciar
+*/
+
 
 abstract class Persona{		//Abstract porque será la clase de cuya clase irán las diferentes ramas de la herencia(subclases) que no están conectadas entre ellas.
 
@@ -36,6 +45,7 @@ abstract class Persona{		//Abstract porque será la clase de cuya clase irán la
 	}
 	
 	public abstract String dameDescripcion(); //ENcapsulamiento. Simpre que el objeto sea abstract la clase también debe ser abstract
+	
 	private String nombre; 
 	
 }
