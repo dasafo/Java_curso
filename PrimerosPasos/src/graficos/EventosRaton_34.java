@@ -1,4 +1,4 @@
-/***********************************************************************************
+/************************************************************************************************
  * 
  * 1.- Objeto evento(click ratón, tecla,...)
  * 		-C_EventObject--> C_ActionEvent(para acciones del raton) 
@@ -18,9 +18,16 @@
  *					 I_MouseListener-->Tiene 5 metodos(ver API) pero también podemos
  *									   usar la clase adaptadora MouseAdapter
  *					 I_MouseMotionListener-->M_mouseDragged(..) y M_mouseMoved(..)
+ *					 I_FocusListener--> M_focusGained(..) y M_focusLost(..)
+ *										Con clase adaptadora FocusAdapter
+ *					 I_WindowsFocusListener--> M_windowGainedFocus(..) y M_windowLostFocus(..)
+ *											   Con clase adaptadora WindowAdapter
+ *					 I_Action --> Tiene 6 métodos(ver API) + otro importado de ActionListener
+ *								  (actioPe  rformed). Tiene una clase ABSTRACTA que hace la función
+ *								  de adaptadora que es C_AbstractAction
  *
  * I=Interface, M=Metodo, C=Clase
- ************************************************************************************/
+ **************************************************************************************************/
 
 
 
@@ -51,12 +58,11 @@ class MarcoRaton extends JFrame{
 		setVisible(true);
 		setBounds(700 ,300, 600, 450);
 		
-		EventosDeRaton EventoRaton=new EventosDeRaton();
-		
-		//addMouseListener(EventoRaton);
-		
-		addMouseMotionListener(EventoRaton);
-	
+		//EventosDeRaton EventoRaton=new EventosDeRaton();
+		//addMouseListener(EventoRaton); //o tambien se puede poner como...
+		//addMouseMotionListener(EventoRaton);
+		addMouseMotionListener(new EventosDeRaton()); //esta última linea dice lo mismo que las 2 superiores
+
 	}
 }
 

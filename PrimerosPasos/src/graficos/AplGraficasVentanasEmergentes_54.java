@@ -1,3 +1,19 @@
+/************************************************************************************************
+ * **************************  Tipos de ventanas emergentes  ************************************
+ * 
+ *	1- Cuadros de dialogos (info,avisos,..)
+ *		- C_JOptionPane --> M_showInputDialog (Muestra ventana para introducir info)
+ *							M_showMessageDialog (muestra ventana con info)
+ *							M_showConfirmDialog (botones de confirmacion)
+ *							M_showOptionDialog (suma de los anteriores metodos)
+ *	2- Seleccion de ficheros
+ *		- C_JFileChooser
+ *	3- Selector de color (paleta de colores)
+ *		- C_JColorChooser
+ *
+ * I=Interface, M=Metodo, C=Clase
+ **************************************************************************************************/
+
 package graficos;
 
 import javax.swing.*;

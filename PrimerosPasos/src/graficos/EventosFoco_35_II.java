@@ -1,4 +1,4 @@
-/***********************************************************************************
+/************************************************************************************************
  * 
  * 1.- Objeto evento(click ratón, tecla,...)
  * 		-C_EventObject--> C_ActionEvent(para acciones del raton) 
@@ -22,9 +22,12 @@
  *										Con clase adaptadora FocusAdapter
  *					 I_WindowsFocusListener--> M_windowGainedFocus(..) y M_windowLostFocus(..)
  *											   Con clase adaptadora WindowAdapter
+ *					 I_Action --> Tiene 6 métodos(ver API) + otro importado de ActionListener
+ *								  (actioPe  rformed). Tiene una clase ABSTRACTA que hace la función
+ *								  de adaptadora que es C_AbstractAction
  *
  * I=Interface, M=Metodo, C=Clase
- ************************************************************************************/
+ **************************************************************************************************/
 
 
 

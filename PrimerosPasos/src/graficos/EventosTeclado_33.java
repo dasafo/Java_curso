@@ -1,4 +1,4 @@
-/***********************************************************************************
+/************************************************************************************************
  * 
  * 1.- Objeto evento(click ratón, tecla,...)
  * 		-C_EventObject--> C_ActionEvent(para acciones del raton) 
@@ -15,10 +15,19 @@
  *   				 I_WindowStateListener--> M_windowStateChanged(WindowEvent e)
  *					 I_KeyListener--> M_keyPressed(..),M_keyRelased(..) y M_keyTyped(..)
  *									  Tabmién tiene su clase adaptadora KeyAdapter
+ *					 I_MouseListener-->Tiene 5 metodos(ver API) pero también podemos
+ *									   usar la clase adaptadora MouseAdapter
+ *					 I_MouseMotionListener-->M_mouseDragged(..) y M_mouseMoved(..)
+ *					 I_FocusListener--> M_focusGained(..) y M_focusLost(..)
+ *										Con clase adaptadora FocusAdapter
+ *					 I_WindowsFocusListener--> M_windowGainedFocus(..) y M_windowLostFocus(..)
+ *											   Con clase adaptadora WindowAdapter
+ *					 I_Action --> Tiene 6 métodos(ver API) + otro importado de ActionListener
+ *								  (actioPe  rformed). Tiene una clase ABSTRACTA que hace la función
+ *								  de adaptadora que es C_AbstractAction
  *
  * I=Interface, M=Metodo, C=Clase
- ************************************************************************************/
-
+ **************************************************************************************************/
 
 
 package graficos;
@@ -49,9 +58,10 @@ class MarcoConTeclas extends JFrame{
 		setVisible(true);
 		setBounds(700, 300, 600, 450);
 		
-		EventoDeTeclado tecla=new EventoDeTeclado(); //instanciamos un objeto de la clase que esta a la escucha
-		addKeyListener(tecla); //lo ponemos a la escucha
-		
+		//EventoDeTeclado tecla=new EventoDeTeclado(); //instanciamos un objeto de la clase que esta a la escucha
+		//addKeyListener(tecla); //lo ponemos a la escucha
+		addKeyListener(new EventoDeTeclado()); //esta última linea dice lo mismo que las 2 superiores
+
 	}
 }
 
