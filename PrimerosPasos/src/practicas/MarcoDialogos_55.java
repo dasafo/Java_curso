@@ -13,14 +13,18 @@ public class MarcoDialogos_55 extends JFrame {
 		setTitle("Prueba diálogos");
 		setBounds(500,300,600,450);
 		
+		//Creamos una lamina GridLayout en la parte superior
 		JPanel laminaCuadricula=new JPanel();
-		
 		laminaCuadricula.setLayout(new GridLayout(2,3));
 		
-		String primero[]= {"Mensaje", "Confirmar", "Opción", "Entrada"}; //creamos un array para la primera caja(cuya plantilla está en LaminaBotones_55)
+		
+		//creamos un array para los titulos del PRIMER BoxLayout(cuya plantilla está en LaminaBotones_55)
+		String primero[]= {"Mensaje", "Confirmar", "Opción", "Entrada"}; 
 		laminaTipo=new LaminaBotones_55("Tipo",primero); //hacemos uso de esa plantilla de LaminaBotones_55
 		
-		laminaTipoMensajes=new LaminaBotones_55("Tipo de Mensaje", new String[] { //hace lo mismo que en laminaTipo pero mas simplificado
+		//Creamos otro array para el SEGUNDO BoxLayout pero de otra forma mas simplificada
+		//(hace los mismo que arriba)
+		laminaTipoMensajes=new LaminaBotones_55("Tipo de Mensaje", new String[] { 
 				
 				"ERROR_MESSAGE",
 				"INFORMATION_MESSAGE",
@@ -29,6 +33,7 @@ public class MarcoDialogos_55 extends JFrame {
 				"PLAIN_MESSAGE"
 		});
 		
+		//Creamos otro array para el TERCER BoxLayout
 		laminaMensaje=new LaminaBotones_55("Mensaje", new String[] { //hace lo mismo que en laminaTipo pero mas simplificado
 				
 				"Cadena",
@@ -38,6 +43,7 @@ public class MarcoDialogos_55 extends JFrame {
 				"Objects[ ]"
 		});
 		
+		//Creamos otro array para el CUARTO BoxLayout
 		laminaTipoOpcion=new LaminaBotones_55("Mensaje", new String[] { //hace lo mismo que en laminaTipo pero mas simplificado
 				
 				"DEFAULT_OPTION",
@@ -46,6 +52,7 @@ public class MarcoDialogos_55 extends JFrame {
 				"OK_CANCEL_OPTION"
 		});
 
+		//Creamos otro array para el QUINTO BoxLayout
 		laminaOpciones=new LaminaBotones_55("Mensaje", new String[] { //hace lo mismo que en laminaTipo pero mas simplificado
 		
 				"String[ ]",
@@ -53,16 +60,17 @@ public class MarcoDialogos_55 extends JFrame {
 				"Objects[ ]"
 		});
 
+		//Creamos otro array para el SEXTO BoxLayout
 		laminaEntrada=new LaminaBotones_55("Entrada", new String[] { //hace lo mismo que en laminaTipo pero mas simplificado
 		
 				"Campo de texto",
 				"Combo"
 		});
 		
-		setLayout(new BorderLayout());
+		setLayout(new BorderLayout()); //Ponemos un BorderLayout dentro del marco
 		
 		
-		laminaCuadricula.add(laminaTipo);
+		laminaCuadricula.add(laminaTipo); //añadimos al GridLayout laminaTipo
 		laminaCuadricula.add(laminaTipoMensajes);
 		laminaCuadricula.add(laminaMensaje);
 		laminaCuadricula.add(laminaTipoOpcion);
@@ -70,20 +78,20 @@ public class MarcoDialogos_55 extends JFrame {
 		laminaCuadricula.add(laminaEntrada);
 
 		//---Contruimos la lamina inferior---
-		JPanel laminaMostrar=new JPanel(); 
+		JPanel laminaMostrar=new JPanel(); //Creamos la lamina donde ira el boton Mostrar
 		
-		JButton botonMostrar=new JButton("Mostrar");
+		JButton botonMostrar=new JButton("Mostrar"); //Creamos el boton Mostrar
 		
-		botonMostrar.addActionListener(new AccionMostrar());
+		botonMostrar.addActionListener(new AccionMostrar()); //Dejamos el boton a la escucha de la clase AccionMostrar()
 		
-		laminaMostrar.add(botonMostrar);
+		laminaMostrar.add(botonMostrar); //añadimos el boton a la lamina
 		
-		add(laminaMostrar, BorderLayout.SOUTH);
+		add(laminaMostrar, BorderLayout.SOUTH); //ponemos la lamina al Sur del BorderLayout global
 		
 		//------------------------------------
 		
-		
-		add(laminaCuadricula, BorderLayout.CENTER);
+		//ponemos el gridLayout en el centro de un BorderLayout
+		add(laminaCuadricula, BorderLayout.CENTER); 
 		
 	}
 	
@@ -92,7 +100,7 @@ public class MarcoDialogos_55 extends JFrame {
 	
 	public Object dameMensaje() {
 		
-		String s=laminaMensaje.dameSeleccion();
+		String s=laminaMensaje.dameSeleccion(); //alamcenamos la opcion seleccionada
 		
 		if(s.equals("Cadena")) {
 			
@@ -127,7 +135,7 @@ public class MarcoDialogos_55 extends JFrame {
 				
 	}
 	
-	//---------------DEVUELVE TIPO ICONO y numero de botones en Confirmar---------------------
+	//---------------DEVUELVE TIPO MENSAJES y numero de botones en CONFIRMAR---------------------
 	
 	public int dameTipo(LaminaBotones_55 lamina) {
 		
@@ -193,7 +201,7 @@ public class MarcoDialogos_55 extends JFrame {
 	
 	
 	
-	//----------------------------------------------------------------------
+	//-----------------Clase interna que gestiona los eventos------------------------
 	
 	private class AccionMostrar implements ActionListener{
 
@@ -203,9 +211,13 @@ public class MarcoDialogos_55 extends JFrame {
 			
 			//System.out.println(laminaTipo.dameSeleccion());
 			
+			/*
+			 Queremos que nos muestre un el tipo JOptionPane seleccionado de los 4 que 
+			 hay(showMessageDialog, showInputDialog,showConfirmDialog,showOptionDialog)
+			*/
 			if(laminaTipo.dameSeleccion().equals("Mensaje")) {
 				
-				JOptionPane.showMessageDialog(MarcoDialogos_55.this, dameMensaje(), "Título", dameTipo(laminaTipoMensajes));
+				JOptionPane.showMessageDialog(MarcoDialogos_55.this, dameMensaje(), "Título", dameTipo(laminaTipoMensajes)); //This para indicar el marco padre
 				
 			}else if(laminaTipo.dameSeleccion().equals("Confirmar")) {
 				
@@ -250,7 +262,7 @@ public class MarcoDialogos_55 extends JFrame {
 	
 }
 
-
+//Creamos una clase para que dibuje una lamina coloreada en amarillo
 class LaminaEjemplo extends JPanel{
 	
 	public void paintComponent(Graphics g) {
@@ -259,7 +271,8 @@ class LaminaEjemplo extends JPanel{
 		
 		Graphics2D g2=(Graphics2D) g; //castin
 		
-		Rectangle2D rectangulo=new Rectangle2D.Double(0,0, getWidth(), getHeight());
+		//para que tenga las mismas dimensiones que la lamina (getWidth(), getHeight
+		Rectangle2D rectangulo=new Rectangle2D.Double(0,0, getWidth(), getHeight()); 
 		
 		g2.setPaint(Color.YELLOW);
 		

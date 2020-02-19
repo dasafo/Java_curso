@@ -1,6 +1,26 @@
+/*
+	Con static le decimos que esa variable es de la clase, y no de cada "trabajador"
+	sin static cada objeto/trabajador almacena su propia "lista" con nombre y seccion
+	Con static le decimos que esta variable es compartida por todos los trabjadores
+	(pertenece a la clase no a los objetos)
+	
+    - Cada vez que instanciamos un objeto de una clase, se crea un copia de cada
+    variable declarada en clase en cada uno de esos objetos. 
+    - Si queremos que una de esas variables(o metodos o constantes) solo tenga una 
+    copia que sea compartida para cada objeto instanciado, añadiremos la palabra
+    STATIC delante de esa variable cuando la definamos.
+    - De esta forma dichos objetos tendran una copia diferente para
+    variable. Pero compartiran la variable(o metodo o constante) 
+    static, que solo pertenecera a la clase donde se declara, no a
+    cualquier objeto.
+    - Para acceder a una variable o metodo static, debemos poner la clase a la que 
+    pertenecen delante (Ej. Empleado.nombremetodo() o Empleado.nombrevariable)
+	*/
+
+
 package poo;
 
-public class PruebasConEmpleados_18 {
+public class Static_ConEmpleados_18 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -17,7 +37,8 @@ public class PruebasConEmpleados_18 {
 				trabajador2.devuelveDatos()+ "\n" + trabajador3.devuelveDatos() + 
 				"\n" + trabajador4.devuelveDatos());
 		
-		//Ponemos Empleados porque el metodo dameIDsiguiente() es static y hay que poner el nombre de la clase
+		// Ponemos Empleados porque el metodo dameIDsiguiente() es static y 
+		// hay que poner el nombre de la clase Empleados delante del metodo
 		System.out.println(Empleados.dameIDsiguiente()); 
 
 	}
@@ -60,22 +81,7 @@ class Empleados{
 	private String seccion;
 	
 	private int ID;		
-	/*
-	Con static le decimos que esa variable es de la clase, y no de cada "trabajador"
-	sin static cada objeto/trabajador almacena su propia "lista" con nombre y seccion
-	Con static le decimos que esta variable es compartida por todos los trabjadores
-	(pertenece a la clase no a los objetos)
 	
-    - Cada vez que instanciamos un objeto de una clase, se crea un copia de cada
-    variable declarada en clase en cada uno de esos objetos. 
-    - Si queremos que una de esas variables(o metodos o constantes) solo tenga una 
-    copia que sea compartida para cada objeto instanciado, añadiremos la palabra
-    STATIC delante de esa variable cuando la definamos.
-    - De esta forma dichos objetos tendran una copia diferente para
-    variable. Pero compartiran la variable(o metodo o constante) 
-    static, que solo pertenecera a la clase donde se declara, no a
-    cualquier objeto.
-	*/
 	private static int IDsiguiente=1;
 	
 }

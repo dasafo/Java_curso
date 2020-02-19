@@ -9,9 +9,9 @@ public class AplicacionDialogos_55 {
 
 		MarcoDialogos_55 mimarco=new MarcoDialogos_55();
 		
-		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//para que se cierre cuando lo cerremos
 		
-		mimarco.setVisible(true);
+		mimarco.setVisible(true); //hacemos visible mimarco
 		
 		
 	}

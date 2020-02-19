@@ -1,3 +1,20 @@
+/***********************************Jerarquía de errores*************************************
+ * 
+ * Error:
+ * 	-En tiempo de compilación: Errores de sintaxis del programador (falta ;, falta llave,...)
+ * 	-En tiempo de ejecución:
+ * 		-> C_Throwable (es la (super)clase que maneja los errores en Java)
+ *			--> C_Error (errores de HArdware (poco espacio en en el PC,...))
+ *			--> C_Exception:
+ *				---> C_IOException: 
+ *								Excepciones comprobadas, no son culpa del programador
+ *								(Alguien ha movido una imagen de una carpeta,...)
+ *				---> C_RuntimeException 
+ *								Excepciones NO comprobadas, culpa del programador
+ * 								(Tamaño del array erróneo,...)
+ * C=Clase
+ *******************************************************************************************/
+
 package execepciones_I;
 
 import javax.swing.*;

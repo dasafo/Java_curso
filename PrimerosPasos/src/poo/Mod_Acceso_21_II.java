@@ -11,7 +11,7 @@ Subclase(de otro paquete)=7, Todas las demás=8):
 
 package poo;
 
-import paquetepruebas.Clase_21_III;		//Importamos paquete de pruebas para poder utilizarlo en poo
+import paquetepruebas.Mod_Acceso_21_III;		//Importamos paquete de pruebas para poder utilizarlo en poo
 
 public class Mod_Acceso_21_II {
 
