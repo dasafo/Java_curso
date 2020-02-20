@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="conditionHistory">
-		<item value="1" key="conditionHistoryEntryCount"/>
-		<item value="i==5" key="conditionHistoryEntry_0"/>
+		<item key="conditionHistoryEntryCount" value="1"/>
+		<item key="conditionHistoryEntry_0" value="i==5"/>
+	</section>
+	<section name="expressionHistory">
 	</section>
 </section>

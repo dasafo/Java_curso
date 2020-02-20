@@ -1,3 +1,17 @@
+/*************************************ArrayList******************************************
+ * 
+ * - Son listas dinamicas compuestas por Objetos.
+ * 
+ * - C_ ArrayList
+ * 		->M_ iterator()
+ * 			|
+ * 			--> I_Iterator
+ * 				---> M_hasNext() : Nos dice s hay mas elementos o no en el <ArrayList>
+ *  		    ---> M_next() : Devuelve el siguiente elemento de la iteracion
+ * 				---> M_remove() : Elimina el elemento que estemos mirando
+ * 
+ ****************************************************************************************/
+
 package arraylist;
 
 import java.util.*;
@@ -42,6 +56,10 @@ public class UsoEmpleado_70 {
 		// System.out.println(listaEmpleados.size());
 		
 		
+		
+		
+		//1- Recorremos el ArrayList
+
 		/*for(Empleado e: listaEmpleados) { //lo hacemos con un for each (por cambiar)
 			
 			System.out.println(e.dameDatos());
@@ -55,7 +73,8 @@ public class UsoEmpleado_70 {
 		}*/
 		
 		
-		//-----También se puede hacer los mismo con Iteradores-----------------
+		//2- También se puede hacer los mismo de arrriba pero con Iteradores
+		
 		Iterator <Empleado> miIterador=listaEmpleados.iterator();
 		
 		while(miIterador.hasNext()) {

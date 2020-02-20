@@ -38,7 +38,7 @@ public class MetodosGenericos_74_III {
 
 class misMatrices2 {
 	
-	
+	//implmentamos la interfaz Comparable para poder usar compareTo()
 	public static <T extends Comparable> T getMenor(T[]a) { //como no sabemos que tipo de Array=a recibirá lo dejamos genérico (T)
 		
 		if(a==null || a.length==0)	{
