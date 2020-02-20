@@ -1,3 +1,35 @@
+/*****************************************************************************
+ * - Los hilos o threads se usan para crear un programa que pueda realizar
+ * varias tareas simultaneamente(multitask). Hasta ahora todos nuestros
+ * programas era monotarea.
+ * 
+ * - Pasos a seguir:
+ * 
+ * 	1) Crear una clase que implemente la I_Runnable --> M_run()
+ * 
+ * 	2) Escribir el codigo de la tarea dentro del M_run()
+ * 	
+ * 	3) Instanciar la clase creada y almacenar la instancia
+ * 		en una variable tipo Runnable	
+ * 	
+ * 	4) Crear instancia de la C_Thread pasando como parametro
+ * 		al constructor de Thread el objeto Runnable anterior
+ * 	
+ * 	5) Poner en marcha el hilo de ejecución con el M_start() de C_Thread
+ * 
+ *****************************************************************************/
+/*
+ * 	Ejercicio:
+ *  - Se crea un banco que abre 100 cuentas con un saldo inicial de 2000€
+ *    (200.000€ Totales).
+ *  - Se pueden realizar transferencias internas entre las cuentas. Cada 
+ *    transferencia se realiza con un Thread/Hilo.
+ *  - El saldo total siempre debería ser el mismo (200.000€). Pero sino 
+ *    sincronizamos los Thread veremos que al ir realizando transferencias
+ *    entre las cuentas, esta cantidad no es fija. Por lo cual deberemos
+ *    sincronizar dichos hilos.  
+ */
+
 package usoThreads;
 
 import java.util.concurrent.locks.*;
@@ -30,7 +62,7 @@ class Banco{
 	
 	public Banco() {
 		
-		cuentas=new double[100]; //creamos 100 cuentas en el banco
+		cuentas=new double[100]; //creamos 100 cuentas del banco
 		
 		for(int i=0;i<cuentas.length;i++) { //añadimos 2000 euros de entrada para cada cuenta
 			
@@ -42,7 +74,7 @@ class Banco{
 		
 	}
 	
-	public void transferencia(int cuentaOrigen, int cuentaDestino, double cantidad) throws InterruptedException { //'throws InterruptedException' es debido a await que nos obliga a lanzar una excepcion y lo podemos metar aqui en vez de usar otroa try catch
+	public void transferencia(int cuentaOrigen, int cuentaDestino, double cantidad) throws InterruptedException { //'throws InterruptedException' es debido a await que nos obliga a lanzar una excepcion y lo podemos metar aqui en vez de usar otro try catch
 		
 		cierreBanco.lock(); //lock(semaforo rojo) para bloquear esta parte de código(hasta unlock) para que solo pueda ser leido por un solo hilo(así evitamos superposiciones de hilos en esta parte)
 		

@@ -1,5 +1,45 @@
-/*----lo mismo que el I pero usando synchronized(Hereda directamente de Object y no nos permite mas de una condicion) para sincronizar los hilos del codigo que bloqueamos y mantenemos a la espera
-dentro de la clase TRansferencias(await, lock, unlock.....estos si que nos permitirian mas de una condicion)*/
+
+/*****************************************************************************
+ * - Los hilos o threads se usan para crear un programa que pueda realizar
+ * varias tareas simultaneamente(multitask). Hasta ahora todos nuestros
+ * programas era monotarea.
+ * 
+ * - Pasos a seguir:
+ * 
+ * 	1) Crear una clase que implemente la I_Runnable --> M_run()
+ * 
+ * 	2) Escribir el codigo de la tarea dentro del M_run()
+ * 	
+ * 	3) Instanciar la clase creada y almacenar la instancia
+ * 		en una variable tipo Runnable	
+ * 	
+ * 	4) Crear instancia de la C_Thread pasando como parametro
+ * 		al constructor de Thread el objeto Runnable anterior
+ * 	
+ * 	5) Poner en marcha el hilo de ejecución con el M_start() de C_Thread
+ * 
+ *****************************************************************************/
+/*
+ * 	Ejercicio:
+ *  - Se crea un banco que abre 100 cuentas con un saldo inicial de 2000€
+ *    (200.000€ Totales).
+ *  - Se pueden realizar transferencias internas entre las cuentas. Cada 
+ *    transferencia se realiza con un Thread/Hilo.
+ *  - El saldo total siempre debería ser el mismo (200.000€). Pero sino 
+ *    sincronizamos los Thread veremos que al ir realizando transferencias
+ *    entre las cuentas, esta cantidad no es fija. Por lo cual deberemos
+ *    sincronizar dichos hilos.  
+ */
+
+
+
+/*
+ * Lo mismo que el I pero usando synchronized(Hereda directamente de Object y 
+ * no nos permite mas de una condicion) para sincronizar los hilos del codigo 
+ * que bloqueamos y mantenemos a la espera dentro de la 
+ * clase TRansferencias(await, lock, unlock.....estos si que nos permitirian 
+ * mas de una condicion)
+ * */
 
 
 package usoThreads;
