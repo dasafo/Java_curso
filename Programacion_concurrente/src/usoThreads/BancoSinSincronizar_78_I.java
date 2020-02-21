@@ -23,11 +23,11 @@
  *  - Se crea un banco que abre 100 cuentas con un saldo inicial de 2000€
  *    (200.000€ Totales).
  *  - Se pueden realizar transferencias internas entre las cuentas. Cada 
- *    transferencia se realiza con un Thread/Hilo.
+ *    transferencia se realiza usando un Thread/Hilo.
  *  - El saldo total siempre debería ser el mismo (200.000€). Pero sino 
  *    sincronizamos los Thread veremos que al ir realizando transferencias
  *    entre las cuentas, esta cantidad no es fija. Por lo cual deberemos
- *    sincronizar dichos hilos.  
+ *    sincronizar dichos hilos, con la ayuda de M_ReebtrabtLock de I_Lock  
  */
 
 package usoThreads;
@@ -117,7 +117,7 @@ class Banco{
 		}
 	
 	
-	public double getSaldoTotal() {
+	public double getSaldoTotal() { //nos devolvera el saldo total (200.000)
 		
 		double sumaCuentas=0;
 		
@@ -162,7 +162,7 @@ class EjecucionTransferencias implements Runnable{
 			
 			int paraLaCuenta=(int)(100*Math.random()); //para la cuenta destino numero....
 			
-			double cantidad=cantidadMax*Math.random();
+			double cantidad=cantidadMax*Math.random(); //cantidad de la transferencia(menor que la maxima que hay en la cuenta)
 			
 			banco.transferencia(deLaCuenta, paraLaCuenta, cantidad);
 			

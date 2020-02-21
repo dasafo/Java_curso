@@ -24,17 +24,16 @@
  *  - Se crea un banco que abre 100 cuentas con un saldo inicial de 2000€
  *    (200.000€ Totales).
  *  - Se pueden realizar transferencias internas entre las cuentas. Cada 
- *    transferencia se realiza con un Thread/Hilo.
+ *    transferencia se realiza usando un Thread/Hilo.
  *  - El saldo total siempre debería ser el mismo (200.000€). Pero sino 
  *    sincronizamos los Thread veremos que al ir realizando transferencias
  *    entre las cuentas, esta cantidad no es fija. Por lo cual deberemos
- *    sincronizar dichos hilos.  
+ *    sincronizar dichos hilos, con la ayuda de M_ReebtrabtLock de I_Lock  
  */
 
 
-
 /*
- * Lo mismo que el I pero usando synchronized(Hereda directamente de Object y 
+ * Lo mismo que el 78_I pero usando synchronized(Hereda directamente de Object y 
  * no nos permite mas de una condicion) para sincronizar los hilos del codigo 
  * que bloqueamos y mantenemos a la espera dentro de la 
  * clase TRansferencias(await, lock, unlock.....estos si que nos permitirian 
