@@ -1,3 +1,20 @@
+/******************************************************************************
+ * - Un Socket es un puente virtual que conecta a un Cliente y un Servidor,
+ *   a través del cual circualrá la información entre ambos.
+ * - Para construir un Socket necesitamos:
+ * 
+ * 		1- Aplicación Cliente: OutputStream
+ * 		2- Aplicación Servidor: InputStream
+ * 		3- Dirección del Servidor (ip o dominio)
+ * 		4- Puerto de recepción
+ * 
+ ******************************************************************************/
+
+/*
+ * Realizamos un mini chat primitivo desde 85_I se crea un CLIENTE que manda a un Servidor
+ * situado en 85_II el texto que se introduce 
+ */
+
 package david.sockets;
 
 import java.awt.event.ActionEvent;
@@ -52,7 +69,7 @@ class LaminaMarcoCliente extends JPanel{
 		
 		EnviaTexto evento=new EnviaTexto();
 		
-		miboton.addActionListener(evento);
+		miboton.addActionListener(evento); //ponemos el boton a la escucha del evento
 		
 		add(miboton);	
 		
@@ -67,9 +84,12 @@ class LaminaMarcoCliente extends JPanel{
 			// System.out.println(campo1.getText()); //para que escriba en consola lo que ponemos en la celda
 		
 			try {
-				Socket misocket=new Socket("192.168.1.90", 9999); //instanciamos el flujo(Socket)
 				
-				DataOutputStream flujoSalida=new DataOutputStream(misocket.getOutputStream()); //creamos el flujo de salida, y lo hacemos circular por misocket
+				//Creamos el puente entre cliente-servidor, el Socket
+				Socket misocket=new Socket("192.168.1.90", 9999); //instanciamos el flujo(Socket) dadno la IP y el puerto
+				
+				//Creamos el flujo de datos de salida y lo hacemos circular por misocket
+				DataOutputStream flujoSalida=new DataOutputStream(misocket.getOutputStream());  
 				
 				flujoSalida.writeUTF(campo1.getText()); //le decimos que en el flujo de salida viajará lo que hay en el campo1(entrada de texto del panel)
 				flujoSalida.close(); //cerramos el flujo de salida

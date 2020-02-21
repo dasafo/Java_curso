@@ -1,3 +1,15 @@
+/******************************************************************************
+ * - Un Socket es un puente virtual que conecta a un Cliente y un Servidor,
+ *   a través del cual circualrá la información entre ambos.
+ * - Para construir un Socket necesitamos:
+ * 
+ * 		1- Aplicación Cliente: OutputStream
+ * 		2- Aplicación Servidor: InputStream
+ * 		3- Dirección del Servidor (ip o dominio)
+ * 		4- Puerto de recepción
+ * 
+ ******************************************************************************/
+
 /* habria que hacer un ejecutable de este archivo(File----->export---->Java/Runneable JAR file) 
  * y meterla en otro PC o Maquina virtual y comprobar que funciona
  */
