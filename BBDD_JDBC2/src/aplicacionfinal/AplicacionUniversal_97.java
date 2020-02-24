@@ -1,4 +1,4 @@
-package aplicacionFinal;
+package aplicacionfinal;
 
 import java.awt.*;
 import java.awt.event.*;

@@ -9,7 +9,18 @@
  * 		4- Puerto de recepción
  * 
  ******************************************************************************/
-
+/*
+ * Ejercicio que consiste en crear un Chat donde un usuario deba introducir su Nick,
+ * dirección IP del Cliente destinatario y el mensaje de texto que quiere enviar a esa IP.
+ * Este mensaje pase por un servidor y este servidor lo envie al cliente destinatario.
+ * 1- Desde el Cliente mandaremos un objeto(PaqueteEnvio) con la ip, nick y texto que se envia, para ello
+ * 	  lo Serializamos(pasamos a bytes)
+ * 
+ * 2- En el Servidor creamos otro objeto(PaqueteREcibido) para que recoja el paquete serializado que le llega
+ * 	  desde el Cliente
+ * 
+ * 3- HAcer lo mismo que en 2, pero para el Cliente que recibe finalmente el mensaje
+ */
 /* habria que hacer un ejecutable de este archivo(File----->export---->Java/Runneable JAR file) 
  * y meterla en otro PC o Maquina virtual y comprobar que funciona
  */
@@ -67,7 +78,7 @@ class EnvioOnline extends WindowAdapter{ //clase adaptadora que implementa todos
 		
 		try {
 			
-			Socket misocket=new Socket("192.168.1.90",9999); //establecemos una conexion(socked) con el servidor
+			Socket misocket=new Socket("192.168.1.90",9999); //establecemos una conexion(socket) con el servidor
 			
 			PaqueteEnvio datos=new PaqueteEnvio();
 			
@@ -153,13 +164,19 @@ class LaminaMarcoCliente extends JPanel implements Runnable{ //implementamos Run
 			try {
 				Socket misocket=new Socket("192.168.1.90", 9999); //instanciamos el flujo(Socket)
 				
-				PaqueteEnvio datos=new PaqueteEnvio(); //creamos un paquete 'datos'(Object) y enpaquetamos el nick, ip y el mensaje del cuadro de texto
-				datos.setNick(nick.getText()); //el cuadro de texto se llamaba nick(JTextField), lo caputra(getText()) y se lo manda a la variable nick(no confundir con el JTextField con el mismo nombre)
-				datos.setIp(ip.getSelectedItem().toString());
-				datos.setMensaje(campo1.getText());
+				//creamos un paquete 'datos'(Object) y enpaquetamos el nick, ip y el mensaje del cuadro de texto
+				PaqueteEnvio datos=new PaqueteEnvio(); 
 				
-				ObjectOutputStream paqueteDatos=new ObjectOutputStream(misocket.getOutputStream()); //Creamos el flujo de salida paqueteDatos para enviar el paquete 'datos'
-				paqueteDatos.writeObject(datos); //le decimos que el paquete datos es el que viajará a través del flujo de salida paqueteDatos
+				//el cuadro de texto se llamaba nick(JTextField), lo caputra(getText()) y se lo manda a la variable 
+				//nick(no confundir con el JTextField con el mismo nombre)
+				datos.setNick(nick.getText()); 
+				datos.setIp(ip.getSelectedItem().toString()); //lo mismo para la ip
+				datos.setMensaje(campo1.getText()); //lo mismo para el cuadro de texto
+				
+				//Creamos el flujo de salida paqueteDatos para enviar el paquete 'datos'
+				ObjectOutputStream paqueteDatos=new ObjectOutputStream(misocket.getOutputStream()); 
+				//le decimos que el paquete datos es el que viajará a través del flujo de salida paqueteDatos
+				paqueteDatos.writeObject(datos); 
 				misocket.close(); //cerramos el flujo de salida
 				
 			} catch (UnknownHostException e1) {
@@ -190,7 +207,7 @@ class LaminaMarcoCliente extends JPanel implements Runnable{ //implementamos Run
 		
 		try {
 			
-			ServerSocket servidorCliente=new ServerSocket(9090); //creamos un flujo que conecte el puerto 9090 del Servidor con nuestro cliente
+			ServerSocket servidorCliente=new ServerSocket(9099); //creamos un flujo que conecte el puerto 9090 del Servidor con nuestro cliente
 			
 			Socket cliente;
 			PaqueteEnvio paqueteRecibido;
@@ -237,8 +254,8 @@ class LaminaMarcoCliente extends JPanel implements Runnable{ //implementamos Run
 	
 }
 
-
-class PaqueteEnvio implements Serializable{ //creamos una clase para que envie al servidor el ip, el texto y el nombre empaquetados
+//creamos una clase para que envie al servidor el ip, el texto y el nick empaquetados
+class PaqueteEnvio implements Serializable{ 
 											
 	public ArrayList<String> getIps() {
 		return Ips;
@@ -248,12 +265,15 @@ class PaqueteEnvio implements Serializable{ //creamos una clase para que envie a
 		Ips = ips;
 	}
 
-	//Implementamos Serializable para que todas las instancias de PAquete envio se puedan converir en bytes al ser enviadas por la Red
+	//Implementamos Serializable(ver Seriarilar) para que todas las instancias de PAquete envio 
+	//se puedan converir en bytes al ser enviadas por la Red
 	private String nick, ip, mensaje;
 
-	private ArrayList<String> Ips; //creamos otro elemento para mandar en el paquete de envio, enviamos tambien las ip's activas
+	private ArrayList<String> Ips; //creamos otro elemento para mandar en el paquete de envio, 
+									//enviamos tambien las ip's activas
 	
-	//-----Hemos creado estos getter and setters para nick, ip y mensaje con click derecho ratón---->Source---->Generate Getters and Setters
+	//-----Hemos creado estos getter and setters para nick, ip y mensaje con click 
+	//derecho ratón---->Source---->Generate Getters and Setters
 	public String getNick() {
 		return nick;
 	}

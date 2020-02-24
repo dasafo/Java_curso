@@ -1,3 +1,13 @@
+/***************************************************************
+ * - Proceso de acceso a una BBDD:
+ * 
+ *		1- Establecer conexión con la BBDD
+ *		2- Crear un objeto Statement
+ *		3- Ejecutar sentencia SQL
+ *		4- Leer el resultset 		
+ * 
+ ***************************************************************/
+
 package conectaBD;
 
 import java.sql.*;
@@ -10,7 +20,7 @@ public class ConectaPruebas_87 {
 		try {
 			
 			// 1. Crear Conexión
-			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/pruebas?useSSL=false", "root", "Kromosoma_85" );
+			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 			
 			// 2. Crear objeto STATEMENT
 			Statement miStatement=miConexion.createStatement();
@@ -40,5 +50,6 @@ public class ConectaPruebas_87 {
 		}
 
 	}
+
 
 }

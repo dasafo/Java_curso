@@ -1,4 +1,4 @@
-package metaDatos;
+package metadatos;
 
 import java.sql.*;
 

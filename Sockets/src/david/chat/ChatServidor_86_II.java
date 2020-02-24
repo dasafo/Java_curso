@@ -91,8 +91,10 @@ class MarcoServidor extends JFrame implements Runnable{
 									
 				areatexto.append("\n" + nick + ": " + mensaje + " para " + ip); //que lo ponga en el cuadro de texto
 				
+				
+				
 				//-----creamos conexion del Servidor con otro cliente-----
-				Socket enviaDestinatario=new Socket(ip, 9090); //creamos puente con el otro Cliente(detinatario final) usamos la ip 
+				Socket enviaDestinatario=new Socket(ip, 9099); //creamos puente con el otro Cliente(detinatario final) usamos la ip 
 																//y el puente del otro cliente 9090, la id del cliente es la misma porque lo reenviamos al mismo cliente
 				
 				ObjectOutputStream paqueteReenvio=new ObjectOutputStream(enviaDestinatario.getOutputStream()); //reeviamos el paquete por el flujo(stocket) enviaDestinatario

@@ -1,4 +1,4 @@
-package aplicacionFinal;
+package aplicacionfinal;
 
 import javax.swing.*;
 import javax.swing.filechooser.*;
