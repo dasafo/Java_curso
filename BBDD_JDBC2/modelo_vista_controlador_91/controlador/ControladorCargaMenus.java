@@ -34,6 +34,7 @@ public class ControladorCargaMenus extends WindowAdapter{ //usamos la interfe ad
 		}catch(Exception e2) {
 			
 			e2.printStackTrace();
+			System.out.println("uuuuuueeeee");
 			
 		}
 		

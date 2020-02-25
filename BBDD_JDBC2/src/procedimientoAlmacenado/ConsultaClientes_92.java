@@ -9,7 +9,7 @@ public class ConsultaClientes_92 {
 		
 		try {
 			
-			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/pruebas?useSSL=false", "root", "Kromosoma_85" );
+			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 
 			CallableStatement miSentencia=miConexion.prepareCall("{call MUESTRA_CLIENTES}"); //CallableSatetement para llamar a procedimientos creados con SQL en la BBDD
 																							 //Para crear el procedimiento MUESTRA_CLIENTES en SQL se ha puesto en phpmyadmin esto: 

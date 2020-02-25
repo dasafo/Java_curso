@@ -27,12 +27,15 @@ public class ConsultaPreparada_89 {
 			
 			while(rs.next()) {
 				
-				System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3));
+				System.out.println(rs.getString(1) + " " + 
+									rs.getString(2) + " " + 
+									rs.getString(3));
 			}
 			rs.close();
 			
 			//REUTILIZACION DE CONSULTA SQL(Para ver en la consulta se pueden hacer varias consultas a la vez sin necesidad de crear más consultas)
-			System.out.println("EJECUCIÓN SEGUNDA CONSULTA");
+			System.out.println("");
+			System.out.println("EJECUCIÓN SEGUNDA CONSULTA:");
 			System.out.println("");
 			
 				// 3. Establecer los parametros de la consulta
@@ -44,7 +47,9 @@ public class ConsultaPreparada_89 {
 						
 					while(rs.next()) {
 							
-						System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3));
+						System.out.println(rs.getString(1) + " " + 
+											rs.getString(2) + " " + 
+											rs.getString(3));
 					}
 					rs.close();
 			

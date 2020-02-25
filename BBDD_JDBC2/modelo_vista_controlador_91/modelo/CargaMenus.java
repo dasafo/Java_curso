@@ -1,6 +1,5 @@
 package modelo;
 
-import controlador.*;
 
 import java.sql.*;
 
@@ -38,7 +37,7 @@ public class CargaMenus {
 			accesoBBDD.close();
 
 		}catch(Exception e) {
-			
+			System.out.println("pooooosssss");
 			
 		}
 		

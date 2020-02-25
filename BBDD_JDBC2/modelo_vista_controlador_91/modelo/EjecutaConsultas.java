@@ -2,8 +2,6 @@ package modelo;
 
 import java.sql.*;
 
-import com.mysql.jdbc.ResultSetRow;
-
 public class EjecutaConsultas {
 	
 	public EjecutaConsultas() {
@@ -51,7 +49,7 @@ public class EjecutaConsultas {
 		
 		}catch(Exception e) {
 			
-			
+			System.out.println("BRRRRRR");
 		}
 		
 		return rs;

@@ -15,7 +15,7 @@ public class ActualizaProductos_93 {
 		
 		try {
 			
-			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/pruebas?useSSL=false", "root", "Kromosoma_85" );
+			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 
 			CallableStatement miSentencia=miConexion.prepareCall("{call ACTUALIZA_PROD(?,?)}"); //CallableSatetement para llamar a procedimientos creados con SQL en la BBDD
 																							 //Para crear el procedimiento ACTUALIZA_PROD en SQL se ha puesto en phpmyadmin esto: 

@@ -80,7 +80,7 @@ class Marco_Aplicacion extends JFrame{
 		
 		try {
 			
-			miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/pruebas?useSSL=false", "root", "Kromosoma_85" );
+			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 			
 			Statement sentencia=miConexion.createStatement();
 			
@@ -111,7 +111,7 @@ class Marco_Aplicacion extends JFrame{
 			//-----------------------------------------------------------------------
 
 		}catch(Exception e) {
-			
+			System.out.println("No hay conexion!!");
 		}
 		
 		
@@ -176,12 +176,12 @@ class Marco_Aplicacion extends JFrame{
 			
 			
 		}catch(Exception e) {
-			
+			System.out.println("Error en la consulta");
 		}
 	
 		
 		
-		}
+	}
 	
 		
 	private Connection miConexion;
