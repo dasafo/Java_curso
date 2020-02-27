@@ -1,3 +1,16 @@
+<!-- 
+Tipo de codigo JSP:
+ 
+	- Expresiones: 
+			< %= expresion Java, una sola linea%>
+			
+	- Scriptlets: 
+			< % varias lineas de codigo Java%>
+			
+	- Declaraciones:
+		    < %! Declacion de variables o metodos %>
+-->
+
 <html>
 <body>
 

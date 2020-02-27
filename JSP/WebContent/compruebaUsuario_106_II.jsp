@@ -22,16 +22,18 @@
 	
 	try{
 	
-	Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto_jsp?useSSL=false", "root", "Kromosoma_85" );
+	Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 
+	//Creamos Consultas preparadas para evitar la inyeccion SQL desde fuera
+	
 	PreparedStatement c_preparada=miConexion.prepareStatement("SELECT * FROM usuarios WHERE Usuario=? AND Contrasena=?");
 	
-	c_preparada.setString(1, usuario);
+	c_preparada.setString(1, usuario); 
 	c_preparada.setString(2, contra);
 	
 	ResultSet miResultset=c_preparada.executeQuery();
 	
-	if(miResultset.absolute(1)){
+	if(miResultset.absolute(1)){ //absolute mueve el cursor a la fila indicada(1). Para que se vaya al primer registro
 		
 		out.println("Usuario AUTORIZADO");
 	}else{

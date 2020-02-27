@@ -29,7 +29,7 @@
 	
 	try{
 	
-	Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto_jsp?useSSL=false", "root", "Kromosoma_85" );
+	Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 
 	Statement miStatement=miConexion.createStatement();
 	
