@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 scriptExplorerDoubleclick=scriptExplorerDoubleclickGointo
+sourceHoverBackgroundColor=44,49,53
 sourceHoverBackgroundColor.SystemDefault=true
 useAnnotationsPrefPage=true
 useQuickDiffPrefPage=true

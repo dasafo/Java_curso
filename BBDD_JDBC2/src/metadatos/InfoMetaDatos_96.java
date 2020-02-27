@@ -1,3 +1,32 @@
+/*********************************************************************************************************
+ * 
+ * Los MetaDatos son datos que describen la BBDD o alguna de sus partes. Hay 3 clases:
+ * 
+ *  - Relativos a la BBDD:
+ *  	-> Gestor de BBDD
+ *  	-> Versión del gestor
+ *  	-> Driver de conexion a BBDD
+ *  	-> Version del Driver
+ *  
+ *  - Relativos a un conjunto de resultados:
+ *  	-> Nombres de las Tablas
+ *  	-> Nombres de los campos de las Tablas
+ *  	-> Tipo de datos de los campos
+ *  	-> Propiedades de los campos
+ *  
+ *  - Relativos a parámetros de sentencias preparadas
+ *  
+ * Obtenemos los MetaDatos mediate: 
+ * 
+ * 		I_Connection
+ * 			-> M_getMetaData()
+ * 				--> I_DatabaseMetaData
+ * 					---> M_getDatabaseProductName(), M_getDatabaseProductVersion(), M_getDriverName()
+ * 						 M_getDriverVersion(), M_getTables(), M_ getString(), M_ getColumns(),
+ * 						 .......
+ * 					
+ ******************************************************************************************************/
+
 package metadatos;
 
 import java.sql.*;
@@ -18,7 +47,7 @@ public class InfoMetaDatos_96 {
 		
 		try {
 			
-		miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/pruebas?useSSL=false", "root", "Kromosoma_85" );
+		miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 
 		//Obtencion de MetaDAtos
 		
@@ -60,7 +89,7 @@ public class InfoMetaDatos_96 {
 		
 			try {
 			
-				miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/pruebas?useSSL=false", "root", "Kromosoma_85" );
+				miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 
 				//Obtencion de MetaDAtos
 		
@@ -73,9 +102,10 @@ public class InfoMetaDatos_96 {
 				// miResultSet=datosBBDD.getTables(null, null, "p%", null); //p% para que busque las tablas que empiecen por p
 				miResultSet=datosBBDD.getTables(null, null, null, null); 
 
+				System.out.println("");
 
 				while(miResultSet.next()) {
-					
+
 					System.out.println(miResultSet.getString("TABLE_NAME")); //para que muestre el nombre de las Tablas de pruebas de la BBDD
 				}
 				

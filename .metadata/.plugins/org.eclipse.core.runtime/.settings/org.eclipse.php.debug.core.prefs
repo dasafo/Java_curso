@@ -1,7 +1,7 @@
 eclipse.preferences.version=1
 org.eclipse.php.debug.core.pathMapper=<pathMappers><item2><server>&lt;none&gt;</server><mapper></mapper></item2><item1><server>david</server><mapper></mapper></item1></pathMappers>
-org.eclipse.php.debug.core.xdebugDebuggerSettingsProvider=
-org.eclipse.php.debug.core.zendDebuggerSettingsProvider=
+org.eclipse.php.debug.core.xdebugDebuggerSettingsProvider=<settings><proxyEnable>false</proxyEnable><clientPort>9000</clientPort><ownerId>php-server-caaf4d59-316f-445a-bd76-dad1d4137fef</ownerId><proxyIdeKey>ECLIPSE_DBGP_xxx</proxyIdeKey><proxyAddress></proxyAddress></settings>
+org.eclipse.php.debug.core.zendDebuggerSettingsProvider=<settings><clientIp>192.168.1.90,127.0.0.1</clientIp><clientPort>10137</clientPort><ownerId>php-server-caaf4d59-316f-445a-bd76-dad1d4137fef</ownerId><responseTimeout>60000</responseTimeout></settings>
 org.eclipse.php.debug.coreinstalledPHPDebuggers=
 org.eclipse.php.debug.coreinstalledPHPInis=
 org.eclipse.php.debug.coreinstalledPHPLoadIniDefaults=

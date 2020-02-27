@@ -1,3 +1,20 @@
+/***************************************************************************************************
+ * Las Transacciones son instrucciones SQL que cada vez que se ejecutan tienen que
+ * ejecutarse todas a la vez.
+ * 
+ * Las transacciones garantizan en una BBDD las caracteristicas ACID:
+ * - Atomicidad : O ejecutas o todo o nada.
+ * - Consistencia : Integridad de los datos. Si hay un fallo, las tareas realizas son revertidas.
+ * - Aislamiento
+ * - Durabilidad
+ * 
+ * Metodos usados para Transacciones:
+ * 	-> M_setAutoCommit() : Indica que las instrucciones SQL pueden ser tratadas como un bloque(False)
+ * 	-> M_commit() : Confirma el bloque de intrucciones o transaccion
+ * 	-> M_rollBack() : Garantiza la integridad de los datos. Si falla algo revierte todos los cambios.
+ * 
+ ****************************************************************************************************/
+
 package transacciones;
 
 import java.sql.*;
