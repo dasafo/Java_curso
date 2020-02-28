@@ -1,11 +1,4 @@
 INDEX VERSION 1.4+/home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
 1059894161.index
-1423482570.index
-2696032084.index
-3438953826.index
 1592080129.index
-1990820219.index
-2392442788.index
-1139307010.index
-1552431747.index
-3274553894.index
+883796506.index

@@ -1,0 +1,76 @@
+<!-- -------------------------------------- Servlets -------------------------------------------------
+ * 
+ * - Son programas Java que se ejecutan en un servidor web
+ * - Reciben una peticion del cliente (navegador) y realiza tareas como:
+ * 	
+ * 		-> Generar una respuesta HTML
+ * 		-> Llamar a otros Servlets
+ * 		-> Utilizar Cookies y sesiones
+ * 		-> Enlace (controlador) entre el cliente y la BBDD
+ * 
+ * - A diferencia de los JSP que son HTML+Codigo Java, un Servlet solo tiene
+ *  codigo Java que produce el código HTML que será el código mandado al usuario
+ *  
+ * - Pasos para crear Servlets:
+ * 
+ * 		1- Creación de clase que herede de:
+ * 
+ * 			-> I_Servlet
+ * 				-> C_HttpServlet
+ * 					-> M_ doGet(request,response) * Encargado de recibir la peticion (request)
+ * 						.......
+ * 
+ * 			-> I_HttpServletResponse
+ * 				-> I_ServletResponse
+ * 					-> M_getWriter()	
+ * 						-> C_PrintWriter()
+ * 
+ *  	2- Establecer el formato de la respuesta (html)
+ *  
+ *  	3- Generar el contenido de la respuesta (html)
+ *  
+ * - Cuando un usuario manda una peticion (request) al Servidor para que este le envie una respuesta
+ *   (Response), este Request inicial puede ser de tipo GET o POST:
+ *   
+ *   	- GET
+ *   		-> Envia la informacion utilizando la URL del navegador como vehiculo de transporte
+ *   			(www.paginaweb.es?campo1=valor1&campo2=valor2&.....)	
+ *   		-> Recomendable para hacer depuraciones
+ *   		-> Limitaciones en cuanto a la cantidad de datos a enviar
+ *   		-> Se puede guardar en favoritos o enviar la URL a alguien
+ *   	
+ *   	- POST
+ *   		-> Se envia la info de la peticion utilizando el objeto Request como vehiculo de transporte
+ *   		-> Util para enviar gran cantidad de informacion
+ *   		-> Capacidad de enviar datos adjuntos, datos binarios.
+ *   
+---------------------------------------------------------------------------------------------------------->
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<c:forEach var="tempProductos" items="${lista_productos}">
+	
+		${tempProductos}<br>
+	
+	
+	
+	</c:forEach>
+
+
+
+
+
+
+</body>
+</html>

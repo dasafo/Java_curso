@@ -43,8 +43,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <!-- Importamos la libreria, le decimos donde, y cual usamos 'c'(core) -->
+    <!-- Importamos la libreria, le decimos donde, y cual usamos 'c'(core) -->
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
     
+    <!-- Importamos los paquetes de JAva -->
     <%@ page import="java.util.*, java.sql.*, pildorasinformaticas.com.jsptags.Empleado_110_I"  %>
     
     <%
@@ -55,7 +57,7 @@
     	
     try{
     	
-		Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto_jsp?useSSL=false", "root", "Kromosoma_85" );
+		Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 		
 		Statement miStatement=miConexion.createStatement();
 		
@@ -102,6 +104,7 @@
 
 <tr class="cabecera"> <td>Nombre</td><td>Apellido</td><td>Puesto</td><td>Salario</td></tr>
 
+<!--  Recorremos con una etiqueta forEach del Tag Core los empleados -->
 <c:forEach var="EmpTemp" items="${losEmpleados}">
 
   
@@ -111,7 +114,8 @@
 	
 	 
 	<!----------------------- Sumamos un bonus de 5000 para los que cobren menos de 40000 ---------------->
-	<!-- 
+	<!--
+	 
 	<c:if test="${EmpTemp.salario<40000}">
 	
 	${EmpTemp.salario+5000}
@@ -127,7 +131,8 @@
 	 <!--------------------------------------------------------------------------------------------->
 	
 	
-	<!---------Hacemos lo mismo que con c:if pero con c:chose(que es como un switch-case) y sumamos 2000 al que este entre 40000 y 50000 otro bonus----------->
+	<!---------Hacemos lo mismo que con c:if pero con c:chose(que es como un switch-case) y sumamos 2000 
+	al que este entre 40000 y 50000 otro bonus----------->
 	<c:choose>
 	
 		<c:when test="${EmpTemp.salario<40000}">

@@ -1,0 +1,7 @@
+________________________ Modelo, Vista, Controlador (MVC) ___________________________
+
+ - Un MVC es un patrón de diseño a la hora de crear aplicaciones de servidor Java
+
+ - Consiste en separar la parte lógica de la parte visual en nuestros proyectos. Para ello se integran los Servlets y JSP en nuestros ptoyectos para que trabajen juntos.
+	-> Los Servlets se encargan de la parte lógica
+	-> Los JSP se encargan de la parte visual	
