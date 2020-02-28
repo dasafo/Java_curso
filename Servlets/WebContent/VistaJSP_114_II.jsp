@@ -45,6 +45,51 @@
  *   		-> Capacidad de enviar datos adjuntos, datos binarios.
  *   
 ---------------------------------------------------------------------------------------------------------->
+<!--
+***************************** Modelo, Vista, Controlador (MVC) ********************************
+
+ - Un MVC es un patrón de diseño a la hora de crear aplicaciones de servidor Java
+
+ - Consiste en separar la parte lógica de la parte visual en nuestros proyectos. 
+   Para ello se integran los Servlets y JSP en nuestros ptoyectos para que trabajen juntos.
+   
+	-> Los Servlets se encargan de la parte lógica
+	-> Los JSP se encargan de la parte visual	
+	
+ - Camino que sigue el modelo MVC:
+ 
+	 1- El cliente manda una peticion(Request) al Servidor.
+	 2- Dicha peticion llega al Servlet que se comunica con la BBDD
+	 3- La BBDD proporciona los datos pedidos de vuelta al Servlet.
+	 4- El Servlet pasa la info al JSP, que fabrica un archivo HTML
+	 5- El JSP manda esta informacion en HTML al cliente.
+	 
+	 		Cliente -> Controlador (Servlet) -> Modelo (BBDD) -> 
+	 		
+	 		-> Controlador (Servlet) -> Vista (JSP)-> Cliente
+	
+ - El Servlet(Controlador) se comunica con el JSP (Vista) mediante:
+ 	
+ 		I_RequestDispatcher -> M_forward()
+ 
+ - Ventajas del modelo MVC:
+ 
+ 	-> Elimina codigo HTML del Servlet (no mas println)
+ 	-> Elimina codigo Java en JSP (no mas scriplets)
+ 	-> Favorece el desarrollo por varios programadores
+ 	-> Favorece el matenimiento dle proyecto
+ 	-> Favorece la depuracion de los errores
+ 	-> Favorece la escalabilidad del proyecto
+ 	
+********************************************************************************************
+-->
+<!--	
+/******************************************************************************
+ * 
+ * Aqui veremos un ejemplo de comunicacion entre el Servlet y el JSP
+ * 
+ ******************************************************************************	
+-->
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"

@@ -5,6 +5,8 @@ INDEX VERSION 1.131
 /PrimerosPasosJSP/src
 /home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1990820219.index
 /JSP/src
+/home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3620187133.index
+/MVC_Web_de_Productos_115/src
 /home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3947551937.index
 /Servlets/src
 /home/david/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1137960731.index

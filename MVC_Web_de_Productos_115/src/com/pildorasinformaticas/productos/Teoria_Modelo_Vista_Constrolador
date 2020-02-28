@@ -1,0 +1,49 @@
+***************************** Modelo, Vista, Controlador (MVC) ********************************
+
+ - Un MVC es un patrón de diseño a la hora de crear aplicaciones de servidor Java
+
+ - Consiste en separar la parte lógica de la parte visual en nuestros proyectos. 
+   Para ello se integran los Servlets y JSP en nuestros ptoyectos para que trabajen juntos.
+   
+	-> Los Servlets se encargan de la parte lógica
+	-> Los JSP se encargan de la parte visual	
+	
+ - Camino que sigue el modelo MVC:
+ 
+	 1- El cliente manda una peticion(Request) al Servidor.
+	 2- Dicha peticion llega al Servlet que se comunica con la BBDD
+	 3- La BBDD proporciona los datos pedidos de vuelta al Servlet.
+	 4- El Servlet pasa la info al JSP, que fabrica un archivo HTML
+	 5- El JSP manda esta informacion en HTML al cliente.
+	 
+	 		Cliente ---> Controlador (Servlet) ---> Modelo (BBDD) ---> 
+	 		
+	 		---> Controlador (Servlet) ---> Vista (JSP)---> Cliente
+	 		
+ - El Servlet(Controlador) se comunica con la BBDD(Modelo) mediante el Connection Pool:
+ 
+ 	-> El Pool de conexiones evita que un Servidor se sobrecargue al recibir 
+ 	   miles(millones) de peticiones a la vez que tiene que abrir y cerrar constanmente
+ 	-> Un Connectoin Pool son conexiones que siempre están abiertas, cuando hay mas
+ 	   usuario que piden conexion y estan todas ocupadas, deja a este a la espera de
+ 	   que otro usuario deje una conexion libre.
+ 	-> Pasos a seguir (en Eclipse para MySql):
+ 	
+ 		1- Meter el Driver de JDBC para MySql en la carpeta "WEB-INF/lib"
+ 		2- Construir un connection Pool en "META-INF/context.xml"
+ 		3- Crear una referencia al pool de conexiones desde el codigo Java
+	
+ - El Servlet(Controlador) se comunica con el JSP (Vista) mediante:
+ 	
+ 		I_RequestDispatcher --> M_forward()
+ 
+ - Ventajas del modelo MVC:
+ 
+ 	-> Elimina codigo HTML del Servlet (no mas println)
+ 	-> Elimina codigo Java en JSP (no mas scriplets)
+ 	-> Favorece el desarrollo por varios programadores
+ 	-> Favorece el matenimiento dle proyecto
+ 	-> Favorece la depuracion de los errores
+ 	-> Favorece la escalabilidad del proyecto
+ 	
+********************************************************************************************		

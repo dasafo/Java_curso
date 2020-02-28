@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.*;
+import java.io.IOException;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.*;
 
+import org.apache.tomcat.jdbc.pool.DataSource;
+
 /**
  * Servlet implementation class ServletPruebas
  */
@@ -21,9 +24,10 @@ import javax.sql.*;
 public class ServletPruebas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	//Definir o establcer el DataSource
+	//Definir o establcer el DataSource de nuestro Connection Pool,
+	//fabricado en el archivo WebContent/META_INF/context.xml
 	
-	@Resource(name="jdbc/Productos")
+	@Resource(name="jdbc/Productos") //nombre identificatvo del Connection Pool
 	private DataSource miPool;
 	
 	

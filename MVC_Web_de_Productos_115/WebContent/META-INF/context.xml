@@ -1,0 +1,26 @@
+<Context>
+
+<!-- 
+Propiedades del Pull de conexiones:
+ 
+ 		name es el nombre identificativo de nuestro Connection Pool
+		maxActive es el numero max de conexiones que tendrá el Pull. 
+		maxIdle maximas conexiones inactivas. 
+		maxWait tiempo maximo de espera cada pull, en milisegundos 
+
+-->
+	<Resource name="jdbc/Productos" auth="Container" type="javax.sql.DataSource"
+	
+			maxActive="15" maxIdle="3" maxWait="5000"
+			
+			username="root" password="Dasafo_8"
+			
+			driverClassName="com.mysql.jdbc.Driver"
+			
+			url="jdbc:mysql://localhost:3306/cursoJava?useSSL=false">
+			
+	</Resource>
+
+
+
+</Context>
