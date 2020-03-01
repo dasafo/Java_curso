@@ -9,7 +9,10 @@ Propiedades del Pull de conexiones:
 		maxWait tiempo maximo de espera cada pull, en milisegundos 
 
 -->
+
 	<Resource name="jdbc/Productos" auth="Container" type="javax.sql.DataSource"
+	
+			factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
 	
 			maxActive="15" maxIdle="3" maxWait="5000"
 			
@@ -20,7 +23,6 @@ Propiedades del Pull de conexiones:
 			url="jdbc:mysql://localhost:3306/cursoJava?useSSL=false">
 			
 	</Resource>
-
 
 
 </Context>

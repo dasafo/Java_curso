@@ -5,6 +5,8 @@ INDEX VERSION 1.131
 /PrimerosPasosJSP/src
 /home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1990820219.index
 /JSP/src
+/home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/85203208.index
+/MVC_CRUD_webProductos_115/src
 /home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3620187133.index
 /MVC_Web_de_Productos_115/src
 /home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3947551937.index
@@ -15,9 +17,15 @@ INDEX VERSION 1.131
 /Web_de_Productos_115/src
 /home/david/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2833871389.index
 /Web_de_Productos_115/src
+/home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/336372884.index
+/MVC_Web_de_Productos_115/src
+/home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/131862880.index
+/MVC_CRUD_webProductos_115/src
 /home/david/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2104465902.index
 /PrimerosPasosJSP/src
 /home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/4240971634.index
 /JSP/src
 /home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/1215679586.index
 /Web_de_Productos_115/src
+/home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/2257830138.index
+/MVC_CRUD_webProductos_115/src

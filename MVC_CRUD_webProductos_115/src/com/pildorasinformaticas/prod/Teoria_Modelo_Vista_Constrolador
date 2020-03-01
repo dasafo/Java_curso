@@ -25,7 +25,7 @@
  	-> El Pool de conexiones evita que un Servidor se sobrecargue al recibir 
  	   miles(millones) de peticiones a la vez que tiene que abrir y cerrar constanmente
  	-> Un Connectoin Pool son conexiones que siempre están abiertas, cuando hay mas
- 	   usuario que piden conexion y estan todas ocupadas, deja a este a la espera de
+ 	   usuario que pide conexion y estan todas ocupadas, deja a este a la espera hasta
  	   que otro usuario deje una conexion libre.
  	-> Pasos a seguir (en Eclipse para MySql):
  	

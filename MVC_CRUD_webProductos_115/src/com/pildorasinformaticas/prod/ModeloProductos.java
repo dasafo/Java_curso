@@ -1,4 +1,4 @@
-package com.pildorasinformaticas.productos;
+package com.pildorasinformaticas.prod;
 
 
 import java.util.*;
