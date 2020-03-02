@@ -10,8 +10,15 @@
 
 <H1 style="text-align: center;">Insertar Registros</H1>
 
+<!-- 
+Cuando el usuario pulse 'enviar' toda la informacion va al Controlador(ControladorProductos) y junto a la
+informacion visible(que es lo que escirbe el usuario), va tambien una instruccion oculta con un valor(insertarBBDD)
+Asi cuando la info llegue al Controlador, podemos controlar con un condicional IF, si lo que debe hacer es
+insertar o instar(porque no le llega nada del formulario)
+-->
 <form name="form1" method="get" action="ControladorProductos"> <!-- aqui le decimos que lo mande a ControladorProductos -->
-<input type="hidden" name="instruccion" value="insertarBBDD"> <!-- creamos un campo oculto que también será enviado y sirve para manipular lo que enviamos(usando condicionales) -->
+<!-- creamos un campo oculto que también será enviado y sirve para manipular lo que enviamos(usando condicionales) -->
+<input type="hidden" name="instruccion" value="insertarBBDD"> 
 
 <table width="50%" border="0">
  

@@ -1,3 +1,18 @@
+/****************************************************************************************************
+ * Hoja de Ruta para este MVC, el cual consisitrá en hacer consultas CRUD 
+ * (Create, Read, Update, Delete)
+ * 
+ * 		
+ * 	1- Crear objetos de tipo Productos para poder manipularlos *Productos.java*
+ * 	2- Crear un Modelo(BBDD). Es el archvo Java pertienente, encargado de
+ * 		   de conectar con las BBDD y de crear los registros que se pidan. *ModeloProductos.java*
+ * 	3- Crear un controlador (Servlet). Encargado de obtener dichos registros y 
+ *  	   mandarlos a la Vista(JSP) *ControladorProductos.java*
+ *  4- Crear la página JSP. Que es la interfaz que el usuario vera finalmente.*ListaProductos.jsp*
+ *
+ ***************************************************************************************************/
+
+
 package com.pildorasinformaticas.prod;
 
 import java.io.IOException;
@@ -22,12 +37,18 @@ import javax.sql.DataSource;
 public class ControladorProductos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private ModeloProductos modeloProductos;
+	
+	private ModeloProductos modeloProductos; //creamos esta variable para que conecte con el modelo para intercambiar info
+	
 	
 	@Resource(name="jdbc/Productos")
 	private DataSource miPool;
 	
-	//------Botoń derecho Source--->Override/implements Methods-->GeneritServlet()---->Init()--------------
+	/*
+	 * El metodo init() de un Servlet es como el metodo main() de un programa normal.
+	 	Es el metodo desde donde arranca nuestra aplicacion.
+	 */ 
+	//------Botoń derecho Source--->Override/implements Methods-->GeneritServlet()---->Init()--------
 	
 	@Override
 	public void init() throws ServletException {
@@ -55,11 +76,10 @@ public class ControladorProductos extends HttpServlet {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		//Leer el parametro que llega desde el formulario
+		//Leer el parametro que llega desde el formulario(InsertaProducto.jsp o actualizaProducto.jsp)
+		String elComando=request.getParameter("instruccion"); //"instruccion" es el nombre dado en los JSP
 		
-		String elComando=request.getParameter("instruccion");
-		
-		//sino se envia el parametro, listar productos
+		//si no se envia el parametro, listar productos
 		
 		if(elComando==null) elComando="listar"; //sera nulo seguro la primera vez que se ejecute, ya que el formulario será nulo
 		
@@ -126,15 +146,15 @@ public class ControladorProductos extends HttpServlet {
 	private void eliminarProducto(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		// TODO Auto-generated method stub
 		
-		//Caputar el codigo artículo
+		//-------1. Caputar el codigo artículo
 		
 		String CodArticulo=request.getParameter("cArt");
 
-		//Borrar el producto de la BBDD
+		//-------2. Borrar el producto de la BBDD
 		
 		modeloProductos.eliminarProducto(CodArticulo);
 		
-		//Volver a la lista de Productos
+		//-------3. Volver a la lista de Productos
 		
 		obtenerProductos(request, response);
 
@@ -145,12 +165,12 @@ public class ControladorProductos extends HttpServlet {
 	private void actualizaProductos(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		// TODO Auto-generated method stub
 		
-		//leer los datos que le vienen del formulario Actualizar
+		//-------1. leer los datos que le vienen del formulario Actualizar
 		
 		String CodArticulo=request.getParameter("cArt");
 		String Seccion=request.getParameter("seccion");
 		String NombreArticulo=request.getParameter("nArt");
-		//------Para pasar el String que devuelve el getParameter a formato Fecha----------
+		//_____________Para pasar el String que devuelve el getParameter a formato Fecha______________
 		SimpleDateFormat formatoFecha=new SimpleDateFormat("yyyy-MM-dd");
 		Date Fecha=null;
 		try {
@@ -159,20 +179,20 @@ public class ControladorProductos extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//--------------------------------------------------------------------------------
+		//_________________________________________________________________________________
 		double Precio=Double.parseDouble(request.getParameter("precio"));  //con Double.parseDouble convertimos el String que devuelve getParameter en Double
 		String Importado=request.getParameter("importado");
 		String PaisOrigen=request.getParameter("pOrig");
 		
-		//Crear objeto de tipo Producto con la info del formulario
+		//-------2. Crear objeto de tipo Producto con la info del formulario
 		
 		Productos ProductoActualizado=new Productos(CodArticulo, Seccion, NombreArticulo, Precio, Fecha, Importado, PaisOrigen);
 		
-		//Actualizar la BBDD con la info del obj Producto
+		//-------3. Actualizar la BBDD con la info del obj Producto
 		
 		modeloProductos.actualizarProducto(ProductoActualizado);
 		
-		//Volver al listado con la info actualizada
+		//-------4. Volver al listado con la info actualizada
 		
 		obtenerProductos(request, response);
 		
@@ -181,19 +201,19 @@ public class ControladorProductos extends HttpServlet {
 	private void cargaProductos(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		// TODO Auto-generated method stub
 		
-		//Leer el codigo articulo que viene del listado
+		//--- 1. Leer el codigo articulo que viene del listado
 		
 		String codigoArticulo=request.getParameter("cArt");
 		
-		//Comuicar con el modelo para que envia el codigo articulo a modelo
+		//--- 2. Comunicar con el modelo para que envie el codigo articulo al modelo
 		
 		Productos elProducto=modeloProductos.getProducto(codigoArticulo);
 		
-		//Esstablecer el atributo correspondiente a Codigo Articulo
+		//--- 3. Establecer el atributo correspondiente a Codigo Articulo
 		
 		request.setAttribute("ProductoActualizar", elProducto);
 		
-		//Enviar la informacion Producto al formulario de Actualizar
+		//--- 4. Enviar la informacion Producto al formulario de Actualizar
 		
 		RequestDispatcher dispatcher=request.getRequestDispatcher("/actualizarProducto.jsp");
 		
@@ -204,12 +224,13 @@ public class ControladorProductos extends HttpServlet {
 	private void agregarProductos(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		//Leer la info del producto del formulario
+		
+		//-------- 1. Leer la info del producto del formulario
 		
 		String CodArticulo=request.getParameter("cArt");
 		String Seccion=request.getParameter("seccion");
 		String NombreArticulo=request.getParameter("nArt");
-		//------Para pasar el String que devuelve el getParameter a formato Fecha----------
+		//___________________Para pasar el String que devuelve el getParameter a formato Fecha_________
 		SimpleDateFormat formatoFecha=new SimpleDateFormat("yyyy-MM-dd");
 		Date Fecha=null;
 		try {
@@ -218,25 +239,28 @@ public class ControladorProductos extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//--------------------------------------------------------------------------------
+		//_____________________________________________________________________________________________
 		double Precio=Double.parseDouble(request.getParameter("precio"));  //con Double.parseDouble convertimos el String que devuelve getParameter en Double
 		String Importado=request.getParameter("importado");
 		String PaisOrigen=request.getParameter("pOrig");
 		
-		//Crear un obj de tipo Poducto
+		
+		//---------- 2. Crear un obj de tipo Producto con la info del formulario
 		
 		Productos NuevoProducto=new Productos(CodArticulo, Seccion, NombreArticulo, Precio, Fecha, Importado, PaisOrigen);
 		
-		//Enviar el obj al modelo y después insertar el obj Producto en la BBDD
+		
+		//---------- 3. Enviar el obj al modelo y después insertar el obj Producto en la BBDD
 		
 		try {
-			modeloProductos.agregarElNuevoProducto(NuevoProducto);
+			modeloProductos.agregarElNuevoProducto(NuevoProducto); 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		//Volver al listado Productos
+		
+		//---------- 4. Volver al listado Productos para comprobar que ese obj se ha insertado
 		
 		obtenerProductos(request, response);
 
@@ -246,20 +270,20 @@ public class ControladorProductos extends HttpServlet {
 	private void obtenerProductos(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		
-		//Obtener la lista de productos desde el modelo
+		//-------1. Obtener la lista de productos desde el modelo
 
 		List<Productos> productos; //creamos una lista de Productos 
 		
 		try {
 			
-			productos=modeloProductos.getProductos(); 	//almacenamos en esa lista productos lo que hay en modeloProductos
+			productos=modeloProductos.getProductos(); //almacenamos en esa lista productos lo que hay en modeloProductos(listado con los productos)
 		
 		
-		//Agreagar lista de Productos al request
+		//-------2. Agreagar lista de Productos al request
 			
-			request.setAttribute("LISTAPRODUCTOS", productos);
+			request.setAttribute("LISTAPRODUCTOS", productos); //la llamamos LISTAPRODUCTOS para leerle delsde el JSP
 		
-		//enviar ese request a la pagina JSP
+		//-------3. enviar ese request a la pagina JSP
 			
 			RequestDispatcher miDispatcher=request.getRequestDispatcher("/ListaProductos.jsp");
 			

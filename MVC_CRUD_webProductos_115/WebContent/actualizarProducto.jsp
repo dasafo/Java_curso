@@ -61,7 +61,7 @@
   </tr>
  
   <tr>
-   <td><input type="submit" name="envio" id="envio" value="Enviar"/></td>
+   <td><input type="submit" name="envio" id="envio" value="Actualizar"/></td>
    <td><input type="reset" name="borrar" id="borrar" value="Restablecer" /></td>
   </tr>
   

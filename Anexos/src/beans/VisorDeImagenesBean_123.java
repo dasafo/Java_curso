@@ -1,3 +1,14 @@
+/****************************** Los BEANS ***************************************
+ * 
+ * - Un Bean es un componente creado en Java que puede ser reutilizado y
+ *   manipulado visualmente desde un entorno de desarrollo.
+ *   
+ * - Una vez se tiene acceso al 'bean', se usa arrastrando el componente hasta
+ *   la interfaz grafica. Despues se puede adaptar a nuestras necesidades
+ *   usando cuadros de dialogo.
+ * 
+ *****************************************************************************/
+
 package beans;
 
 import java.awt.Dimension;

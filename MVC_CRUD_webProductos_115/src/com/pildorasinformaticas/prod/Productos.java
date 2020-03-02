@@ -1,3 +1,17 @@
+/****************************************************************************************************
+ * Hoja de Ruta para este MVC, el cual consisitrá en hacer consultas CRUD 
+ * (Create, Read, Update, Delete)
+ * 
+ * 		
+ * 	1- Crear objetos de tipo Productos para poder manipularlos *Productos.java*
+ * 	2- Crear un Modelo(BBDD). Es el archvo Java pertienente, encargado de
+ * 		   de conectar con las BBDD y de crear los registros que se pidan. *ModeloProductos.java*
+ * 	3- Crear un controlador (Servlet). Encargado de obtener dichos registros y 
+ *  	   mandarlos a la Vista(JSP) *ControladorProductos.java*
+ *  4- Crear la página JSP. Que es la interfaz que el usuario vera finalmente. *ListaProductos.jsp*
+ * 
+ ***************************************************************************************************/
+
 package com.pildorasinformaticas.prod;
 
 import java.util.Date;
@@ -103,7 +117,7 @@ public class Productos {
 	}
 
 	
-	//-------to String() creado desde boton derecho-->source--->Generated to String() y se seleccionan todos los campos-------
+	//-------metodo toString() creado desde boton derecho-->source--->Generated to String() y se seleccionan todos los campos-------
 	
 	@Override
 	public String toString() {

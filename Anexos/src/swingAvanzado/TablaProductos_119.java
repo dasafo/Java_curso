@@ -42,7 +42,7 @@ class MarcoProductos extends JFrame{
 		
 		try {
 			
-			miconexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/curso_sql?useSSL=false", "root", "Kromosoma_85" );
+			miconexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 			
 			datosBBDD=miconexion.getMetaData();
 			

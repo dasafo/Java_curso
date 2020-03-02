@@ -44,13 +44,13 @@ class ModeloTablaPersonalizada extends AbstractTableModel{
 	@Override
 	public int getRowCount() {
 		// TODO Auto-generated method stub
-		return 5;
+		return 5; 								//devuelve 5 filas
 	}
 
 	@Override
 	public int getColumnCount() {
 		// TODO Auto-generated method stub
-		return 3;
+		return 3;							//devuelve 3 columnas
 	}
 
 	@Override
