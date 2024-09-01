@@ -41,7 +41,7 @@ public class Uso_Empleado_19_I{
 		Jefatura jefa_finanzas=(Jefatura) misEmpleados[5]; //REfundición o Casting. Pasamos misEmpleados[5] del objeto Empleado a JEfatura
 		
 		
-		jefa_finanzas.estableceIncentivo(55000); //ahora le podemos aplicar estableceIncentivo() al pertenecer a Jefatura
+		jefa_finanzas.estableceIncentivo(54998); //ahora le podemos aplicar estableceIncentivo() al pertenecer a Jefatura
 		
 		System.out.println("El jefe " + jefa_finanzas.dameNombre() + " tiene un bonus de " + jefa_finanzas.establece_bonus(500));
 		
@@ -74,7 +74,7 @@ public class Uso_Empleado_19_I{
 		
 		for(Empleado e: misEmpleados) {
 			
-			e.subeSueldo(5);
+			e.subeSueldo(5); // subumos el salario un 5%
 		}
 		
 		
@@ -105,13 +105,16 @@ public class Uso_Empleado_19_I{
 
 //******************************* Clases y metodos ****************************************************
 
-/*Con implements asociamos la interfaz comparable y trabajadores, y estamos obligados a
- * implementar todos los metodos de las interfaces implementadas*/
-class Empleado implements Comparable, Trabajadores_19_II {   
-	
-	public Empleado(String nom, double sue, int agno, int mes, int dia) { //Constructor, que asigan valores iniciales 
-		//y tiene que tener el mismo nombre de la clase a la que pertenece (Empleado) 
-	
+/*..........................................................................
+............................... EMPLEADO ...................................
+..........................................................................*/
+
+/*Con implements asociamos la interfaz comparable y trabajadores, y estamos obligados a implementar todos los metodos de las interfaces implementadas*/
+class Empleado implements Comparable, Trabajadores_19_II {
+
+
+//Constructor, que asigan valores iniciales y tiene que tener el mismo nombre de la clase a la que pertenece (Empleado) 
+  public Empleado(String nom, double sue, int agno, int mes, int dia) { 
 		nombre=nom;
 		sueldo=sue;
 		GregorianCalendar calendario=new GregorianCalendar(agno, mes-1, dia); //mes-1 ya que Enero es el 0, así sería enero=1
@@ -121,19 +124,19 @@ class Empleado implements Comparable, Trabajadores_19_II {
 		ID=IDsiguiente;
 	
 	}
+
+
+		//Otro constructor(sobrecarga de constructores)(diferentes argumetnos para cada constructor) 
+	public Empleado(String nom) { 
+		
+		this(nom, 3000, 2000, 01, 01); //Con este This llamamos al otro constructor y pasarle los parámetros
+		
+	}
 	
 	
 	public double establece_bonus(double gratificacion) { 
 		
 		return Trabajadores_19_II.BONUS_BASE + gratificacion;
-	}
-	
-	
-	//Otro constructor(sobrecarga de constructores)(diferentes argumetnos para cada constructor) 
-	public Empleado(String nom) { 
-		
-		this(nom, 3000, 2000, 01, 01); //Con este This llamamos al otro constructor y pasarle los parámetros
-		
 	}
 	
 	
@@ -169,13 +172,17 @@ class Empleado implements Comparable, Trabajadores_19_II {
 			
 			return -1;
 		}
+    // si el sueldo del objerto actual(this.sueldo) es menor que el sueldo del objeto compararaod,
+    // indica que el objeto actual debe ir antes en el orden (-1)
 		
 		if(this.sueldo>otroEmpleado.sueldo) {
 			
 			return 1;
+    // lo mismo que arriba pero al reves, el objeto actual tiene que ir despues al comparado  
 		}
 		
 		return 0;
+    //ambos objetos son iguales en terminos de ordenacion
 		
 	}
 	
@@ -188,6 +195,9 @@ class Empleado implements Comparable, Trabajadores_19_II {
 	
 }
 
+/*..........................................................................
+............................... JEFATURA ...................................
+..........................................................................*/
 
 /*
  * - Herencia de Empleado(padre) y si ponemos 'final class', cortamos aqui la herencia, 

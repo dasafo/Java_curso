@@ -4,7 +4,7 @@ public class Arrays_15_I {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		/*int [] mi_matriz=new int[5];
+		/*int [] mi_matriz=new int[5]; // creamos un array de enteros y gardamos 5 posiciones en memoria
 		
 		mi_matriz[0]=5;
 		mi_matriz[1]=38;

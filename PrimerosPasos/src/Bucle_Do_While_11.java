@@ -10,7 +10,7 @@ public class Bucle_Do_While_11 {
 			
 			genero=JOptionPane.showInputDialog("Introduce tu género (H/M): ");
 			
-		}while(genero.equalsIgnoreCase("H")==false && genero.equalsIgnoreCase("M")==false);//equalsIgnoreCase para que no diferencie entre mayúsculas y minúsculas
+		}while(genero.equalsIgnoreCase("H") == false && genero.equalsIgnoreCase("M")==false);//equalsIgnoreCase para que no diferencie entre mayúsculas y minúsculas
 
 		int altura=Integer.parseInt(JOptionPane.showInputDialog("Introduce la altura en cm: "));
 		

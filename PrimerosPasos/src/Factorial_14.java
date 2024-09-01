@@ -11,7 +11,7 @@ public class Factorial_14 {
 		
 		for (int i=numero;i>0;i--) {
 			
-			resultado=resultado*i;
+			resultado*=i;
 		}
 
 		System.out.println("EL factorial de " + numero + " es " + resultado);

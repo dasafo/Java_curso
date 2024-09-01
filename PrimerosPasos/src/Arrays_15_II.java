@@ -5,7 +5,7 @@ public class Arrays_15_II {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String [] paises=new String[8];
+		String [] paises=new String[8]; // Creamos un Array de tipo String y guardamos 8 posiciones en memoria
 		 for(int i=0;i<8;i++) {
 			 paises[i]=JOptionPane.showInputDialog("Introduce país " + (i+1));
 		 }

@@ -32,6 +32,10 @@ dicho contenido se les da en las clases hijas.
 */
 
 
+/*-------------------------------------------------------------------
+---------------------------- PERSONA ---------------------------------
+-------------------------------------------------------------------*/
+
 abstract class Persona{		//Abstract porque será la clase de cuya clase irán las diferentes ramas de la herencia(subclases) que no están conectadas entre ellas.
 
 	public Persona(String nom) {			//Contructor
@@ -50,7 +54,9 @@ abstract class Persona{		//Abstract porque será la clase de cuya clase irán la
 	
 }
 
-
+/*-------------------------------------------------------------------
+---------------------------- EMPLEADO2 ---------------------------------
+-------------------------------------------------------------------*/
 
 class Empleado2 extends Persona{		//realizamos la herencia a la clase abstract Persona. Esta clase no estará conectada con Alumno
 	
@@ -67,7 +73,7 @@ class Empleado2 extends Persona{		//realizamos la herencia a la clase abstract P
 		
 	}
 	
-	public String dameDescripcion() {		//GETTER
+	public String dameDescripcion() {		//Metodo abstracto de Persona que debemos implementar
 		
 		return "Este empelado tiene un ID= " + ID + " con un sueldo= " + sueldo;
 	}
@@ -98,6 +104,10 @@ class Empleado2 extends Persona{		//realizamos la herencia a la clase abstract P
 	
 }
 
+
+/*-------------------------------------------------------------------
+---------------------------- ALUMNO ---------------------------------
+-------------------------------------------------------------------*/
 class Alumno extends Persona{ //Realizamos herencia con PErsona(Abstract), y por lo tanto no conectada con Empleado2
 	
 	public Alumno(String nom, String car) {		//Constructor(Tiene que tener el mismo nombre que la clase)
@@ -107,7 +117,7 @@ class Alumno extends Persona{ //Realizamos herencia con PErsona(Abstract), y por
 		
 	}
 	
-	public String dameDescripcion() {		//SETTER
+	public String dameDescripcion() {		//Metodo abstracto de Persona que debemos implmentar
 			
 		return "Este alumno está estudiando la carrera de " + carrera;
 	}
