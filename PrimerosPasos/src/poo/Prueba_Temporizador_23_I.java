@@ -27,7 +27,7 @@ public class Prueba_Temporizador_23_I {
 }
 
 
-class DameLaHora implements ActionListener{		//ActionListener es una interface y debemos implementar todos sus metodos
+class DameLaHora implements ActionListener{		//ActionListener es una interface y debemos implementar todos sus metodos(actionPerformed)
 	
 	public void actionPerformed(ActionEvent e) { //Metodo del interface ActionListener que llama al evento cuando es invocado 
 		

@@ -44,7 +44,7 @@ class LaminaConImagen extends JPanel{
 		
 		//Estamos obligados a lanzar una excepcion
 				try {
-				imagen=ImageIO.read(new File("src/graficos/Sun.gif")); //lo ideal sería hacerlo con una imagen de una bola de 15x15
+				imagen=ImageIO.read(new File("src/graficos/redstar.png")); //lo ideal sería hacerlo con una imagen de una bola de 15x15
 				}
 				catch(IOException e) {
 					
