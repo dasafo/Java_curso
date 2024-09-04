@@ -32,9 +32,9 @@ public class LaminaBotones_55 extends JPanel { //con esta clase hacemos nuestra 
 			
 			bot.setActionCommand(opciones[i]); //para cada boton el texto seleccionado corresponda a ese boton
 			
-			add(bot);
+			add(bot); // Añadimos el boton a la lamina
 			
-			grupo.add(bot);
+			grupo.add(bot); //Lo metemos en el objeto grupo creado antes para agrupar
 			
 			bot.setSelected(i==0); //para que por defecto seleccione el primer elemento de la caja
 			
