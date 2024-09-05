@@ -13,7 +13,8 @@ public class MarcoDialogos_55 extends JFrame {
 		setTitle("Prueba diálogos");
 		setBounds(500,300,600,450);
 		
-		//Creamos una lamina GridLayout en la parte superior
+		//------- Creamos la LAMINA SUPERIOR de tipo GridLayout en la parte superior ----------
+    //-------------------------------------------------------------------------------------
 		JPanel laminaCuadricula=new JPanel();
 		laminaCuadricula.setLayout(new GridLayout(2,3));
 		
@@ -67,7 +68,7 @@ public class MarcoDialogos_55 extends JFrame {
 				"Combo"
 		});
 		
-		setLayout(new BorderLayout()); //Ponemos un BorderLayout dentro del marco
+		setLayout(new BorderLayout()); //Ponemos un BorderLayout dentro del marco para poder agregar la laminaMostrar que ira debajdo de laminaCuadricula
 		
 		
 		laminaCuadricula.add(laminaTipo); //añadimos al GridLayout laminaTipo
@@ -77,7 +78,11 @@ public class MarcoDialogos_55 extends JFrame {
 		laminaCuadricula.add(laminaOpciones);
 		laminaCuadricula.add(laminaEntrada);
 
-		//---Contruimos la lamina inferior---
+    //ponemos el gridLayout en el centro de un BorderLayout
+		add(laminaCuadricula, BorderLayout.CENTER); 
+
+		//------ Contruimos la LAMINA INFERIOR -----
+    //------------------------------------------
 		JPanel laminaMostrar=new JPanel(); //Creamos la lamina donde ira el boton Mostrar
 		
 		JButton botonMostrar=new JButton("Mostrar"); //Creamos el boton Mostrar
@@ -88,17 +93,15 @@ public class MarcoDialogos_55 extends JFrame {
 		
 		add(laminaMostrar, BorderLayout.SOUTH); //ponemos la lamina al Sur del BorderLayout global
 		
-		//------------------------------------
-		
-		//ponemos el gridLayout en el centro de un BorderLayout
-		add(laminaCuadricula, BorderLayout.CENTER); 
-		
+		//-------------------------------------------
+
+				
 	}
 	
 	
 	//-------------------------PROPORCIONA EL MENSAJE--------------------------
 	
-	public Object dameMensaje() {
+	public Object dameMensaje() { // Creamos un metodo de tipo object
 		
 		String s=laminaMensaje.dameSeleccion(); //alamcenamos la opcion seleccionada
 		
