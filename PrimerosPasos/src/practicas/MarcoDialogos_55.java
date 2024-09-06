@@ -6,6 +6,12 @@ import java.awt.event.*;
 import java.awt.geom.Rectangle2D;
 import java.util.Date;
 
+
+
+
+// **** Clase principal para crear el Frame principal donde iran las laminas ****
+// ******************************************************************************
+
 public class MarcoDialogos_55 extends JFrame {
 
 	public MarcoDialogos_55() {
@@ -13,8 +19,8 @@ public class MarcoDialogos_55 extends JFrame {
 		setTitle("Prueba diálogos");
 		setBounds(500,300,600,450);
 		
-		//------- Creamos la LAMINA SUPERIOR de tipo GridLayout en la parte superior ----------
-    //-------------------------------------------------------------------------------------
+		//-- Creamos la LAMINA SUPERIOR de tipo GridLayout en la parte superior ---
+    //--------------------------------------------------------------------------
 		JPanel laminaCuadricula=new JPanel();
 		laminaCuadricula.setLayout(new GridLayout(2,3));
 		
@@ -81,8 +87,11 @@ public class MarcoDialogos_55 extends JFrame {
     //ponemos el gridLayout en el centro de un BorderLayout
 		add(laminaCuadricula, BorderLayout.CENTER); 
 
+
+
 		//------ Contruimos la LAMINA INFERIOR -----
     //------------------------------------------
+
 		JPanel laminaMostrar=new JPanel(); //Creamos la lamina donde ira el boton Mostrar
 		
 		JButton botonMostrar=new JButton("Mostrar"); //Creamos el boton Mostrar
@@ -99,7 +108,8 @@ public class MarcoDialogos_55 extends JFrame {
 	}
 	
 	
-	//-------------------------PROPORCIONA EL MENSAJE--------------------------
+	//-------------- Metodo que PROPORCIONA EL MENSAJE -------------------------
+  //--------------------------------------------------------------------------
 	
 	public Object dameMensaje() { // Creamos un metodo de tipo object
 		
@@ -138,7 +148,8 @@ public class MarcoDialogos_55 extends JFrame {
 				
 	}
 	
-	//---------------DEVUELVE TIPO MENSAJES y numero de botones en CONFIRMAR---------------------
+	//---- Metodo que DEVUELVE TIPO MENSAJES y numero de botones en CONFIRMAR -------
+  //-------------------------------------------------------------------------------
 	
 	public int dameTipo(LaminaBotones_55 lamina) {
 		
@@ -170,7 +181,8 @@ public class MarcoDialogos_55 extends JFrame {
 		
 	}
 	
-	//------------DA OPCIONES A LA LAMINA OPCION-----------------------
+	//------------ Metdo que DA OPCIONES A LA LAMINA OPCION ---------------------
+  //---------------------------------------------------------------------------
 	
 	public Object[] dameOpciones(LaminaBotones_55 lamina) {
 		
@@ -204,15 +216,15 @@ public class MarcoDialogos_55 extends JFrame {
 	
 	
 	
-	//-----------------Clase interna que gestiona los eventos------------------------
-	
-	private class AccionMostrar implements ActionListener{
+	//---- Clase interna de MarcoDialogos_55 para gestionar los eventos ----
+  //**********************************************************************
+  private class AccionMostrar implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			
-			//System.out.println(laminaTipo.dameSeleccion());
+			//System.out.println(laminaTipo.dameSeleccion()); //para que nos diga el texto que hay seleccionado(el nombre del radiobutton de la primera lamina(laminTipo))
 			
 			/*
 			 Queremos que nos muestre un el tipo JOptionPane seleccionado de los 4 que 
@@ -256,8 +268,9 @@ public class MarcoDialogos_55 extends JFrame {
 	private LaminaBotones_55 laminaOpciones;
 	private LaminaBotones_55 laminaEntrada;
 
+  // Variables para crear objetos en el panel de Mensaje
 	private String cadenaMensaje="Mensaje";
-	private Icon iconoMensaje=new ImageIcon("src/graficos/cut.png");
+	private Icon iconoMensaje=new ImageIcon("icons.png");
 	private Object objetoMensaje=new Date();
 	private Component componenteMensaje=new LaminaEjemplo();
 	
@@ -266,10 +279,12 @@ public class MarcoDialogos_55 extends JFrame {
 }
 
 //Creamos una clase para que dibuje una lamina coloreada en amarillo
+//******************************************************************
 class LaminaEjemplo extends JPanel{
 	
 	public void paintComponent(Graphics g) {
-		
+
+		// Llamamos al metodo padre de paintComponent
 		super.paintComponent(g);
 		
 		Graphics2D g2=(Graphics2D) g; //castin

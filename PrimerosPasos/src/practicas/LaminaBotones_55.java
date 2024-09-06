@@ -43,9 +43,12 @@ public class LaminaBotones_55 extends JPanel { //con esta clase hacemos nuestra 
 	}
 	
 	public String dameSeleccion() {
+    /*
+     *Metodo que nos devuelve el String de la casilla seleccionada
+    */
 		
 		/*
-		ButtonModel miboton=grupo.getSelection(); //almacena el radiobutton seleccionado en miboton
+		ButtonModel miboton=grupo.getSelection(); //almacena el radiobutton seleccionado en miboton(la posicion, no el string)
 		String s=miboton.getActionCommand(); //nos devuelve el String del elemento almacenado en miboton y se almacena en s
 		return s; //Para que devuelva el String seleccionado en el radiobutton
 		*/
