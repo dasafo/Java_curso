@@ -6,6 +6,8 @@
 
 package clases_propias;
 
+// Creamos una clase generica, al usar <T> o <U> o <K>(da igual) este ArrayList 
+// puede ser definido inicialmente de cualquier objeto (String, Empleado, Jefe,....)
 public class Pareja_72<T> {  //creamos una clase genérica
 	
 	public Pareja_72() {
@@ -33,6 +35,6 @@ public class Pareja_72<T> {  //creamos una clase genérica
 		return primero;
 	}
 	
-	private T primero;
+	private T primero; //variable de tipo generica T
 
 }

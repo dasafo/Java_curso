@@ -23,7 +23,8 @@ public class UsoArrayList_71_II {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		ArrayList archivos=new ArrayList(5);
+    // Usamos el ArrayList manual creado en UsoArrayList_71_I.java
+		ArrayList_71_I archivos=new ArrayList_71_I(5);
 		
 		archivos.add("Juan");
 		archivos.add("Maria");
@@ -31,13 +32,17 @@ public class UsoArrayList_71_II {
 		archivos.add("Samdra");
 		
 		archivos.add(new File("gestionPedidos.sdasd"));
+    File nombrePersona = (File)archivos.get(0);
 
 		String nombrePersona=(String)archivos.get(4); 
 		/*
 		Nos da error la linea de arriba porque el ArrayList no está configurado 
-		para admitir archovos File.
+		para admitir hacer casting de tipo String en archivos File, solo admite
+    segun la definicion que hemos hecho de nuestro ArrayList manual
+    elementos de tipo Object. 
 		
-		Para evitar ese error habría que renombrar el ArraList de arriba:
+		Para evitar ese error habría que renombrar el ArraList de arriba, Que es uso 
+    de un ArrayList de verdadm que viene a partir de la vesion 5 de JAva:
 		
 		ArrayList <String> archivos=new ArrayList<String>();
 		*/

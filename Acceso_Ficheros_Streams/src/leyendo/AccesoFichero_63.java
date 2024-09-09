@@ -40,8 +40,12 @@ class leerFichero {
 	public void lee() {
 		
 		try {
-			//FileREader es una excepción controlada(TryCatch)
-			FileReader entrada=new FileReader("/home/david/Documents/Programacion_PildorasInformaticas/Java/eclipse-workspace/ejemplo.txt"); 
+			//La clase FileReader que hereda de InputStreamReader, obtenemos sobrecarga de constructores
+      // Uno de los cuales es FileReader(File file) que nos lanza una expeción de tipo
+      // IOException lo cual nos obliga a capturarla como es en estos casos.
+
+      // RPimero instanciamos un objetod de ese constructor
+			FileReader entrada=new FileReader("/home/david/Documents/GitHub/Java_curso/ejemplo.txt"); 
 			
 			int c=0; //para que lea la primera posicion del .txt y por consiguiente su letra
 			

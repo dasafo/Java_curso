@@ -12,29 +12,37 @@
  * 
  ****************************************************************************************/
 
-
+/*
+ * Para ver la importancia de la programacion generica, primero vamos a contruir 
+ * manualmente nuestro propio ArrayList aqui, y haremos uso de el
+ * en UsoArrayList_71_II.java
+ *
+ * */
 package arraylist;
 
+// Creamos nuestro ArrayList creado manualmente
 public class ArrayList_71_I {
 
 	public ArrayList_71_I(int z) {
 		
-		datosElemento=new Object[z];
+		datosElemento=new Object[z]; //Un Array de tipo Object con z elementos
 	}
 
+  // Creamos get() que emula el get de un ArrayList de verdad
 	public Object get(int i) {
 		
 		return datosElemento[i];
 	
 	}
 	
+  // Creamos add() que emula el metodo add() de un ArrayList de verdad
 	public void add(Object o) {
 		
 		datosElemento[i]=o;
 		i++;
 	}
 	
-	private Object[] datosElemento;
+	private Object[] datosElemento; // Un Objeto de tipo Array
 	private int i=0;
 	
 	

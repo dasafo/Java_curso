@@ -9,7 +9,7 @@ import java.util.Date;
 
 
 
-// **** Clase principal para crear el Frame principal donde iran las laminas ****
+// **** CLASE PRINCIPAL para crear el Frame principal donde iran las laminas ****
 // ******************************************************************************
 
 public class MarcoDialogos_55 extends JFrame {
@@ -149,6 +149,8 @@ public class MarcoDialogos_55 extends JFrame {
 	}
 	
 	//---- Metodo que DEVUELVE TIPO MENSAJES y numero de botones en CONFIRMAR -------
+  //---- Es el tipo de icono que sale, el tipo de error/icono viene dado por un ---
+  //---- entero en el return ------------------------------------------------------
   //-------------------------------------------------------------------------------
 	
 	public int dameTipo(LaminaBotones_55 lamina) {
@@ -216,7 +218,7 @@ public class MarcoDialogos_55 extends JFrame {
 	
 	
 	
-	//---- Clase interna de MarcoDialogos_55 para gestionar los eventos ----
+	//---- CLASE INTERNA de MarcoDialogos_55 para gestionar los eventos ----
   //**********************************************************************
   private class AccionMostrar implements ActionListener{
 

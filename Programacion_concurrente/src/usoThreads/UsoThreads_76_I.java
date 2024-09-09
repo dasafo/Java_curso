@@ -106,11 +106,13 @@ class Pelota{
 		y+=dy;
 		
 		//Cuando llegue a los limites se cambia el signo para que rebote en xy
+    //con getMinX, getMinY, getMaxY o getMaxX detecta automaticamente los
+    //puntos maximos y mnimos en los ejes x o y
 		if(x<limites.getMinX()){
 			
 			x=limites.getMinX();
 			
-			dx=-dx;
+			dx=-dx; //cuando llegue a los limites invertimos corrdenadas
 		}
 		
 		if(x + TAMX>=limites.getMaxX()){
@@ -187,6 +189,7 @@ class LaminaPelota extends JPanel{
 	}
 	
 	//En este ArrayList se irán agregando las diferentes pelotas que se van creando
+  //asi se da la sensaion de movimiento frame a frame
 	private ArrayList<Pelota> pelotas=new ArrayList<Pelota>();
 }
 
@@ -270,7 +273,28 @@ class MarcoRebote extends JFrame{
 			Pelota pelota=new Pelota();
 			
 			lamina.add(pelota);
-			
+
+    /* Si usaramos solo un hilo para el programa como se ha hecho hasta ahora,
+       podriamos usar un for para iterar la pelota, en este caso 3000 veces. Si 
+       presionasemos otra vez en 'Dale!' para que saliera otra pelorta, no saldría
+       porque solo trabajamos con un hilo, una vez entra en el bucle for, hasta que 
+       no termine no pasa a otro y no saldra la segunda pelota que hemos inicializado
+       al darle otra vez en 'Dale!'
+       Indicamos tambien que haga 4 milisegundos de pausa entre ciclo y
+       ciclo para ver  la pelota
+    */
+/*  for (int i=1; i<=3000; i++){
+      pelota.mueve_pelota(lamina.getBounds());
+      lamina.paint(lamina.getGraphics());
+      try {
+           Thread.sleep(4); //el metodo sleep de Thread no obliga a capturar excepcion
+
+      } catch (InterruptedException e) {
+          e.printStackTrace();
+      }
+    }
+	*/		
+
 			Runnable r=new PelotaHilos(pelota, lamina);
 			
 			// Thread t=new Thread(r);
