@@ -43,8 +43,8 @@ public class UsoThreads_76_I {
 
 }
 
-
-
+// ----> 1) Crear una clase que implemente la I_Runnable --> M_run()
+//***********************************************************************
 class PelotaHilos implements Runnable{		//Para crear multitareas(hilos) para que aparezcan varias pelotas a la vez
 	
 	public PelotaHilos(Pelota unaPelota, Component unComponente) {
@@ -54,13 +54,15 @@ class PelotaHilos implements Runnable{		//Para crear multitareas(hilos) para que
 		
 		
 	}
-	
-	public void run() {
+
+	// ------> 2) Escribir el codigo de la tarea dentro del M_run()
+//****************************************************************
+	public void run() { //este es el unico metodo que hay en la interfaz Runnable
 		
 		
 		System.out.println("Estado del hilo al comenzar: " + Thread.currentThread().isInterrupted());
 		
-		// for (int i=1; i<=3000; i++){
+		// for (int i=1; i<=3000; i++){ //la explicacion de este bucle esta explicada mas abajo
 		// while(!Thread.interrupted()) { //Mientras no se interrumpa el hilo rebotara sin fin, al contrario que el for de arriba que hace 3000 iteraciones
 		while(!Thread.currentThread().isInterrupted()) { //hace lo mismo que el while de arriba
 		
@@ -260,7 +262,7 @@ class MarcoRebote extends JFrame{
 		boton.addActionListener(oyente);
 		
 	}
-	
+
 	//Añade pelota y la bota 1000 veces
 	
 	public void comienza_el_juego (){ 
@@ -279,15 +281,18 @@ class MarcoRebote extends JFrame{
        presionasemos otra vez en 'Dale!' para que saliera otra pelorta, no saldría
        porque solo trabajamos con un hilo, una vez entra en el bucle for, hasta que 
        no termine no pasa a otro y no saldra la segunda pelota que hemos inicializado
-       al darle otra vez en 'Dale!'
-       Indicamos tambien que haga 4 milisegundos de pausa entre ciclo y
-       ciclo para ver  la pelota
-    */
+       al darle otra vez en 'Dale!'. Y si le diesemos a  'Salir', no saldria hasta que
+       no terminase el hilo actual.
+       */
 /*  for (int i=1; i<=3000; i++){
       pelota.mueve_pelota(lamina.getBounds());
       lamina.paint(lamina.getGraphics());
+
+     //Indicamos tambien que haga 4 milisegundos de pausa entre 
+     //ciclo y ciclo para ver la pelota. El metodo sleep de Thread no obliga
+    //a capturar excepcion
       try {
-           Thread.sleep(4); //el metodo sleep de Thread no obliga a capturar excepcion
+           Thread.sleep(4);
 
       } catch (InterruptedException e) {
           e.printStackTrace();
@@ -295,11 +300,28 @@ class MarcoRebote extends JFrame{
     }
 	*/		
 
+
+    /*
+     * Ahora al añadir los pasos de arriba 1 y 2, añadiendo los siqguientes pasos
+     * podremos trabajar con varios hilos, lo que significa que podremos darle almacenar
+     * boton 'Dale!' e iran saliendo varias pelotas, o salir y hacerlo a la primera
+     * */
+
+     //------> 3) Instanciar la clase creada y almacenar la instancia
+     //en una variable tipo Runnable
+    //****************************************************************************
 			Runnable r=new PelotaHilos(pelota, lamina);
-			
-			// Thread t=new Thread(r);
+		
+    //-----> 4) Crear instancia de la C_Thread pasando como parametro 
+    //al constructor de Thread el objeto Runnable anterior
+    //*****************************************************************************
+		//Thread t=new Thread(r); //Aqui t seria local
+    //Como queremos que la varible sea accesible tanto desde aqui como fuera de esta clase 
+    //tenemos que declar la variable abajo del todo y acceder aqui de esta forma:
 			t=new Thread(r);
 			
+    //-------> 5) Poner en marcha el hilo de ejecución con el M_start() de C_Thread
+    //*****************************************************************************
 			t.start(); //start llama al metodo run() de Thread
 			
 		
@@ -311,11 +333,11 @@ class MarcoRebote extends JFrame{
 		
 		// t.stop(); //stop() está desaconsejado en Java
 		
-		t.interrupt();
+		t.interrupt(); // t es como se llama el hilo
 	}
 	
 	
-	Thread t;
+	Thread t; //definimos aqui t para que pueda ser accesible 
 	private LaminaPelota lamina;
 	
 	
