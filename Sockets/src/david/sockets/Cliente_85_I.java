@@ -15,6 +15,11 @@
  * situado en 85_II el texto que se introduce 
  */
 
+/*
+ * El CLIENTE es el encargado de crear el puente/socket hacia el Servidor
+ * y crear el flujo/stream de infromacion
+ * */
+
 package david.sockets;
 
 import java.awt.event.ActionEvent;
@@ -75,7 +80,7 @@ class LaminaMarcoCliente extends JPanel{
 		
 	}
 	
-	
+// Esta clase se encargara de administrar los eventos 	
 	private class EnviaTexto implements ActionListener{
 
 		@Override
@@ -86,7 +91,7 @@ class LaminaMarcoCliente extends JPanel{
 			try {
 				
 				//Creamos el puente entre cliente-servidor, el Socket
-				Socket misocket=new Socket("192.168.1.90", 9999); //instanciamos el flujo(Socket) dadno la IP y el puerto
+				Socket misocket=new Socket("192.168.178.24", 9999); //instanciamos el flujo(Socket) dadno la IP y el puerto
 				
 				//Creamos el flujo de datos de salida y lo hacemos circular por misocket
 				DataOutputStream flujoSalida=new DataOutputStream(misocket.getOutputStream());  

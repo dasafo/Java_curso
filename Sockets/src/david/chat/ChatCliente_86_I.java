@@ -99,8 +99,10 @@ class EnvioOnline extends WindowAdapter{ //clase adaptadora que implementa todos
 
 
 
-class LaminaMarcoCliente extends JPanel implements Runnable{ //implementamos Runnable para crear un hilo para que esté permanentemente a la escucha
-															 //para que reciba los datos reenviados por parte del Servidor
+class LaminaMarcoCliente extends JPanel implements Runnable{ 
+  //implementamos Runnable para crear un hilo para que esté permanentemente 
+  //a la escucha para que reciba los datos reenviados por parte del Servidor,
+  //info que viene del otro cliente con el que estamos chateando
 	
 	public LaminaMarcoCliente(){
 		
@@ -147,20 +149,22 @@ class LaminaMarcoCliente extends JPanel implements Runnable{ //implementamos Run
 		
 		add(miboton);	
 		
-		Thread mihilo=new Thread(this); //creamos el hilo que estará a la escuhca constantemente esperando info del Servidor
+		Thread mihilo=new Thread(this); //creamos el hilo que estará a la escuhca constantemente esperando info del Servidor. This porque es esta clase la que tiene el hilo
 		
 		mihilo.start(); //arrancamos el hilo
 		
 		
 	}
 	
-	
+
+  // ---------- Esa clase administrara los eventos
+  // -------------------------------------------------------------
 	private class EnviaTexto implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-					
+				// este metodo es el encargado de la accion de los eventos	
+
 			try {
 				Socket misocket=new Socket("192.168.1.90", 9999); //instanciamos el flujo(Socket)
 				
@@ -176,7 +180,7 @@ class LaminaMarcoCliente extends JPanel implements Runnable{ //implementamos Run
 				//Creamos el flujo de salida paqueteDatos para enviar el paquete 'datos'
 				ObjectOutputStream paqueteDatos=new ObjectOutputStream(misocket.getOutputStream()); 
 				//le decimos que el paquete datos es el que viajará a través del flujo de salida paqueteDatos
-				paqueteDatos.writeObject(datos); 
+				paqueteDatos.writeObject(datos); // metemos la informacion en paqueteDatos 
 				misocket.close(); //cerramos el flujo de salida
 				
 			} catch (UnknownHostException e1) {
@@ -202,15 +206,18 @@ class LaminaMarcoCliente extends JPanel implements Runnable{ //implementamos Run
 	
 	
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
+	public void run() { 
+    //este metodo viene de la Interfaz Runnable (por lo tanto obligatorio)
+    //y al igual que se hace en el Server, este tendra que estar a la escucha
+    //para recoger la info que le venga del Server, q a su vez viene del otro
+    //cliente que es con quien realmente chateamos
 		
 		try {
 			
-			ServerSocket servidorCliente=new ServerSocket(9099); //creamos un flujo que conecte el puerto 9090 del Servidor con nuestro cliente
+			ServerSocket servidorCliente=new ServerSocket(9099); //creamos un flujo que conecte el puerto 9099 del Servidor con nuestro cliente
 			
-			Socket cliente;
-			PaqueteEnvio paqueteRecibido;
+			Socket cliente; // creamos un socket por donde vendra el paquete del Server
+			PaqueteEnvio paqueteRecibido; //aqui almacenaremos el paquete recibido
 			
 			while(true) { //para que este siempre a la escucha, bucle infinito
 				
@@ -222,7 +229,7 @@ class LaminaMarcoCliente extends JPanel implements Runnable{ //implementamos Run
 				
 				if(!paqueteRecibido.getMensaje().equals(" online")) { //si NO has recibido el mensaje "online", es que ya estabas chateando
 					
-					campochat.append("\n" + paqueteRecibido.getNick() + ": " + paqueteRecibido.getMensaje());
+					campochat.append("\n" + paqueteRecibido.getNick() + ": " + paqueteRecibido.getMensaje()); //para que muestre el paquete recibido en el campochat
 
 				}else { //sino es que un cliente se acaba de conectar, y me agregas la ip
 					
@@ -254,7 +261,12 @@ class LaminaMarcoCliente extends JPanel implements Runnable{ //implementamos Run
 	
 }
 
-//creamos una clase para que envie al servidor el ip, el texto y el nick empaquetados
+
+
+// Creamos una clase para que envie al servidor el ip, el texto y el nick empaquetados
+// Esta clase tiene que ser serializada (convertida en 0s y 1s) para poder ser enviada 
+// al Servidor
+//-------------------------------------------------------------------------------------
 class PaqueteEnvio implements Serializable{ 
 											
 	public ArrayList<String> getIps() {

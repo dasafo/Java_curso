@@ -10,6 +10,10 @@
  * 
  ******************************************************************************/
 
+// ********************************
+// CLIENTE1 -> SERVIDOR -> CLIENTE2
+// *********************************
+
 package david.chat;
 
 import javax.swing.*;
@@ -31,7 +35,10 @@ public class ChatServidor_86_II  {
 }
 
 class MarcoServidor extends JFrame implements Runnable{ 
-	
+  // Implementamos Runnable para que crear un hilo que este permanentemente
+  // a la escucha de los datos que le vienen de los clientes que estan
+  // chateando y cuya info pasa serializada por el Servidor
+
 	public MarcoServidor(){
 		
 		setBounds(1200,300,280,350);				
@@ -62,6 +69,12 @@ class MarcoServidor extends JFrame implements Runnable{
 		
 		
 		try {
+
+        // ---------------------------------------------------------------
+        // -------------------- CLIENTE1 -> SERVIDOR ---------------------
+        // ---------------------------------------------------------------
+
+
 			
 			ServerSocket servidor=new ServerSocket(9999); //ponemos el puerto 9999 del servidor a la escucha  
 			
@@ -78,11 +91,13 @@ class MarcoServidor extends JFrame implements Runnable{
 				Socket misocket=servidor.accept(); //le hemos dicho que acepte las conexiones que vienen con misocket
 			
 											
-				ObjectInputStream paqueteDatos=new ObjectInputStream(misocket.getInputStream()); //creamos flujo para recibir los datos
+				ObjectInputStream paqueteDatos=new ObjectInputStream(misocket.getInputStream()); //creamos flujo para recibir los datos que se encuentran serializados (0s y 1s)
 				
 				paqueteRecibido=(PaqueteEnvio)paqueteDatos.readObject(); //lee y mete el paqueteDatos recibido del cliente mediante el flujo, en paqueteRecibido
 				
-				nick=paqueteRecibido.getNick(); //almacenamos en cada variable creada arriba, lo que hay en el paqueteREcibido
+        // Ahora extraemos la info guardada en paqueteRecibido haciendo uso de los
+        // getters de la clase PaqueteEnvio creada en el Cliente
+				nick=paqueteRecibido.getNick(); 
 				ip=paqueteRecibido.getIp();
 				mensaje=paqueteRecibido.getMensaje();
 				
@@ -91,11 +106,15 @@ class MarcoServidor extends JFrame implements Runnable{
 									
 				areatexto.append("\n" + nick + ": " + mensaje + " para " + ip); //que lo ponga en el cuadro de texto
 				
-				
-				
+				// ---------------------------------------------------------------
+        // -------------------- SERVIDOR -> CLIENTE2 ---------------------
+        // ---------------------------------------------------------------
+
 				//-----creamos conexion del Servidor con otro cliente-----
-				Socket enviaDestinatario=new Socket(ip, 9099); //creamos puente con el otro Cliente(detinatario final) usamos la ip 
-																//y el puente del otro cliente 9090, la id del cliente es la misma porque lo reenviamos al mismo cliente
+				Socket enviaDestinatario=new Socket(ip, 9099); 
+          //creamos puente con el otro Cliente(detinatario final) usamos la ip y
+          //el puente del otro cliente 9099, la id del cliente es la misma porque
+          //lo reenviamos al mismo cliente
 				
 				ObjectOutputStream paqueteReenvio=new ObjectOutputStream(enviaDestinatario.getOutputStream()); //reeviamos el paquete por el flujo(stocket) enviaDestinatario
 				

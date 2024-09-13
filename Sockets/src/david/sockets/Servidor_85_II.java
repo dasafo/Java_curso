@@ -22,6 +22,10 @@ import java.awt.*;
 import java.io.*;
 import java.net.*;
 
+/*
+ * Este servidor tendra que estar constantemente a la escucha y para ello
+ * usamos un hilo/thread, y tener el puerto 9999 todo el rato abierto
+ * */
 public class Servidor_85_II  {
 
 	public static void main(String[] args) {
