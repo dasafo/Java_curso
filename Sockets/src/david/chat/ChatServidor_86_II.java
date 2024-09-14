@@ -86,7 +86,7 @@ class MarcoServidor extends JFrame implements Runnable{
 			
 			
 			
-			while(true) { //creamos un bucle infinito para poder escribir cuantas veces queramos,
+			while(true) { //creamos un bucle infinito para poder escribir cuantas veces queramos, y este todo el rato a la escucha
 			
 				Socket misocket=servidor.accept(); //le hemos dicho que acepte las conexiones que vienen con misocket
 			
@@ -101,8 +101,10 @@ class MarcoServidor extends JFrame implements Runnable{
 				ip=paqueteRecibido.getIp();
 				mensaje=paqueteRecibido.getMensaje();
 				
-				
-				if(!mensaje.equals(" online")) {
+
+			// Si el mensaje que recibe del cliente es diferente al paquete " online"
+      // entonces significa que ya se conecto antes por primera vez, entonces... 
+			if(!mensaje.equals(" online")) {
 									
 				areatexto.append("\n" + nick + ": " + mensaje + " para " + ip); //que lo ponga en el cuadro de texto
 				
@@ -124,14 +126,22 @@ class MarcoServidor extends JFrame implements Runnable{
 				
 				enviaDestinatario.close();//cerramos el puente
 				
-				}else {
+			}else { // En cambio si es la primera vez q se conecta....
 					
-					//--------------DETECTA ONLINE------------------
+					// Ahora necesitamos que nuestro Server detecte las ips que estan activas
+          // ----------------------------------------------------------------------
+
+          // Guardamos en un objeto de la clase InetAddress usando su metodo
+          // getInetAddress que lo que hace es devolver la direccion a la que 
+          // el socket esta conectado
+					InetAddress localizacion=misocket.getInetAddress();
 					
-					InetAddress localizacion=misocket.getInetAddress(); //guardamos en localizacion la direccion del cliente que acabamos de conectar
-					
-					String IpRemota=localizacion.getHostAddress(); //guardamos en ipRemota la direccion IP del cliente que acabamos de conectar
-					
+          // Como lo anterior nos devuelve un objeto y nosotros trabajamos con
+          // String, vamos a crear una variable de tipo String y usando un metodo
+          // getHostAddress de la clase InetAddress, obtenemos la direccion
+          // ip en formato String del cliente que se acaba de conectar al Server
+					String IpRemota=localizacion.getHostAddress();
+
 					// System.out.println("ONLINE " + IpRemota);
 					
 					listaIp.add(IpRemota); //vamos añadiendo las IP's a listaIp(es un ArrayList)
@@ -143,8 +153,10 @@ class MarcoServidor extends JFrame implements Runnable{
 						System.out.println("Array: " + z);
 						
 						//-----creamos conexion del Servidor con otro cliente-----
-						Socket enviaDestinatario=new Socket(z, 9090); //creamos puente con el otro Cliente(detinatario final) usamos la ip, que ahora esta almacenado en z,
-																		//y el puente del otro cliente 9090, la id del cliente es la misma porque lo reenviamos al mismo cliente
+						Socket enviaDestinatario=new Socket(z, 9090); 
+            //creamos puente con el otro Cliente(detinatario final) usamos la ip,
+            //que ahora esta almacenado en z, y el puente del otro cliente 9090,
+            //la id del cliente es la misma porque lo reenviamos al mismo cliente
 						
 						ObjectOutputStream paqueteReenvio=new ObjectOutputStream(enviaDestinatario.getOutputStream()); //reeviamos el paquete por el flujo(stocket) enviaDestinatario
 						

@@ -65,27 +65,38 @@ class MarcoCliente extends JFrame{
 		
 		setVisible(true);
 		
-		addWindowListener(new EnvioOnline()); //Asi nada mas se abra la ventana se ejecuta windowOpened(avisa de que está online)
+		addWindowListener(new EnvioOnline()); //Asi nada mas se abra la ventana se ejecuta windowOpened(avisa de que está online enviando el paquete creado en dicha clase abajo)
 		}	
 	
 }
 
 
 //----------------ENVIO DE SEÑAL ONLINE--------------------
+// Esta clase sera la encargada de enviar un paquete al Server
+// que permita crear la conexion con este a traves de un Socket, en 
+// nuestro caso "la señal" sera el momento en que se abre la ventana del 
+// chat del cliente. Todo esto se hace para indicar al Server que el cliente
+// esta activo y este puede proceder a obtener el IP del cliente activo
 class EnvioOnline extends WindowAdapter{ //clase adaptadora que implementa todos los metodos de una interfaz, en este caso de WindowListener
 	
-	public void windowOpened(WindowEvent e) {
+	public void windowOpened(WindowEvent e) { //cuando se crea la ventana....
 		
 		try {
-			
-			Socket misocket=new Socket("192.168.1.90",9999); //establecemos una conexion(socket) con el servidor
-			
+			//establecemos una conexion(socket) con el servidor
+			Socket misocket=new Socket("192.168.1.90",9999); 	//Datos del Server(ip, puerto)		
+
+      // Creamos un paquete que sera el q se envie al Server para indicarle
+      // que el cliente esta activo
 			PaqueteEnvio datos=new PaqueteEnvio();
 			
+      //Metenmos esta palabra en el paquete que ira al Server
 			datos.setMensaje(" online");
 			
+      //Ahora como siempre una vez creado el socket generamos el flujo/stream 
+      //de datos hacia el server para mandar este paquete
 			ObjectOutputStream paqueteDatos=new ObjectOutputStream(misocket.getOutputStream()); //creamos flujo de datos
 			
+      //indicamos que dentro de ese flujo metemos el paquete datos
 			paqueteDatos.writeObject(datos);
 			
 			misocket.close();
