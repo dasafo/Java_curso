@@ -105,15 +105,19 @@ class LaminaMarcoCliente extends JPanel implements Runnable{
   //info que viene del otro cliente con el que estamos chateando
 	
 	public LaminaMarcoCliente(){
-		
+
+	  //PAra que introduzcamos el nick, saldra al principio una ventana emergente
+    //JOptionPane para introducirlo
 		String nick_usuario=JOptionPane.showInputDialog("Nick: ");
 		
+    // Al meter el nick, este aparecera en nuestra cabecera del chat en un JPanel
 		JLabel n_nick=new JLabel("Nick: ");
 		
 		add(n_nick);
 		
 		nick=new JLabel();
 		
+    //guardamos en el JPanel del nick el nick del usuario introducido
 		nick.setText(nick_usuario);
 		
 		add(nick);
@@ -122,6 +126,7 @@ class LaminaMarcoCliente extends JPanel implements Runnable{
 		
 		add(texto);
 		
+    // Creamos un un menu desplegable JComboBox para almacenar las ip activas
 		ip=new JComboBox();
 		
 		/*ip.addItem("Usuario1");
@@ -171,10 +176,16 @@ class LaminaMarcoCliente extends JPanel implements Runnable{
 				//creamos un paquete 'datos'(Object) y enpaquetamos el nick, ip y el mensaje del cuadro de texto
 				PaqueteEnvio datos=new PaqueteEnvio(); 
 				
-				//el cuadro de texto se llamaba nick(JTextField), lo caputra(getText()) y se lo manda a la variable 
-				//nick(no confundir con el JTextField con el mismo nombre)
+				//el cuadro de texto se llamaba nick(JTextField), lo caputra(getText())
+        //y se lo manda a la variable nick(no confundir con el JTextField con
+        //el mismo nombre)
 				datos.setNick(nick.getText()); 
-				datos.setIp(ip.getSelectedItem().toString()); //lo mismo para la ip
+        // Lo mismo pero ahora con el menu desplegable con las ips, con
+        // getSelectedItem le indicamos cual es el elemento seleccionado
+        // en el JComboBox/desplegable,esto devuelve un objeto
+        // y lo pasamos a String
+				datos.setIp(ip.getSelectedItem().toString());
+
 				datos.setMensaje(campo1.getText()); //lo mismo para el cuadro de texto
 				
 				//Creamos el flujo de salida paqueteDatos para enviar el paquete 'datos'
