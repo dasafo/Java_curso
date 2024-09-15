@@ -63,8 +63,9 @@ class Marco_Aplicacion extends JFrame{
 		add(resultado, BorderLayout.CENTER);
 		
 		JButton botonConsulta=new JButton("Consulta");	
-		
-		botonConsulta.addActionListener(new ActionListener() {	//ponemos botonConsulta a la escucha
+    
+	  // Ponemos el boton Consulta a la escucha	
+		botonConsulta.addActionListener(new ActionListener() {	
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -76,22 +77,28 @@ class Marco_Aplicacion extends JFrame{
 		add(botonConsulta, BorderLayout.SOUTH);
 		
 		
-		//-----------------------------------CONEXION BASE DE DATOS--------------------------------------------
+		//---------------------- CONEXION BASE DE DATOS(ver arvhicos justo anteriores para ver) -------------------------
 		
 		try {
-			
+						
+			// 1. Crear Conexion
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 			
+			// 2. Crear objeto Statement
 			Statement sentencia=miConexion.createStatement();
 			
 			//------------Primer JComboBox(Secciones) de BorderLayout.North--------------
 			String consulta="SELECT DISTINCTROW SECCIÓN FROM PRODUCTOS"; //EN sqL ponemos DitinctRow para que no repita secciones 
 			
+			// 3. Ejecutar SQL
 			ResultSet rs=sentencia.executeQuery(consulta);
 			
+			// 4. REcorrer el REsultSet
 			while(rs.next()) {
 				
-				secciones.addItem(rs.getString(1)); //añadir al primer ComboBox de BorderLayout.North la primera columna de PRODUCTOS-Seccion
+				secciones.addItem(rs.getString(1)); 
+        //añadir al primer ComboBox de BorderLayout.North la primera columna
+        //de PRODUCTOS-Seccion. Secciones es el nombre del primer ComboBox
 			}
 			
 			rs.close();
@@ -104,7 +111,9 @@ class Marco_Aplicacion extends JFrame{
 			
 			while(rs.next()) {
 				
-				paises.addItem(rs.getString(1)); //añadir al primer ComboBox de BorderLayout.North la primera columna de PRODUCTOS-Seccion
+				paises.addItem(rs.getString(1)); 
+        //añadir al primer ComboBox de BorderLayout.North la primera columna
+        //de PRODUCTOS-Seccion. 'paises' es el nombre del segundo ComboBox
 			}
 			
 			rs.close();
@@ -115,7 +124,7 @@ class Marco_Aplicacion extends JFrame{
 		}
 		
 		
-	}	
+	}//aqui termina el Constructor	
 	
 	
 	private void ejecutaConsulta() {
@@ -130,10 +139,14 @@ class Marco_Aplicacion extends JFrame{
 			String pais=(String)paises.getSelectedItem();
 			
 			if(!seccion.equals("Todos") && pais.equals("Todos")) { 	//si NO está seleccionado Todos en seccion pero SI en paises, haz...
-			
-				enviaConsultaSeccion=miConexion.prepareStatement(consultaSeccion); //creamos una consulta preparada y almacenar esa consulta preparada en consultaPreparada
-																			   //y pasar como paramentro la variable parametrizada consultaSeccion
-				enviaConsultaSeccion.setString(1, seccion); //pasamos por parametro el valor
+
+			   // Creamos una consulta preparada y almacenar esa consulta preparada en consultaPreparada
+				// y pasar como paramentro la variable parametrizada consultaSeccion
+				enviaConsultaSeccion=miConexion.prepareStatement(consultaSeccion); 
+
+        //pasamos por parametro el valor del primer ?
+        //y el valor seleccionado en el desplegable, valor guardado en la variable seccion
+				enviaConsultaSeccion.setString(1, seccion); 
 			
 				rs=enviaConsultaSeccion.executeQuery(); //ejecutamos la consulta
 			

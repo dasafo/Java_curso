@@ -80,7 +80,7 @@ class MarcoServidor extends JFrame implements Runnable{
 			
 			String nick, ip, mensaje; //creamos las variables donde se guardará la info que llegue
 			
-			ArrayList<String> listaIp=new ArrayList<String>(); //creamos lista para almacenar ip's
+			ArrayList<String> listaIp=new ArrayList<String>(); //creamos lista para almacenar ip's de frma dinamica
 			
 			PaqueteEnvio paqueteRecibido; //paquete que recibirá la info del Cliente
 			
@@ -144,13 +144,21 @@ class MarcoServidor extends JFrame implements Runnable{
 
 					// System.out.println("ONLINE " + IpRemota);
 					
+          // cada vez que entra un nuevo cliente, entra en este 'else' y vamos
+          // añadiendo la ip
 					listaIp.add(IpRemota); //vamos añadiendo las IP's a listaIp(es un ArrayList)
-					
-					paqueteRecibido.setIps(listaIp); //metemos en el paquete la lista de las IP's
-					
-					for(String z: listaIp) { //recorremos la lista de IP's y las imprimimos en consola
+
+					//metemos en el paquete el ArrayList de las IP's con ayuda del setter que
+          //tenemos definido en la calse de PaqueteEnvio en el Cliente
+					paqueteRecibido.setIps(listaIp); 					
+
+
+          // Ahora se recorrera todo el ArrayList(listaIp) e ira abriendo un socket
+          // con cada ip para de esta forma mandar este ArrayList a cada cliente, para que 
+          // estos dispongan en su menu desplegable de las ips activas
+					for(String z: listaIp) { //recorremos la lista de IP's
 						
-						System.out.println("Array: " + z);
+						System.out.println("Array: " + z);//las imprimimos por consola
 						
 						//-----creamos conexion del Servidor con otro cliente-----
 						Socket enviaDestinatario=new Socket(z, 9090); 

@@ -31,8 +31,8 @@ public class ConectaPruebas_87 {
 			// 4. REcorrer el REsultSet
 			while(miResultset.next()) { //mientras exista otro registro en la tabla(PRODUCTOS) haz..
 				
-				System.out.println(miResultset.getString("NOMBREARTÍCULO") + " " 
-				
+				System.out.println(
+          miResultset.getString("NOMBREARTÍCULO") + " " 
 						+ miResultset.getString("CÓDIGOARTÍCULO") + " " 
 						+ miResultset.getDouble("PRECIO")*2 + " "
 						+ miResultset.getDate("FECHA")

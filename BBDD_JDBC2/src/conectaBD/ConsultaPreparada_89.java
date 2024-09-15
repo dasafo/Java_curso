@@ -1,3 +1,11 @@
+/*
+ * Las CONSULTAS PREPARADAS permiten pasar prarametros a las sentencias SQL
+ * Previenen de ataques de inyeccion SQL y tienen un mejor rendimiento ya que 
+ * son sentencias precompiladas y reutilizables, se compila una vez al principio
+ * PAra ello usamos el signo ?, esto nos permite ir cambiando de criterio en 
+ * tiempo de ejecuccion. PAra ello usamos PreparedStatement
+ * */
+
 package conectaBD;
 import java.sql.*;
 

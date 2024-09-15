@@ -13,13 +13,25 @@
  * Ejercicio que consiste en crear un Chat donde un usuario deba introducir su Nick,
  * dirección IP del Cliente destinatario y el mensaje de texto que quiere enviar a esa IP.
  * Este mensaje pase por un servidor y este servidor lo envie al cliente destinatario.
- * 1- Desde el Cliente mandaremos un objeto(PaqueteEnvio) con la ip, nick y texto que se envia, para ello
- * 	  lo Serializamos(pasamos a bytes)
+ *
+ * 1- Cuando se inicia el cliente, se envia automaticamente dentro de un
+ * objeto(PaqueteEnvio) el nick, y un texto(" online"), la ip y el ArrayList
+ * estan vacios en principio, dicho paqeute indicara al Server que nuestro
+ * cliente esta activo.
+ *
+ * 2- El Server recibe este paquete y es capaz de identificar la ip de este cliente
+ * de esta forma avisa al resto de clientes activos que hay un cliente con dicha ip,
+ * El server creara otro socket para enviar a cada cliente activo la lista con las
+ * ips activas para que esten en el desplegable del cliente
+ *
+ * 3- Desde el Cliente mandaremos un objeto(PaqueteEnvio) con la ip, nick y texto
+ * que se envia, para ello lo Serializamos(pasamos a bytes)
  * 
- * 2- En el Servidor creamos otro objeto(PaqueteREcibido) para que recoja el paquete serializado que le llega
- * 	  desde el Cliente
+ * 4- En el Servidor creamos otro objeto(PaqueteREcibido) para que recoja el paquete
+ * serializado que le llega desde el Cliente(como pasa en los pasos previos pero ya 
+ * para la comunicacion y no para avisar de que hay un cliente nuevo)
  * 
- * 3- HAcer lo mismo que en 2, pero para el Cliente que recibe finalmente el mensaje
+ * 5- HAcer lo mismo que en 2, pero para el Cliente que recibe finalmente el mensaje
  */
 /* habria que hacer un ejecutable de este archivo(File----->export---->Java/Runneable JAR file) 
  * y meterla en otro PC o Maquina virtual y comprobar que funciona
@@ -184,7 +196,8 @@ class LaminaMarcoCliente extends JPanel implements Runnable{
 			try {
 				Socket misocket=new Socket("192.168.1.90", 9999); //instanciamos el flujo(Socket)
 				
-				//creamos un paquete 'datos'(Object) y enpaquetamos el nick, ip y el mensaje del cuadro de texto
+				//creamos un paquete 'datos'(Object) y enpaquetamos el nick, ip y
+        //el mensaje del cuadro de texto
 				PaqueteEnvio datos=new PaqueteEnvio(); 
 				
 				//el cuadro de texto se llamaba nick(JTextField), lo caputra(getText())
@@ -214,7 +227,6 @@ class LaminaMarcoCliente extends JPanel implements Runnable{
 		
 		}
 		
-		
 	}
 		
 		
@@ -243,25 +255,36 @@ class LaminaMarcoCliente extends JPanel implements Runnable{
 			
 			while(true) { //para que este siempre a la escucha, bucle infinito
 				
-				cliente=servidorCliente.accept(); //para que acepte todas las conexiones que le lleguen del exterior
+				cliente=servidorCliente.accept(); //para que acepte todas las conexiones que le lleguen del exterior(en nuestro caso del Server)
 				
 				ObjectInputStream flujoEntrada=new ObjectInputStream(cliente.getInputStream()); //creamos un flujo de entrada capaz de trasportar objetos(paquete de datos)
 				
 				paqueteRecibido=(PaqueteEnvio)flujoEntrada.readObject(); //para que almacene en paqueteRecibido el paquete que le llega
 				
-				if(!paqueteRecibido.getMensaje().equals(" online")) { //si NO has recibido el mensaje "online", es que ya estabas chateando
+
+        // Ahora vamos a diferenciar al igual que hemos hecho en el Server, cuando el 
+        // paquete recibido es el primero que nos manda el Server, lo que significa
+        // que es cuando el cliente acaba de conectarse y le ha manadado un paquete con
+        // el mensaje " online", o es otro paquete, lo que significa que ya se esta
+        // chateando y ese mensaje ya se mando
+				if(!paqueteRecibido.getMensaje().equals(" online")) { //si NO has recibido el mensaje "online", es que ya estabas chateando, entonces....
 					
 					campochat.append("\n" + paqueteRecibido.getNick() + ": " + paqueteRecibido.getMensaje()); //para que muestre el paquete recibido en el campochat
 
-				}else { //sino es que un cliente se acaba de conectar, y me agregas la ip
-					
+				}else { //SINO es que un cliente se acaba de conectar, y me agregas el ArrayList de las ips
 					
 					// campochat.append("\n" + paqueteRecibido.getIps());
 
+          // Creamos un ArrayList donde iran las ips del desplegable
 					ArrayList<String> IpsMenu=new ArrayList<String>();
 					
+          //le decimos que ese ArrayList almacene el ArrayList que el cliente ha 
+          //recibido del Server con las ips
 					IpsMenu=paqueteRecibido.getIps();
 					
+          //removemos la lista para que no vaya añadiendo y repitiendo las ips cada
+          //vez que un cliente se conecta, ya que el ArrayList que viene del servidor
+          //nos trae todas las ips
 					ip.removeAllItems();
 					
 					for(String z: IpsMenu) {
@@ -285,12 +308,16 @@ class LaminaMarcoCliente extends JPanel implements Runnable{
 
 
 
-// Creamos una clase para que envie al servidor el ip, el texto y el nick empaquetados
+// Creamos una clase para que envie al servidor el ip, el texto, el nick y un ArrayList
+// con las ips activas. Todo empaquetado.
 // Esta clase tiene que ser serializada (convertida en 0s y 1s) para poder ser enviada 
 // al Servidor
 //-------------------------------------------------------------------------------------
 class PaqueteEnvio implements Serializable{ 
-											
+		//Implementamos Serializable(ver Seriarilar) para que todas las instancias
+  //de PAquete envio se puedan converir en bytes al ser enviadas por la Red
+										
+  // getter y setter para el ArrayList de las ips
 	public ArrayList<String> getIps() {
 		return Ips;
 	}
@@ -299,14 +326,7 @@ class PaqueteEnvio implements Serializable{
 		Ips = ips;
 	}
 
-	//Implementamos Serializable(ver Seriarilar) para que todas las instancias de PAquete envio 
-	//se puedan converir en bytes al ser enviadas por la Red
-	private String nick, ip, mensaje;
-
-	private ArrayList<String> Ips; //creamos otro elemento para mandar en el paquete de envio, 
-									//enviamos tambien las ip's activas
-	
-	//-----Hemos creado estos getter and setters para nick, ip y mensaje con click 
+		//-----Hemos creado estos getter and setters para nick, ip y mensaje con click 
 	//derecho ratón---->Source---->Generate Getters and Setters
 	public String getNick() {
 		return nick;
@@ -332,7 +352,13 @@ class PaqueteEnvio implements Serializable{
 		this.mensaje = mensaje;
 	}
 	//-------------------------------------------------------------------------
+
+	private String nick, ip, mensaje;
+	private ArrayList<String> Ips; 
+  //creamos otro elemento para mandar en el paquete de envio,
+  //enviamos tambien las ip's activas
 	
+
 }
 
 
