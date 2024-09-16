@@ -1,3 +1,9 @@
+/* 
+ * Las mejores preacticas nos dicen que siempre hay q encapsular
+ * todos los datos o acciones referentes a la bbdd y como en esta app
+ * realizamos consultas a los Productos, pues creamos un archivo a parte
+ * donde introducimos nuestra clase Productos
+ * */
 package modelo;
 
 public class Productos {

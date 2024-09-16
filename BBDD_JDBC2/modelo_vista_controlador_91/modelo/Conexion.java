@@ -1,3 +1,7 @@
+/*
+* Aqui es donde se establece la conexion a la bbdd
+ * */
+
 package modelo;
 
 import java.sql.*;
@@ -11,6 +15,8 @@ public class Conexion {
 		
 	}
 	
+  // Creamos un metodo de tipo Connection para llamarlo cada vez que queramos
+  // conectarnos con la bbdd
 	public Connection dameConexion() {
 		
 		try {

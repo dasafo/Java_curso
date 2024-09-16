@@ -50,8 +50,11 @@ public class MarcoAplicacion2 extends JFrame {
 		
 		add(botonConsulta, BorderLayout.SOUTH);
 		
+    //Ponemos el boton de Constulta a la escucha
 		botonConsulta.addActionListener(new ControladorBotonEjecuta(this));
 		
+    // Para que este a la escucha de lo que viene de ControladorCargaMenus
+    // que es un evento de ventana, aqui this hace referencia al parametro elmarco
 		addWindowListener(new ControladorCargaMenus(this));
 
 	}
