@@ -1,0 +1,18 @@
+mi_proyecto
+├── /WEB-INF
+│   ├── /classes
+│   │   └── /CalculosMatematicos
+│   │       └── Calculos_102_I.class
+│   └── web.xml
+├── /web
+│   └── /jsp
+│       └── Calculos_102_II.jsp
+└── /src
+    └── /CalculosMatematicos
+        └── Calculos_102_I.java
+        
+/home/david/Documents/GitHub/Java_curso/JSP/WebContent
+└── /WEB-INF
+    └── /classes
+        └── /CalculosMatematicos
+            └── Calculos_102_I.class
