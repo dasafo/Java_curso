@@ -1,0 +1,17 @@
+JSP (JavaServer Pages) es una tecnología de Java que permite crear páginas web dinámicas en el lado del servidor. Combina código Java con HTML, lo que permite generar contenido dinámico en respuesta a las solicitudes de los usuarios. JSP es una de las herramientas principales en el desarrollo web con Java, similar a tecnologías como ASP.NET para .NET o PHP para el desarrollo web dinámico.
+
+--- Características principales de JSP:
+
+    1. Mezcla de HTML y Java: JSP permite insertar código Java directamente en el HTML, lo que facilita la generación de contenido dinámico basado en la lógica del servidor.
+    2. Simplicidad para los desarrolladores: Aunque JSP permite el uso de Java puro, proporciona una serie de características simplificadas como expresiones JSP, directivas y acciones JSP, que reducen la necesidad de escribir código Java complejo.
+    3. Compilación a servlets: El código JSP, una vez que es cargado por el servidor, se convierte en un servlet Java (un programa Java que se ejecuta en un servidor web). Esto permite que el servidor procese el código JSP de manera eficiente y rápida.
+    4. Separación de la lógica de la presentación: En teoría, JSP se usa para la capa de presentación (lo que ve el usuario), mientras que la lógica de negocio se implementa en JavaBeans o en otras clases Java en el servidor. Esto fomenta una separación clara entre el contenido de la página y la lógica de la aplicación.
+
+--- ¿Cómo funciona JSP?
+
+Cuando un usuario realiza una solicitud a una página JSP en un servidor:
+
+    1. El servidor web pasa la solicitud al contenedor JSP.
+    2. El contenedor JSP traduce la página JSP en un servlet Java (si no ha sido compilado previamente).
+    3. El servlet resultante genera el HTML dinámico en función del código Java que contiene la página JSP.
+    4. El HTML generado se envía de vuelta al navegador del cliente, que muestra el contenido.

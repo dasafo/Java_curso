@@ -1,3 +1,3 @@
-jdbc:mysql://localhost:3306/cursoJava?useSSL=false
-root
-Dasafo_8
+jdbc:postgresql://localhost:5432/curso_bbdd?ssl=false
+pildoras
+freedom85

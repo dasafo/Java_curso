@@ -20,17 +20,22 @@ public class ConectaPruebas_87 {
 		try {
 			
 			// 1. Crear Conexión
-			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
-			
+      // ---> Para MySQL
+			//Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
+
+      // ---> Para PostgreSQL
+			Connection miConexion = DriverManager.getConnection("jdbc:postgresql://localhost:5432/curso_bbdd?ssl=false", "pildoras", "freedom85");
+
 			// 2. Crear objeto STATEMENT
 			Statement miStatement=miConexion.createStatement();
 			
 			// 3. Ejecutar SQL
-			ResultSet miResultset=miStatement.executeQuery("SELECT * FROM PRODUCTOS");
+			ResultSet miResultset=miStatement.executeQuery("SELECT * FROM productos");
 			
 			// 4. REcorrer el REsultSet
 			while(miResultset.next()) { //mientras exista otro registro en la tabla(PRODUCTOS) haz..
-				
+			/*	
+       //Para el formato de nombres que tenemos en PhpmyAdmin de MySQL
 				System.out.println(
           miResultset.getString("NOMBREARTÍCULO") + " " 
 						+ miResultset.getString("CÓDIGOARTÍCULO") + " " 
@@ -38,7 +43,17 @@ public class ConectaPruebas_87 {
 						+ miResultset.getDate("FECHA")
 						
 						);
+        */
+        // Para el formato de nombres que tenemos en PostgreSQL
+				System.out.println(
+          miResultset.getString("nombrearticulo") + " " 
+						+ miResultset.getString("codigoarticulo") + " " 
+						+ miResultset.getDouble("precio")*2 + " "
+						+ miResultset.getDate("fecha")
+						
+						);
 				
+
 			}
 			
 		}catch(Exception e) {

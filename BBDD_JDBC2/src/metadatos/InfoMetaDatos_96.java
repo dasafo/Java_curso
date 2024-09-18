@@ -1,6 +1,11 @@
 /*********************************************************************************************************
  * 
- * Los MetaDatos son datos que describen la BBDD o alguna de sus partes. Hay 3 clases:
+ * Los MetaDatos son datos que describen la BBDD o alguna de sus partes. 
+ * Son importantes cuando creamos Apps genericas. Apps que son capaces de 
+ * conecatrse con cualquier BBDD y hacer consultas en cualquier tabla de 
+ * esa BBDD
+ *
+ * Hay 3 clases:
  * 
  *  - Relativos a la BBDD:
  *  	-> Gestor de BBDD
@@ -40,6 +45,8 @@ public class InfoMetaDatos_96 {
 		mostrarInfoTabla();
 	}
 
+  // Creamos un metodo que nos devuelve la info de la BBDD, es static porque el metodo desde
+  // el que llamamos a este metodo es el main de arriba y es statico
 	static void mostrarInfoBBDD() {
 		
 		Connection miConexion=null;
@@ -50,11 +57,9 @@ public class InfoMetaDatos_96 {
 		miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 
 		//Obtencion de MetaDAtos
-		
 		DatabaseMetaData datosBBDD=miConexion.getMetaData();
 		
 		//Mostrar informacion de la BBDD
-		
 		System.out.println("Gestor de BBDD: " + datosBBDD.getDatabaseProductName());
 		
 		System.out.println("Versión del gestor: " + datosBBDD.getDatabaseProductVersion());
@@ -81,6 +86,7 @@ public class InfoMetaDatos_96 {
 	
 	
 	
+  // Creamos un segundo metodo que nos dara informacion de los metadatos de las tablas(tambien static)
 	static void mostrarInfoTabla() {
 		
 		Connection miConexion=null;
@@ -92,25 +98,24 @@ public class InfoMetaDatos_96 {
 				miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 
 				//Obtencion de MetaDAtos
-		
 				DatabaseMetaData datosBBDD=miConexion.getMetaData();
 				
 				//-------Lista de nombres de las Tablas(getTables)--------
-				
 				System.out.println("Lista de tablas");
 				
+        //Almacenamos en miResultSet los metadatos referentes a todas las tablas
 				// miResultSet=datosBBDD.getTables(null, null, "p%", null); //p% para que busque las tablas que empiecen por p
 				miResultSet=datosBBDD.getTables(null, null, null, null); 
 
 				System.out.println("");
 
+        // Recorremos usando el ResultSet el nombre de las tablas de la BBDD
 				while(miResultSet.next()) {
 
 					System.out.println(miResultSet.getString("TABLE_NAME")); //para que muestre el nombre de las Tablas de pruebas de la BBDD
 				}
 				
 				//------Lista de columnas de productos(getColumns)--------
-				
 				System.out.println("");
 				System.out.println("Campos de PRODUCTOS");
 				miResultSet=datosBBDD.getColumns(null, null, "PRODUCTOS", null); //para que nos muestre solo las de la tabla PRODUCTOS

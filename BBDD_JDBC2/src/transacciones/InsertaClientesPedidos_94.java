@@ -2,6 +2,10 @@
  * Las Transacciones son instrucciones SQL que cada vez que se ejecutan tienen que
  * ejecutarse todas a la vez.
  * 
+ * Una Transaccion es solo una unidad de trabajo, q son varias instrucciones SQL
+ * trabajando en quipo
+ * Inicio_transaccion -> SQL1 -> SQL2 -> SQL3... -> BBDD
+ *
  * Las transacciones garantizan en una BBDD las caracteristicas ACID:
  * - Atomicidad : O ejecutas o todo o nada.
  * - Consistencia : Integridad de los datos. Si hay un fallo, las tareas realizas son revertidas.
@@ -30,10 +34,11 @@ public class InsertaClientesPedidos_94 {
 				
 			miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 			
-			
-			miConexion.setAutoCommit(false);//Para que trate nuestras instrucciones SQL como un solo bloque-false(Transacciones: o se ejecuta todo o nada)
-											//si es true(por defecto, no haría falta poner setAutoComit, ejecuta cada código SQL independientemente.
-			Statement miStatement =miConexion.createStatement();
+			//Para que trate nuestras instrucciones SQL como un solo bloque-false(Transacciones: o se ejecuta todo o nada)
+			//si es true(por defecto, no haría falta poner setAutoComit, ejecuta cada código SQL independientemente.
+			miConexion.setAutoCommit(false);
+
+      Statement miStatement =miConexion.createStatement();
 			
 		    String instruccionSql_1="INSERT INTO clientes (CÓDIGOCLIENTE, EMPRESA, DIRECCIÓN) VALUES ('CT84', 'EJEMPLO', 'P BOTANICO')";
 			    
@@ -43,8 +48,9 @@ public class InsertaClientesPedidos_94 {
 			    
 		    miStatement.executeUpdate(instruccionSql_2);
 		    				    
-		    miConexion.commit(); //Para dar el 'OK' a todo este bloque de instrucciones SQL
-		    
+        //Para dar el 'OK' a todo este bloque de instrucciones SQL
+        //una vez ha visto que no hay errores en ninguna de las consultas SQL
+		    miConexion.commit(); 		    
 		   
 		    System.out.println("Datos INSERTADOS correctamente");
 				
@@ -53,8 +59,11 @@ public class InsertaClientesPedidos_94 {
 			System.out.println("ERROR EN LA INSERCIÓN DE DATOS!!");
 				
 			try {
-				miConexion.rollback(); //para que deje la BBDD como esta si hay un error a la hora de aplicar el SQL(está dentro de una excepcion try-catch
-			} catch (SQLException e1) {
+        //para que deje la BBDD como esta si hay un error a la hora de aplicar el SQL(está dentro de una excepcion try-catch
+        //Queremos que inserte ambas instruccions, con que una falle le decimos que vuelva a la configuracion incial
+				miConexion.rollback();
+
+      } catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}

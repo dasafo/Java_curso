@@ -1,3 +1,8 @@
+/*
+ * Los procedimientos almacenados son consultas que se estan guardadas en la BBDD
+ * Estos procedimientos son funciones preconfiguradas que facilitan su uso cuando
+ * hay decenas de usuarios que usan dicha consulta dirariamente
+ * */
 package procedimientoAlmacenado;
 
 import java.sql.*;
@@ -9,11 +14,14 @@ public class ConsultaClientes_92 {
 		
 		try {
 			
+      //Creamos la conexion a la bbdd
 			Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 
-			CallableStatement miSentencia=miConexion.prepareCall("{call MUESTRA_CLIENTES}"); //CallableSatetement para llamar a procedimientos creados con SQL en la BBDD
-																							 //Para crear el procedimiento MUESTRA_CLIENTES en SQL se ha puesto en phpmyadmin esto: 
-																						     // CREATE PROCEDURE MUESTRA_CLIENTE() SELECT * FROM CLIENTES WHERE POBLACIÓN='BARCELONA'
+			CallableStatement miSentencia=miConexion.prepareCall("{call MUESTRA_CLIENTES}");
+      //CallableSatetement para llamar a procedimientos creados con SQL en la BBDD
+			//Para crear el procedimiento MUESTRA_CLIENTES en SQL se ha puesto en phpmyadmin
+      //esto: CREATE PROCEDURE MUESTRA_CLIENTE() SELECT * FROM CLIENTES WHERE
+      //POBLACIÓN='BARCELONA'
 			
 			ResultSet rs=miSentencia.executeQuery();
 			

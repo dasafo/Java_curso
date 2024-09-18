@@ -32,16 +32,17 @@ public class TransaccionProductos_95 {
 				
 		    miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
 			
-			
-			miConexion.setAutoCommit(false);//Para que trate nuestras instrucciones SQL como un solo bloque-false(Transacciones: o se ejecuta todo o nada)
-											//si es true(por defecto, no haría falta poner setAutoComit, ejecuta cada código SQL independientemente.
+			//Para que trate nuestras instrucciones SQL como un solo bloque-false(Transacciones: o se ejecuta todo o nada)
+      //si es true(por defecto, no haría falta poner setAutoComit, ejecuta cada código SQL independientemente.
+			miConexion.setAutoCommit(false);
+
 			Statement miStatement =miConexion.createStatement();
 			
 		    String instruccionSql_1="DELETE FROM PRODUCTOS WHERE PAÍSDEORIGEN='ITALIA'"; //borrar los prouctos de Italia	   			    
 		    String instruccionSql_2="DELETE FROM PRODUCTOS WHERE PRECIO>300"; //después que borre los productos con un precio mayor de 300
 		    String instruccionSql_3="UPDATE PRODUCTOS SET PRECIO=PRECIO*1.15"; // y después con los productos que queden, aumentarlos un 15%
 		    
-		    boolean ejecutar=ejecutarTransaccion();
+		    boolean ejecutar=ejecutarTransaccion(); // Nos devuelve True si queremos ejecutar la transaccion, sino False
 		    
 		    if(ejecutar) {
 		    
