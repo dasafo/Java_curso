@@ -1,4 +1,4 @@
-<!-- 
+<%-- 
 ****************************************JSP Tags******************************************
 
 - Son librerias de etiquetas parecidas a los xml, utilizadas en paginas JSP
@@ -37,12 +37,12 @@
 				(< % taglib prefix="c" uri=http://java.sun.com/jsp/jstl/core %>)
 
 ******************************************************************************************
- -->
+ --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<!-- Importamos la libreria, le decimos donde, y cual usamos 'c'(core) -->
+<%-- Importamos la libreria, le decimos donde, y cual usamos 'c'(core) --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 
 <%
