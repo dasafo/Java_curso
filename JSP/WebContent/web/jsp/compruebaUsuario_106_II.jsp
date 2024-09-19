@@ -18,16 +18,21 @@
 	String contra=request.getParameter("contra");
 	
 	
-	Class.forName("com.mysql.jdbc.Driver"); // le indicamos el Driver que tiene que cargar
-	
+	//Class.forName("com.mysql.jdbc.Driver"); // le indicamos el Driver que tiene que cargar
+	Class.forName("org.postgresql.Driver"); // le indicamos el Driver que tiene que cargar
+
 	try{
 	
-	Connection miConexion=DriverManager.getConnection("jdbc:mysql://localhost:3306/cursoJava?useSSL=false", "root", "Dasafo_8" );
+	Connection miConexion=DriverManager.getConnection("jdbc:postgresql://localhost:5432/curso_bbdd", "pildoras", "freedom85");
 
 	//Creamos Consultas preparadas para evitar la inyeccion SQL desde fuera
-	
-	PreparedStatement c_preparada=miConexion.prepareStatement("SELECT * FROM usuarios WHERE Usuario=? AND Contrasena=?");
-	
+// Creamos el PreparedStatement con un ResultSet desplazable (scrollable)
+        PreparedStatement c_preparada = miConexion.prepareStatement(
+            "SELECT * FROM usuarios WHERE \"Usuario\"=? AND \"Contrasena\"=?", 
+            ResultSet.TYPE_SCROLL_INSENSITIVE, 
+            ResultSet.CONCUR_READ_ONLY
+        );
+
 	c_preparada.setString(1, usuario); 
 	c_preparada.setString(2, contra);
 	
@@ -40,12 +45,15 @@
 		
 		out.println("Usuario NO AUTORIZADO");
 	}
-
-	}catch(Exception e){
-		
-		out.println("Ha habido un error");
+} catch (SQLException e) {
+		out.println("Error en la base de datos: " + e.getMessage()); // Mostrar mensaje detallado del error
+		e.printStackTrace(); // Para obtener más detalles en el log de Tomcat
+	} catch (Exception e) {
+		out.println("Ha habido un error inesperado: " + e.getMessage());
+		e.printStackTrace(); // Para obtener más detalles en el log de Tomcat
 	}
-%>
+
+	%>
 
 
 

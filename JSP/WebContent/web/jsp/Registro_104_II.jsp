@@ -19,10 +19,13 @@
 I: Interfaz
 
 ******************************************************************************
- -->
-
+-->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <meta charset="utf-8">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro Confirmado</title>
+</head>
 <body>
 
 
@@ -39,11 +42,6 @@ Apellido: <%= request.getParameter("apellido") %>
 <jsp:include page="fecha_104_IV.jsp"></jsp:include> <br/><br/> 	<!-- Para incluir en esta pagina el formulario creado antes -->
 
 
-
 </body>
-
-
-
-
 
 </html>

@@ -1,4 +1,4 @@
-<!-- 
+<%-- 
 *************************************** Cookies*************************************
 
 - Una cookie es un archivo de texto que se almacena en el PC durante la navegacion
@@ -28,8 +28,8 @@
 
 M=Metodo, I_=Interface, C=Clase
 *************************************************************************************
- -->
- <!-- 
+ --%>
+ <%-- 
  *************************************Ejercicio***************************************
  
  1- Crear formulario HTML que envie al servidor informacion 
@@ -37,7 +37,7 @@ M=Metodo, I_=Interface, C=Clase
  3- Que la web lea la cookie generada por el JSP y muestre el contenido personalizado
  
  *************************************************************************************
-  -->
+  --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

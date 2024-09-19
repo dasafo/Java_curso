@@ -25,7 +25,7 @@ I: Interfaz
 
 <body>
 
-<jsp:include page="formularioRegistro_104_I.html"></jsp:include> <br/><br/> <!-- Para incluir en esta pagina el formulario creado antes -->
+<jsp:include page="../formularioRegistro_104_I.html"></jsp:include> <br/><br/> <!-- Para incluir en esta pagina el formulario creado antes -->
 
 Aquí iría el contenido de la web <br/>
 
